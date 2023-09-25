@@ -8,6 +8,7 @@
 #include <vector>
 #include "Transform/Transform.hpp"
 #include "../Scene/Scene.hpp"
+#include "../Script/ScriptManager.hpp"
 
 namespace UnitiGameEngine {
     enum class ObjectTypes {
@@ -28,5 +29,6 @@ namespace UnitiGameEngine {
             virtual std::vector<IObject> getChildren() = 0;
             virtual const Uniti &getGame() const = 0;
             virtual Uniti &getGame() = 0;
+            virtual ScriptManager &getScriptManager() = 0;
     };
 }
