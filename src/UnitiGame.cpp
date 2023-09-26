@@ -8,7 +8,7 @@
 
 namespace UnitiGameEngine {
 
-    Uniti::Uniti(const std::string &projectPath) {
+    Uniti::Uniti(const std::string &projectPath): _sceneManager(*this) {
         std::ifstream file(projectPath);
         Json::Value information;
         file >> information;
