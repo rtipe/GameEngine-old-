@@ -24,17 +24,19 @@ namespace UnitiGameEngine {
             const std::string type = children[i]["type"].asString();
 
             if (type == "empty") {
-                this->_children.push_back(std::make_unique<EmptyObject>(this->_game, children[i]));
+                this->_children.push_back(std::make_unique<EmptyObject>(scene, this->_game, children[i]));
             } else if (type == "sprite") {
-                this->_children.push_back(std::make_unique<SpriteObject>(this->_game, children[i]));
+                this->_children.push_back(std::make_unique<SpriteObject>(scene, this->_game, children[i]));
             } else if (type == "text") {
-                this->_children.push_back(std::make_unique<TextObject>(this->_game, children[i]));
+                this->_children.push_back(std::make_unique<TextObject>(scene, this->_game, children[i]));
             } else {
                 //TODO error
             }
         }
         for (int i = 0; i < scripts.size(); i++) {
-            this->_scriptManager.addScript(this->_game.getScriptFactory().createScript(scripts[i]["name"].asString(), this->_game, *this), scripts[i]["name"].asString());
+            auto name = scripts[i]["name"].asString();
+            this->_scriptManager.addScript(this->_game.getScriptFactory().createScript(name, this->_game, *this), name);
+            this->_scriptManager.getScript(name).awake(scripts[i]);
         }
         this->_scriptManager.start();
     }

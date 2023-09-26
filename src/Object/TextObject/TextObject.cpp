@@ -3,6 +3,7 @@
 //
 
 #include "TextObject.hpp"
+#include "../SpriteObject/SpriteObject.hpp"
 
 namespace UnitiGameEngine {
 
@@ -31,17 +32,19 @@ namespace UnitiGameEngine {
         }
         for (const auto &child : values["children"]) {
             if (child["type"].asString() == "sprite") {
-                this->_children.push_back(std::make_unique<SpriteObject>(this->_game, child));
+                this->_children.push_back(std::make_unique<SpriteObject>(scene, this->_game, child));
             } else if (child["type"].asString() == "text") {
-                this->_children.push_back(std::make_unique<TextObject>(this->_game, child));
+                this->_children.push_back(std::make_unique<TextObject>(scene, this->_game, child));
             } else if (child["type"].asString() == "empty") {
-                this->_children.push_back(std::make_unique<EmptyObject>(this->_game, child));
+                this->_children.push_back(std::make_unique<EmptyObject>(scene, this->_game, child));
             } else {
                 throw std::runtime_error("Unknown object type");
             }
         }
         for (int i = 0; i < scripts.size(); i++) {
-            this->_scriptManager.addScript(this->_game.getScriptFactory().createScript(scripts[i]["name"].asString(), this->_game, *this), scripts[i]["name"].asString());
+            auto name = scripts[i]["name"].asString();
+            this->_scriptManager.addScript(this->_game.getScriptFactory().createScript(name, this->_game, *this), name);
+            this->_scriptManager.getScript(name).awake(scripts[i]);
         }
         this->_scriptManager.start();
     }
@@ -101,15 +104,23 @@ namespace UnitiGameEngine {
         return this->_game;
     }
 
-    const Scene &EmptyObject::getScene() const {
+    const Scene &TextObject::getScene() const {
         return this->_scene;
     }
 
-    Scene &EmptyObject::getScene() {
+    Scene &TextObject::getScene() {
         return this->_scene;
     }
 
     ScriptManager &TextObject::getScriptManager() {
         return this->_scriptManager;
+    }
+
+    const std::string &TextObject::getString() const {
+        return this->_textString;
+    }
+
+    void TextObject::setString(const std::string &value) {
+        this->_textString = value;
     }
 }

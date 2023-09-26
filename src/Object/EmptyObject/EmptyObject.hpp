@@ -5,7 +5,7 @@
 #pragma once
 
 #include "../IObject.hpp"
-#include "../Script/ScriptFactory.hpp"
+#include "../../Script/ScriptFactory.hpp"
 
 namespace UnitiGameEngine {
     class EmptyObject: public IObject {

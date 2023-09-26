@@ -26,6 +26,8 @@ namespace UnitiGameEngine {
             const Scene &getScene() const override;
             Scene &getScene() override;
             ScriptManager &getScriptManager() override;
+            const std::string &getString() const;
+            void setString(const std::string &value);
         private:
             ScriptManager _scriptManager;
             Transform _transform;
