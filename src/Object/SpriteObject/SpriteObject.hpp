@@ -8,7 +8,7 @@
 #include "../IObject.hpp"
 
 namespace UnitiGameEngine {
-    class SpriteObject: IObject {
+    class SpriteObject: public IObject {
     public:
         SpriteObject(Uniti &game, const Json::Value &values);
         void update() override;

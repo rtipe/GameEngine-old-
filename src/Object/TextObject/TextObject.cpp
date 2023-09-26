@@ -9,6 +9,36 @@ namespace UnitiGameEngine {
     TextObject::TextObject(Uniti &game, const Json::Value &values): _game(game) {
 
         this->_scriptManager.start();
+        if (values.isMember("name"))
+            this->_name = values["name"].asString();
+        if (values.isMember("position")) {
+            this->_transform.position.x = values["position"]["x"].asFloat();
+            this->_transform.position.y = values["position"]["y"].asFloat();
+        }
+        if (values.isMember("rotation")) {
+            this->_transform.rotation.angle = values["rotation"].asFloat();
+        }
+        if (values.isMember("scale")) {
+            this->_transform.scale.x = values["scale"]["x"].asFloat();
+            this->_transform.scale.y = values["scale"]["y"].asFloat();
+        }
+        if (values.isMember("text")) {
+            this->_textString = values["text"].asString();
+        }
+        if (values.isMember("fontName")) {
+            //to do: add font manager
+        }
+        for (const auto &child : values["children"]) {
+            if (child["type"].asString() == "sprite") {
+                this->_children.push_back(std::make_unique<SpriteObject>(this->_game, child));
+            } else if (child["type"].asString() == "text") {
+                this->_children.push_back(std::make_unique<TextObject>(this->_game, child));
+            } else if (child["type"].asString() == "empty") {
+                this->_children.push_back(std::make_unique<EmptyObject>(this->_game, child));
+            } else {
+                throw std::runtime_error("Unknown object type");
+            }
+        }
     }
 
     void TextObject::update() {
