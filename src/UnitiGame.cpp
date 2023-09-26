@@ -42,6 +42,10 @@ namespace UnitiGameEngine {
         return this->_projectInfo;
     }
 
+    const ScriptFactory &Uniti::getScriptFactory() const {
+        return this->_scriptFactory;
+    }
+
     const SceneManager &Uniti::getSceneManager() const {
         return this->_sceneManager;
     }

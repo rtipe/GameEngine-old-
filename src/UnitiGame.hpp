@@ -21,6 +21,7 @@ namespace UnitiGameEngine {
             ProjectInfo &getProjectInfo();
             const SceneManager &getSceneManager() const;
             SceneManager &getSceneManager();
+            ScriptFactory &getScriptFactory();
             sf::Time getDeltaTime();
             const sf::RenderWindow &getWindow() const;
             sf::RenderWindow &getWindow();
