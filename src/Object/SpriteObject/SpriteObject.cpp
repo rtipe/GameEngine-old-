@@ -8,6 +8,7 @@ namespace UnitiGameEngine {
 
     SpriteObject::SpriteObject(Uniti &game, const Json::Value &values): _game(game) {
 
+        this->_scriptManager.start();
     }
 
     void SpriteObject::update() {
