@@ -8,9 +8,9 @@
 #include "../IObject.hpp"
 
 namespace UnitiGameEngine {
-    class TextObject: IObject {
+    class TextObject: public IObject {
         public:
-            TextObject(Uniti &game, const Json::Value &values);
+            TextObject(Scene &scene, Uniti &game, const Json::Value &values);
             void update() override;
             void display() override;
             const std::string &getName() const override;
@@ -29,6 +29,7 @@ namespace UnitiGameEngine {
             Transform _transform;
             std::vector<std::unique_ptr<IObject>> _children;
             Uniti &_game;
+            Scene &_scene;
             bool _isEnabled;
             std::string _name;
             sf::Text _text;

@@ -5,11 +5,12 @@
 #pragma once
 
 #include "../IObject.hpp"
+#include "../Script/ScriptFactory.hpp"
 
 namespace UnitiGameEngine {
-    class EmptyObject: IObject {
+    class EmptyObject: public IObject {
         public:
-            EmptyObject(Uniti &game, const Json::Value &values);
+            EmptyObject(Scene &scene, Uniti &game, const Json::Value &values);
             void update() override;
             void display() override;
             const std::string &getName() const override;
@@ -28,7 +29,8 @@ namespace UnitiGameEngine {
             Transform _transform;
             std::vector<std::unique_ptr<IObject>> _children;
             Uniti &_game;
-            bool _isEnabled;
+            Scene &_scene;
+            bool _isEnabled = true;
             std::string _name;
     };
 }

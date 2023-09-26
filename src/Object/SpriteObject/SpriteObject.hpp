@@ -10,7 +10,7 @@
 namespace UnitiGameEngine {
     class SpriteObject: public IObject {
     public:
-        SpriteObject(Uniti &game, const Json::Value &values);
+        SpriteObject(Scene &scene, Uniti &game, const Json::Value &values);
         void update() override;
         void display() override;
         const std::string &getName() const override;
@@ -29,6 +29,7 @@ namespace UnitiGameEngine {
         Transform _transform;
         std::vector<std::unique_ptr<IObject>> _children;
         Uniti &_game;
+        Scene &_scene;
         bool _isEnabled;
         std::string _name;
         sf::Sprite _sprite;

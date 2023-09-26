@@ -6,9 +6,9 @@
 
 namespace UnitiGameEngine {
 
-    TextObject::TextObject(Uniti &game, const Json::Value &values): _game(game) {
+    TextObject::TextObject(Scene &scene, Uniti &game, const Json::Value &values): _scene(scene), _game(game) {
+        const Json::Value scripts = values["scripts"];
 
-        this->_scriptManager.start();
         if (values.isMember("name"))
             this->_name = values["name"].asString();
         if (values.isMember("position")) {
@@ -39,12 +39,16 @@ namespace UnitiGameEngine {
                 throw std::runtime_error("Unknown object type");
             }
         }
+        for (int i = 0; i < scripts.size(); i++) {
+            this->_scriptManager.addScript(this->_game.getScriptFactory().createScript(scripts[i]["name"].asString(), this->_game, *this), scripts[i]["name"].asString());
+        }
+        this->_scriptManager.start();
     }
 
     void TextObject::update() {
         if (!this->_isEnabled) return;
         this->_scriptManager.update();
-        this->_game.getSceneManager().getDisplayer().add(this);
+        this->_game.getSceneManager().getDisplayer().add(*this);
         for (const auto &child : this->_children)
             child->update();
     }

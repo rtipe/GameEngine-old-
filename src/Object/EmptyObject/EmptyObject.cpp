@@ -6,8 +6,36 @@
 
 namespace UnitiGameEngine {
 
-    EmptyObject::EmptyObject(Uniti &game, const Json::Value &values): _game(game) {
+    EmptyObject::EmptyObject(Scene &scene, Uniti &game, const Json::Value &values): _scene(scene), _game(game) {
+        const Json::Value position = values["position"];
+        const Json::Value scale = values["scale"];
+        const Json::Value scripts = values["scripts"];
+        const Json::Value children = values["children"];
+        Transform transform;
 
+        transform.position.x = position.get("x", 0).asFloat();
+        transform.position.y = position.get("y", 0).asFloat();
+        transform.position.z = position.get("z", 0).asFloat();
+        transform.rotation = values.get("rotation", 0).asFloat();
+        transform.scale.x = scale.get("x", 0).asFloat();
+        transform.scale.y = scale.get("y", 0).asFloat();
+
+        for (int i = 0; i < children.size(); i++) {
+            const std::string type = children[i]["type"].asString();
+
+            if (type == "empty") {
+                this->_children.push_back(std::make_unique<EmptyObject>(this->_game, children[i]));
+            } else if (type == "sprite") {
+                this->_children.push_back(std::make_unique<SpriteObject>(this->_game, children[i]));
+            } else if (type == "text") {
+                this->_children.push_back(std::make_unique<TextObject>(this->_game, children[i]));
+            } else {
+                //TODO error
+            }
+        }
+        for (int i = 0; i < scripts.size(); i++) {
+            this->_scriptManager.addScript(this->_game.getScriptFactory().createScript(scripts[i]["name"].asString(), this->_game, *this), scripts[i]["name"].asString());
+        }
         this->_scriptManager.start();
     }
 
