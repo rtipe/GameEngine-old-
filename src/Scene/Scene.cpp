@@ -10,18 +10,18 @@ namespace UnitiGameEngine {
     _game(game),
     _name(name),
     _assetManager(game) {
-        const Json::Value objects = objects["objects"];
+        Json::Value elements = objects["objects"];
 
         this->_assetManager.loadAssets(objects["assets"]);
-        for (int i = 0; i < objects.size(); i++) {
-            const std::string type = objects[i]["type"].asString();
+        for (int i = 0; i < elements.size(); i++) {
+            const std::string type = elements[i]["type"].asString();
 
             if (type == "empty") {
-                this->_objects.push_back(std::make_unique<EmptyObject>(game, objects[i]));
+                this->_objects.push_back(std::make_unique<EmptyObject>(this, game, elements[i]));
             } else if (type == "sprite") {
-                this->_objects.push_back(std::make_unique<SpriteObject>(game, objects[i]));
+                this->_objects.push_back(std::make_unique<SpriteObject>(this, game, elements[i]));
             } else if (type == "text") {
-                this->_objects.push_back(std::make_unique<TextObject>(game, objects[i]));
+                this->_objects.push_back(std::make_unique<TextObject>(this, game, elements[i]));
             } else {
                 //TODO error
             }
