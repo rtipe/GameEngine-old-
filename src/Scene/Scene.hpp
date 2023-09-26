@@ -6,6 +6,9 @@
 
 #include <json/json.h>
 #include "../Object/IObject.hpp"
+#include "../Object/SpriteObject/SpriteObject.hpp"
+#include "../Object/TextObject/TextObject.hpp"
+#include "../Object/EmptyObject/EmptyObject.hpp"
 #include "../UnitiGame.hpp"
 #include "../AssetManager/AssetManager.hpp"
 

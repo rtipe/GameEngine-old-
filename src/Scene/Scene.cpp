@@ -10,7 +10,22 @@ namespace UnitiGameEngine {
     _game(game),
     _name(name),
     _assetManager(game) {
+        const Json::Value objects = objects["objects"];
 
+        this->_assetManager.loadAssets(objects["assets"]);
+        for (int i = 0; i < objects.size(); i++) {
+            const std::string type = objects[i]["type"].asString();
+
+            if (type == "empty") {
+                this->_objects.push_back(std::make_unique<EmptyObject>(game, objects[i]));
+            } else if (type == "sprite") {
+                this->_objects.push_back(std::make_unique<SpriteObject>(game, objects[i]));
+            } else if (type == "text") {
+                this->_objects.push_back(std::make_unique<TextObject>(game, objects[i]));
+            } else {
+                //TODO error
+            }
+        }
     }
 
     void Scene::addObject(std::unique_ptr<IObject> object) {
