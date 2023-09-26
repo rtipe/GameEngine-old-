@@ -10,5 +10,6 @@ namespace UnitiGameEngine {
             virtual ~IScript() = default;
             virtual void start() = 0;
             virtual void update() = 0;
+            virtual void awake(const Json::Value &value) = 0;
     };
 }

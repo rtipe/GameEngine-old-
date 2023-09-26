@@ -10,6 +10,7 @@
 #include "Object/IObject.hpp"
 #include "Scene/SceneManager.hpp"
 #include "ProjectInfo.hpp"
+#include "Script/ScriptFactory.hpp"
 
 namespace UnitiGameEngine {
     class Uniti {
@@ -28,5 +29,6 @@ namespace UnitiGameEngine {
             ProjectInfo _projectInfo;
             sf::RenderWindow _window;
             sf::Clock _clock;
+            ScriptFactory _scriptFactory;
     };
 }
