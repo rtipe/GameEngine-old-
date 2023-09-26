@@ -15,6 +15,7 @@ namespace UnitiGameEngine {
             const sf::Font &getFont(const std::string &name) const;
             const sf::Texture &getTexture(const std::string &name) const;
             void addTexture(const std::string &path, const std::string &name);
+            void addTexture(std::unique_ptr<sf::Texture> texture, const std::string &name);
             void addFont(const std::string &path, const std::string &name);
             bool removeTexture(const std::string &name);
             bool removeFont(const std::string &name);
