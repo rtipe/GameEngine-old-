@@ -23,6 +23,8 @@ namespace UnitiGameEngine {
         std::vector<std::unique_ptr<IObject>> &getChildren() override;
         const Uniti &getGame() const override;
         Uniti &getGame() override;
+        const Scene &getScene() const override;
+        Scene &getScene() override;
         ScriptManager &getScriptManager() override;
     private:
         ScriptManager _scriptManager;

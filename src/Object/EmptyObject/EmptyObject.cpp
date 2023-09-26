@@ -86,6 +86,14 @@ namespace UnitiGameEngine {
         return this->_game;
     }
 
+    const Scene &EmptyObject::getScene() const {
+        return this->_scene;
+    }
+
+    Scene &EmptyObject::getScene() {
+        return this->_scene;
+    }
+
     ScriptManager &EmptyObject::getScriptManager() {
         return this->_scriptManager;
     }

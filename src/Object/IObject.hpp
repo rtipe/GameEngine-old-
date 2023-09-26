@@ -32,6 +32,8 @@ namespace UnitiGameEngine {
             virtual std::vector<std::unique_ptr<IObject>> &getChildren() = 0;
             virtual const Uniti &getGame() const = 0;
             virtual Uniti &getGame() = 0;
+            virtual const Scene &getScene() const = 0;
+            virtual Scene &getScene() = 0;
             virtual ScriptManager &getScriptManager() = 0;
     };
 }
