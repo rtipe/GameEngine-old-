@@ -23,10 +23,11 @@ namespace UnitiGameEngine {
             this->_transform.scale.y = values["scale"]["y"].asFloat();
         }
         if (values.isMember("text")) {
+            this->_text.setString(values["text"].asString());
             this->_textString = values["text"].asString();
         }
         if (values.isMember("fontName")) {
-            //to do: add font manager
+            this->_text.setFont(scene.getAssetManager().getFont(values["fontName"].asString()));
         }
         for (const auto &child : values["children"]) {
             if (child["type"].asString() == "sprite") {

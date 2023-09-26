@@ -23,7 +23,7 @@ namespace UnitiGameEngine {
             this->_transform.scale.y = values["scale"]["y"].asFloat();
         }
         if (values.isMember("textureName")) {
-    //to do: add texture manager
+            this->_sprite.setTexture(this->_scene.getAssetManager().getTexture(values["textureName"].asString()));
         }
         for (const auto &child : values["children"]) {
             if (child["type"].asString() == "sprite") {
