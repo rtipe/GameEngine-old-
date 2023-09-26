@@ -22,6 +22,8 @@ namespace UnitiGameEngine {
             bool removeScenePath(const std::string &name);
             bool changeScene(const std::string &name);
             void update();
+            const Displayer &getDisplayer() const;
+            Displayer &getDisplayer();
         private:
             std::unique_ptr<Scene> _globalScene;
             std::unique_ptr<Scene> _currentScene;

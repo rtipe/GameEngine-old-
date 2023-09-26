@@ -66,4 +66,12 @@ namespace UnitiGameEngine {
         this->_globalScene->update();
         this->_displayer.display();
     }
+
+    const Displayer &SceneManager::getDisplayer() const {
+        return this->_displayer;
+    }
+
+    Displayer &SceneManager::getDisplayer() {
+        return this->_displayer;
+    }
 }
