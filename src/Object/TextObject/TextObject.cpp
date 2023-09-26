@@ -46,7 +46,7 @@ namespace UnitiGameEngine {
     }
 
     ObjectTypes TextObject::getType() const {
-        return ObjectTypes::Sprite;
+        return ObjectTypes::Text;
     }
 
     const std::vector<std::unique_ptr<IObject>> &TextObject::getChildren() const {
