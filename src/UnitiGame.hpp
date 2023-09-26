@@ -17,15 +17,13 @@ namespace UnitiGameEngine {
             Uniti(const std::string &projectPath);
             void start();
             const ProjectInfo &getProjectInfo() const;
-            const std::vector<std::unique_ptr<IObject>> &getAllObjects() const;
-            std::vector<std::unique_ptr<IObject>> &getAllObjects();
+            ProjectInfo &getProjectInfo();
             const SceneManager &getSceneManager() const;
             SceneManager &getSceneManager();
             sf::Time getDeltaTime();
             const sf::RenderWindow &getWindow() const;
             sf::RenderWindow &getWindow();
         private:
-            std::vector<std::unique_ptr<IObject>> _objects;
             SceneManager _sceneManager;
             ProjectInfo _projectInfo;
             sf::RenderWindow _window;

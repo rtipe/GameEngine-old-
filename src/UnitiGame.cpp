@@ -32,7 +32,7 @@ namespace UnitiGameEngine {
                 // TODO: Mettre l'update de l'object input
             }
             this->_window.clear(background);
-            // TODO: Mettre l'update de tout les objects et l'update de la scene
+            this->_sceneManager.update();
             this->_window.display();
         }
         this->_window.close();
@@ -40,14 +40,6 @@ namespace UnitiGameEngine {
 
     const ProjectInfo &Uniti::getProjectInfo() const {
         return this->_projectInfo;
-    }
-
-    const std::vector<std::unique_ptr<IObject>> &Uniti::getAllObjects() const {
-        return this->_objects;
-    }
-
-    std::vector<std::unique_ptr<IObject>> &Uniti::getAllObjects() {
-        return this->_objects;
     }
 
     const SceneManager &Uniti::getSceneManager() const {
@@ -68,5 +60,9 @@ namespace UnitiGameEngine {
 
     sf::RenderWindow &Uniti::getWindow() {
         return this->_window;
+    }
+
+    ProjectInfo &Uniti::getProjectInfo() {
+        return this->_projectInfo;
     }
 }

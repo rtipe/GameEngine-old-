@@ -9,6 +9,7 @@
 #include "Transform/Transform.hpp"
 #include "../Scene/Scene.hpp"
 #include "../Script/ScriptManager.hpp"
+#include "../UnitiGame.hpp"
 
 namespace UnitiGameEngine {
     enum class ObjectTypes {
@@ -18,8 +19,8 @@ namespace UnitiGameEngine {
     class IObject {
         public:
             virtual ~IObject() = default;
-            virtual void display() = 0;
-            virtual const std::string &getString() const = 0;
+            virtual void update() = 0;
+            virtual const std::string &getName() const = 0;
             virtual int getId() const = 0;
             virtual bool isDisabled() const = 0;
             virtual const Transform &getTransform() const = 0;

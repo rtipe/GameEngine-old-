@@ -4,8 +4,10 @@
 
 #pragma once
 
+#include <optional>
 #include "../UnitiGame.hpp"
 #include "ScenePath.hpp"
+#include "../Displayer/Displayer.hpp"
 
 namespace UnitiGameEngine {
     class SceneManager {
@@ -23,6 +25,8 @@ namespace UnitiGameEngine {
         private:
             std::unique_ptr<Scene> _globalScene;
             std::unique_ptr<Scene> _currentScene;
+            std::optional<ScenePath> _nextScene;
+            Displayer _displayer;
             Uniti &_game;
     };
 }
