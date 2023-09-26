@@ -32,5 +32,6 @@ namespace UnitiGameEngine {
             bool _isEnabled;
             std::string _name;
             sf::Text _text;
+            std::string _textString;
     };
 }
