@@ -42,7 +42,7 @@ namespace UnitiGameEngine {
         return this->_projectInfo;
     }
 
-    const ScriptFactory &Uniti::getScriptFactory() const {
+    ScriptFactory &Uniti::getScriptFactory() {
         return this->_scriptFactory;
     }
 
