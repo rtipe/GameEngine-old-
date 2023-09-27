@@ -2,6 +2,7 @@
 // Created by youba on 26/09/2023.
 //
 
+#include <algorithm>
 #include "Displayer.hpp"
 
 namespace UnitiGameEngine {

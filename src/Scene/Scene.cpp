@@ -3,6 +3,10 @@
 //
 
 #include "Scene.hpp"
+#include "../Object/SpriteObject/SpriteObject.hpp"
+#include "../Object/TextObject/TextObject.hpp"
+#include "../Object/EmptyObject/EmptyObject.hpp"
+#include "../Object/IObject.hpp"
 
 namespace UnitiGameEngine {
 
@@ -16,11 +20,11 @@ namespace UnitiGameEngine {
             const std::string type = elements[i]["type"].asString();
 
             if (type == "empty") {
-                this->_objects.push_back(std::make_unique<EmptyObject>(this, elements[i]));
+                this->_objects.push_back(std::make_unique<EmptyObject>(*this, elements[i]));
             } else if (type == "sprite") {
-                this->_objects.push_back(std::make_unique<SpriteObject>(this, elements[i]));
+                this->_objects.push_back(std::make_unique<SpriteObject>(*this, elements[i]));
             } else if (type == "text") {
-                this->_objects.push_back(std::make_unique<TextObject>(this, elements[i]));
+                this->_objects.push_back(std::make_unique<TextObject>(*this, elements[i]));
             } else {
                 //TODO error
             }

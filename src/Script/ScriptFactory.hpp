@@ -9,7 +9,7 @@
 #include <map>
 #include <json/value.h>
 #include "IScript.hpp"
-#include "../UnitiGame.hpp"
+#include "../Object/IObject.hpp"
 
 namespace UnitiGameEngine {
     template<typename... Args>

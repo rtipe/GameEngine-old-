@@ -3,6 +3,9 @@
 //
 
 #include "SpriteObject.hpp"
+#include "../TextObject/TextObject.hpp"
+#include "../EmptyObject/EmptyObject.hpp"
+#include "../../UnitiGame.hpp"
 
 namespace UnitiGameEngine {
 

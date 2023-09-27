@@ -4,6 +4,7 @@
 
 #include <fstream>
 #include "SceneManager.hpp"
+#include "../UnitiGame.hpp"
 
 namespace UnitiGameEngine {
 
@@ -58,7 +59,7 @@ namespace UnitiGameEngine {
             std::ifstream file(this->_nextScene->path);
             Json::Value scene;
             file >> scene;
-            this->_currentScene = std::make_unique<Scene>(scene, Uniti::getInstance(), this->_nextScene->name);
+            this->_currentScene = std::make_unique<Scene>(scene, this->_nextScene->name);
         }
         this->_currentScene->update();
         this->_globalScene->update();

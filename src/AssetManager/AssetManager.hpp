@@ -6,7 +6,8 @@
 
 #include <SFML/Graphics/Font.hpp>
 #include <map>
-#include "../UnitiGame.hpp"
+#include <memory>
+#include <json/value.h>
 
 namespace UnitiGameEngine {
     class AssetManager {

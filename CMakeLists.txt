@@ -18,6 +18,6 @@ add_executable(UnitiGameEngine
         src/Object/TextObject/TextObject.cpp
         src/Script/ScriptFactory.hpp
         src/Script/ScriptFactory.hpp
-        src/Script/ScriptFactory.cpp)
+        src/Script/ScriptFactory.cpp src/Event/Input.hpp src/Event/Input.cpp)
 
 target_link_libraries(UnitiGameEngine sfml-graphics sfml-audio JsonCpp::JsonCpp)

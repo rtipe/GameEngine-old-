@@ -5,7 +5,6 @@
 #pragma once
 
 #include <optional>
-#include "../UnitiGame.hpp"
 #include "ScenePath.hpp"
 #include "../Displayer/Displayer.hpp"
 

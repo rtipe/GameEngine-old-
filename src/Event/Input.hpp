@@ -7,7 +7,6 @@
 
 
 #pragma once
-#include "UnitiGame.hpp"
 #include <SFML/Graphics.hpp>
 
 namespace UnitiGameEngine {

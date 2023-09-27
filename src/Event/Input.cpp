@@ -6,6 +6,7 @@
 */
 
 #include "Input.hpp"
+#include "../UnitiGame.hpp"
 
 static const std::string keysName[] = {
     "A",

@@ -23,7 +23,7 @@ namespace UnitiGameEngine {
         this->framerateLimit = windowInfos.get("fps", 60).asInt();
 
         for (const auto &entry : std::filesystem::recursive_directory_iterator(".")) {
-            std::string fullPath = entry.path();
+            std::string fullPath = entry.path().string();
             std::string directoryPath, fileType, fileName;
             auto pos = fullPath.find_last_of('/');
 

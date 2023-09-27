@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <json/value.h>
+
 namespace UnitiGameEngine {
     class IScript {
         public:
