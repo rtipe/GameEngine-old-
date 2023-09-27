@@ -7,8 +7,16 @@
 #include "UnitiGame.hpp"
 
 namespace UnitiGameEngine {
+    std::unique_ptr<Uniti> Uniti::_instance = nullptr;
 
-    Uniti::Uniti(const std::string &projectPath): _sceneManager(*this) {
+    Uniti &Uniti::getInstance()
+    {
+        if (!_instance)
+            throw std::runtime_error("error");
+        return *_instance;
+    }
+
+    Uniti::Uniti(const std::string &projectPath): _sceneManager() {
         std::ifstream file(projectPath);
         Json::Value information;
         file >> information;
@@ -18,6 +26,7 @@ namespace UnitiGameEngine {
                 this->_projectInfo.height
         ), this->_projectInfo.titleWindow);
         this->_window.setFramerateLimit(60);
+        Uniti::_instance.reset(this);
     }
 
     void Uniti::start() {

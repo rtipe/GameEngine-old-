@@ -113,7 +113,7 @@ static const std::string keysName[] = {
 
 namespace UnitiGameEngine
 {
-    Input::Input(Uniti &game) : _game(game) {}
+    Input::Input() {}
 
     bool Input::isPressed(std::string key) {
         std::string eventName = "KEY_" + key + "_PRESSED";
@@ -157,7 +157,7 @@ namespace UnitiGameEngine
         std::string name;
 
         this->_events.clear();
-        while (this->_game.getWindow().pollEvent(event))
+        while (Uniti::getInstance().getWindow().pollEvent(event))
         {
             switch (event.type)
             {

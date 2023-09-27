@@ -13,14 +13,14 @@
 
 namespace UnitiGameEngine {
     template<typename... Args>
-    using creatorFunction = std::function<std::unique_ptr<IScript>(Uniti &game, IObject &object)>;
+    using creatorFunction = std::function<std::unique_ptr<IScript>(IObject &object)>;
     class ScriptFactory {
         public:
-            std::unique_ptr<IScript> createScript(const std::string &name, Uniti &game, IObject &object);
+            std::unique_ptr<IScript> createScript(const std::string &name, IObject &object);
             template<typename OBJECT>
             creatorFunction<> addScript() {
-                return [&](Uniti &game, IObject &object) -> std::unique_ptr<IScript> {
-                    return std::make_unique<OBJECT>(game, object);
+                return [&](IObject &object) -> std::unique_ptr<IScript> {
+                    return std::make_unique<OBJECT>(object);
                 };
             }
         private:

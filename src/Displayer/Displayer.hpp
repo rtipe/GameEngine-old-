@@ -9,13 +9,12 @@
 namespace UnitiGameEngine {
     class Displayer {
         public:
-            Displayer(Uniti &game): _game(game) {}
+            Displayer() {}
             void display();
             void add(IObject &object);
             void clear();
             void sort();
         private:
             std::vector<std::reference_wrapper<IObject>> _objects;
-            Uniti &_game;
     };
 }

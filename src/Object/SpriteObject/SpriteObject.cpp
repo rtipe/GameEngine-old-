@@ -6,7 +6,7 @@
 
 namespace UnitiGameEngine {
 
-    SpriteObject::SpriteObject(Scene &scene, Uniti &game, const Json::Value &values): _scene(scene), _game(game) {
+    SpriteObject::SpriteObject(Scene &scene, const Json::Value &values): _scene(scene) {
         const Json::Value scripts = values["scripts"];
 
         if (values.isMember("name"))
@@ -27,18 +27,18 @@ namespace UnitiGameEngine {
         }
         for (const auto &child : values["children"]) {
             if (child["type"].asString() == "sprite") {
-                this->_children.push_back(std::make_unique<SpriteObject>(scene, this->_game, child));
+                this->_children.push_back(std::make_unique<SpriteObject>(scene, child));
             } else if (child["type"].asString() == "text") {
-                this->_children.push_back(std::make_unique<TextObject>(scene, this->_game, child));
+                this->_children.push_back(std::make_unique<TextObject>(scene, child));
             } else if (child["type"].asString() == "empty") {
-                this->_children.push_back(std::make_unique<EmptyObject>(scene, this->_game, child));
+                this->_children.push_back(std::make_unique<EmptyObject>(scene, child));
             } else {
                 throw std::runtime_error("Unknown object type");
             }
         }
         for (int i = 0; i < scripts.size(); i++) {
             auto name = scripts[i]["name"].asString();
-            this->_scriptManager.addScript(this->_game.getScriptFactory().createScript(name, this->_game, *this), name);
+            this->_scriptManager.addScript(Uniti::getInstance().getScriptFactory().createScript(name, *this), name);
             this->_scriptManager.getScript(name).awake(scripts[i]);
         }
         this->_scriptManager.start();
@@ -47,7 +47,7 @@ namespace UnitiGameEngine {
     void SpriteObject::update() {
         if (!this->_isEnabled) return;
         this->_scriptManager.update();
-        this->_game.getSceneManager().getDisplayer().add(*this);
+        Uniti::getInstance().getSceneManager().getDisplayer().add(*this);
         for (const auto &child : this->_children)
             child->update();
     }
@@ -56,7 +56,7 @@ namespace UnitiGameEngine {
         this->_sprite.setPosition(this->_transform.position.x, this->_transform.position.y);
         this->_sprite.setRotation(this->_transform.rotation.angle);
         this->_sprite.setScale(this->_transform.scale.x, this->_transform.scale.y);
-        this->_game.getWindow().draw(this->_sprite);
+        Uniti::getInstance().getWindow().draw(this->_sprite);
     }
 
     const std::string &SpriteObject::getName() const {
@@ -89,14 +89,6 @@ namespace UnitiGameEngine {
 
     std::vector<std::unique_ptr<IObject>> &SpriteObject::getChildren() {
         return this->_children;
-    }
-
-    const Uniti &SpriteObject::getGame() const {
-        return this->_game;
-    }
-
-    Uniti &SpriteObject::getGame() {
-        return this->_game;
     }
 
     const Scene &SpriteObject::getScene() const {

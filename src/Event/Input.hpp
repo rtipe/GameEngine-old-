@@ -13,7 +13,7 @@
 namespace UnitiGameEngine {
     class Input {
         public:
-            Input(Uniti &game);
+            Input();
             void checkEvents();
             bool isPressed(std::string key);
             bool isReleased(std::string key);
@@ -22,6 +22,5 @@ namespace UnitiGameEngine {
             std::vector<std::string> &getEvents();
         private:
             std::vector<std::string> _events;
-            Uniti &_game;
     };
 }

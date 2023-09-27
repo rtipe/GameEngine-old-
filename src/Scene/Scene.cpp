@@ -6,10 +6,9 @@
 
 namespace UnitiGameEngine {
 
-    Scene::Scene(const Json::Value &objects, Uniti &game, const std::string &name):
-    _game(game),
+    Scene::Scene(const Json::Value &objects, const std::string &name):
     _name(name),
-    _assetManager(game) {
+    _assetManager() {
         Json::Value elements = objects["objects"];
 
         this->_assetManager.loadAssets(objects["assets"]);
@@ -17,11 +16,11 @@ namespace UnitiGameEngine {
             const std::string type = elements[i]["type"].asString();
 
             if (type == "empty") {
-                this->_objects.push_back(std::make_unique<EmptyObject>(this, game, elements[i]));
+                this->_objects.push_back(std::make_unique<EmptyObject>(this, elements[i]));
             } else if (type == "sprite") {
-                this->_objects.push_back(std::make_unique<SpriteObject>(this, game, elements[i]));
+                this->_objects.push_back(std::make_unique<SpriteObject>(this, elements[i]));
             } else if (type == "text") {
-                this->_objects.push_back(std::make_unique<TextObject>(this, game, elements[i]));
+                this->_objects.push_back(std::make_unique<TextObject>(this, elements[i]));
             } else {
                 //TODO error
             }
@@ -42,14 +41,6 @@ namespace UnitiGameEngine {
     void Scene::update() {
         for (auto &object : this->_objects)
             object->update();
-    }
-
-    const Uniti &Scene::getGame() const {
-        return this->_game;
-    }
-
-    Uniti &Scene::getGame() {
-        return this->_game;
     }
 
     const AssetManager &Scene::getAssetManager() const {

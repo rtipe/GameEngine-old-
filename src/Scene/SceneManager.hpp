@@ -12,7 +12,7 @@
 namespace UnitiGameEngine {
     class SceneManager {
         public:
-            SceneManager(Uniti &game);
+            SceneManager();
             const Scene &getCurrentScene() const;
             Scene &getCurrentScene();
             const Scene &getGlobalScene() const;
@@ -29,6 +29,5 @@ namespace UnitiGameEngine {
             std::unique_ptr<Scene> _currentScene;
             std::optional<ScenePath> _nextScene;
             Displayer _displayer;
-            Uniti &_game;
     };
 }

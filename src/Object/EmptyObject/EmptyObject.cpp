@@ -6,7 +6,7 @@
 
 namespace UnitiGameEngine {
 
-    EmptyObject::EmptyObject(Scene &scene, Uniti &game, const Json::Value &values): _scene(scene), _game(game) {
+    EmptyObject::EmptyObject(Scene &scene, const Json::Value &values): _scene(scene) {
         const Json::Value position = values["position"];
         const Json::Value scale = values["scale"];
         const Json::Value scripts = values["scripts"];
@@ -24,18 +24,18 @@ namespace UnitiGameEngine {
             const std::string type = children[i]["type"].asString();
 
             if (type == "empty") {
-                this->_children.push_back(std::make_unique<EmptyObject>(scene, this->_game, children[i]));
+                this->_children.push_back(std::make_unique<EmptyObject>(scene, children[i]));
             } else if (type == "sprite") {
-                this->_children.push_back(std::make_unique<SpriteObject>(scene, this->_game, children[i]));
+                this->_children.push_back(std::make_unique<SpriteObject>(scene, children[i]));
             } else if (type == "text") {
-                this->_children.push_back(std::make_unique<TextObject>(scene, this->_game, children[i]));
+                this->_children.push_back(std::make_unique<TextObject>(scene, children[i]));
             } else {
                 //TODO error
             }
         }
         for (int i = 0; i < scripts.size(); i++) {
             auto name = scripts[i]["name"].asString();
-            this->_scriptManager.addScript(this->_game.getScriptFactory().createScript(name, this->_game, *this), name);
+            this->_scriptManager.addScript(Uniti::getInstance().getScriptFactory().createScript(name, *this), name);
             this->_scriptManager.getScript(name).awake(scripts[i]);
         }
         this->_scriptManager.start();
@@ -78,14 +78,6 @@ namespace UnitiGameEngine {
 
     std::vector<std::unique_ptr<IObject>> &EmptyObject::getChildren() {
         return this->_children;
-    }
-
-    const Uniti &EmptyObject::getGame() const {
-        return this->_game;
-    }
-
-    Uniti &EmptyObject::getGame() {
-        return this->_game;
     }
 
     const Scene &EmptyObject::getScene() const {

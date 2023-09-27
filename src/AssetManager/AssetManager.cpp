@@ -6,8 +6,8 @@
 
 namespace UnitiGameEngine
 {
-    AssetManager::AssetManager(Uniti &_game): _game(_game) {}
-    
+    AssetManager::AssetManager() {}
+
     void AssetManager::loadAssets(const Json::Value &assets) {
         Json::Value textures = assets["textures"];
         Json::Value fonts = assets["fonts"];

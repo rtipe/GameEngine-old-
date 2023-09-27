@@ -25,7 +25,9 @@ namespace UnitiGameEngine {
             sf::Time getDeltaTime();
             const sf::RenderWindow &getWindow() const;
             sf::RenderWindow &getWindow();
+            static Uniti &getInstance();
         private:
+            static std::unique_ptr<Uniti> _instance;
             SceneManager _sceneManager;
             ProjectInfo _projectInfo;
             sf::RenderWindow _window;

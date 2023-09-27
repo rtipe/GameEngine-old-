@@ -11,7 +11,7 @@
 namespace UnitiGameEngine {
     class AssetManager {
         public:
-            AssetManager(Uniti &_game);
+            AssetManager();
             void loadAssets(const Json::Value &assets);
             const sf::Font &getFont(const std::string &name) const;
             const sf::Texture &getTexture(const std::string &name) const;
@@ -25,7 +25,6 @@ namespace UnitiGameEngine {
             void clearTextures();
             void clearFonts();
         private:
-            Uniti &_game;
             std::map<std::string, std::unique_ptr<sf::Font>> _fonts;
             std::map<std::string, std::unique_ptr<sf::Texture>> _textures;
     };

@@ -7,9 +7,7 @@
 
 namespace UnitiGameEngine {
 
-    SceneManager::SceneManager(Uniti &game): _game(game) {
-
-    }
+    SceneManager::SceneManager() {}
 
     const Scene &SceneManager::getCurrentScene() const {
         return this->_currentScene.operator*();
@@ -28,28 +26,28 @@ namespace UnitiGameEngine {
     }
 
     const std::vector<ScenePath> &SceneManager::getAllScenes() const {
-        return this->_game.getProjectInfo().scenes;
+        return Uniti::getInstance().getProjectInfo().scenes;
     }
 
     void SceneManager::addScenePath(ScenePath &scenePath) {
-        return this->_game.getProjectInfo().scenes.push_back(scenePath);
+        return Uniti::getInstance().getProjectInfo().scenes.push_back(scenePath);
     }
 
     bool SceneManager::removeScenePath(const std::string &name) {
         std::vector<ScenePath>::iterator it;
-        it = remove_if(this->_game.getProjectInfo().scenes.begin(), this->_game.getProjectInfo().scenes.end(),
+        it = remove_if(Uniti::getInstance().getProjectInfo().scenes.begin(), Uniti::getInstance().getProjectInfo().scenes.end(),
         [name](ScenePath &path) {
             return path.name == name;
         });
-        return it != this->_game.getProjectInfo().scenes.end();
+        return it != Uniti::getInstance().getProjectInfo().scenes.end();
     }
 
     bool SceneManager::changeScene(const std::string &name) {
-        auto it = std::find_if(this->_game.getProjectInfo().scenes.begin(), this->_game.getProjectInfo().scenes.end(),
+        auto it = std::find_if(Uniti::getInstance().getProjectInfo().scenes.begin(), Uniti::getInstance().getProjectInfo().scenes.end(),
         [name](ScenePath &path) {
             return path.name == name;
         });
-        if (it == this->_game.getProjectInfo().scenes.end())
+        if (it == Uniti::getInstance().getProjectInfo().scenes.end())
             return false;
         this->_nextScene = *it;
         return true;
@@ -60,7 +58,7 @@ namespace UnitiGameEngine {
             std::ifstream file(this->_nextScene->path);
             Json::Value scene;
             file >> scene;
-            this->_currentScene = std::make_unique<Scene>(scene, this->_game, this->_nextScene->name);
+            this->_currentScene = std::make_unique<Scene>(scene, Uniti::getInstance(), this->_nextScene->name);
         }
         this->_currentScene->update();
         this->_globalScene->update();

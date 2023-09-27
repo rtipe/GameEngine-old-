@@ -10,9 +10,8 @@
 namespace UnitiGameEngine {
     class AScript : IScript {
         public:
-            AScript(Uniti &game, IObject &gameObject): _game(game), _gameObject(gameObject) {}
+            AScript(IObject &gameObject): _gameObject(gameObject) {}
         private:
-            Uniti &_game;
             IObject &_gameObject;
     };
 }

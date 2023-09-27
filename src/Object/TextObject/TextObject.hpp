@@ -10,7 +10,7 @@
 namespace UnitiGameEngine {
     class TextObject: public IObject {
         public:
-            TextObject(Scene &scene, Uniti &game, const Json::Value &values);
+            TextObject(Scene &scene, const Json::Value &values);
             void update() override;
             void display() override;
             const std::string &getName() const override;
@@ -21,8 +21,6 @@ namespace UnitiGameEngine {
             ObjectTypes getType() const override;
             const std::vector<std::unique_ptr<IObject>> &getChildren() const override;
             std::vector<std::unique_ptr<IObject>> &getChildren() override;
-            const Uniti &getGame() const override;
-            Uniti &getGame() override;
             const Scene &getScene() const override;
             Scene &getScene() override;
             ScriptManager &getScriptManager() override;
@@ -32,7 +30,6 @@ namespace UnitiGameEngine {
             ScriptManager _scriptManager;
             Transform _transform;
             std::vector<std::unique_ptr<IObject>> _children;
-            Uniti &_game;
             Scene &_scene;
             bool _isEnabled;
             std::string _name;
