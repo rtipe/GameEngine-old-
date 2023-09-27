@@ -12,7 +12,7 @@ namespace UnitiGameEngine {
     }
 
     bool ScriptManager::removeScript(const std::string &name) {
-        this->_scripts.erase(name);
+        return this->_scripts.erase(name);
     }
 
     IScript &ScriptManager::getScript(const std::string &name) {

@@ -10,17 +10,17 @@
 namespace UnitiGameEngine {
     struct ProjectInfo {
         public:
-            ProjectInfo();
+            ProjectInfo() = default;
             ProjectInfo(const Json::Value &project);
             std::string name;
             std::string startScene;
             std::string globalScene;
             std::string directoryScenePath;
             std::vector<ScenePath> scenes;
-            int width;
-            int height;
+            int width{};
+            int height{};
             std::string titleWindow;
-            int framerateLimit;
+            int framerateLimit{};
         private:
     };
 }
