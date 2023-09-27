@@ -139,7 +139,7 @@ namespace UnitiGameEngine
         return (false);
     }
 
-    bool Input::isReleased(std::string key) {
+    bool Input::isMouseReleased(std::string key) {
         std::string eventName = "MOUSE_" + key + "_RELEASED";
 
         if(std::find(this->_events.begin(), this->_events.end(), eventName) != this->_events.end())
