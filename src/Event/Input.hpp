@@ -15,6 +15,10 @@ namespace UnitiGameEngine {
         public:
             Input(Uniti &game);
             void checkEvents();
+            bool isPressed(std::string key);
+            bool isReleased(std::string key);
+            bool isMousePressed(std::string key);
+            bool isMouseReleased(std::string key);
             std::vector<std::string> &getEvents();
         private:
             std::vector<std::string> _events;

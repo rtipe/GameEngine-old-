@@ -115,8 +115,40 @@ namespace UnitiGameEngine
 {
     Input::Input(Uniti &game) : _game(game) {}
 
-    std::vector<std::string> &Input::getEvents()
-    {
+    bool Input::isPressed(std::string key) {
+        std::string eventName = "KEY_" + key + "_PRESSED";
+
+        if(std::find(this->_events.begin(), this->_events.end(), eventName) != this->_events.end())
+            return (true);
+        return (false);
+    }
+
+    bool Input::isReleased(std::string key) {
+        std::string eventName = "KEY_" + key + "_RELEASED";
+
+        if(std::find(this->_events.begin(), this->_events.end(), eventName) != this->_events.end())
+            return (true);
+        return (false);
+    }
+
+    bool Input::isMousePressed(std::string key) {
+        std::string eventName = "MOUSE_" + key + "_PRESSED";
+
+        if(std::find(this->_events.begin(), this->_events.end(), eventName) != this->_events.end())
+            return (true);
+        return (false);
+    }
+
+    bool Input::isReleased(std::string key) {
+        std::string eventName = "MOUSE_" + key + "_RELEASED";
+
+        if(std::find(this->_events.begin(), this->_events.end(), eventName) != this->_events.end())
+            return (true);
+        return (false);
+    }
+
+    std::vector<std::string> &Input::getEvents() {
+        return this->_events;
     }
 
     void Input::checkEvents()
@@ -138,8 +170,17 @@ namespace UnitiGameEngine
                     c = toupper(c);
                 this->_events.push_back("KEY_" + name + "_PRESSED");
                 break;
+            case sf::Event::KeyReleased:
+                name = keysName[event.key.code];
+                for (auto &c : name)
+                    c = toupper(c);
+                this->_events.push_back("KEY_" + name + "_RELEASED");
+                break;
             case sf::Event::MouseButtonPressed:
                 this->_events.push_back("MOUSE_" + std::to_string(event.mouseButton.button + 1) + "_PRESSED");
+                break;
+            case sf::Event::MouseButtonReleased:
+                this->_events.push_back("MOUSE_" + std::to_string(event.mouseButton.button + 1) + "_RELEASED");
                 break;
             case sf::Event::Resized:
                 this->_events.push_back("WINDOW_RESIZE");
