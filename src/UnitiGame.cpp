@@ -5,6 +5,7 @@
 #include <fstream>
 #include <SFML/Window/Event.hpp>
 #include "UnitiGame.hpp"
+#include <iostream>
 
 namespace UnitiGameEngine {
     std::unique_ptr<Uniti> Uniti::_instance = nullptr;
@@ -18,6 +19,7 @@ namespace UnitiGameEngine {
 
     Uniti::Uniti(const std::string &projectPath): _sceneManager() {
         std::ifstream file(projectPath);
+        std::cout << projectPath <<std::endl;
         Json::Value information;
         file >> information;
         this->_projectInfo = ProjectInfo(information);
@@ -25,7 +27,7 @@ namespace UnitiGameEngine {
                 this->_projectInfo.width,
                 this->_projectInfo.height
         ), this->_projectInfo.titleWindow);
-        this->_window.setFramerateLimit(60);
+        this->_window.setFramerateLimit(this->_projectInfo.framerateLimit);
         Uniti::_instance.reset(this);
     }
 
