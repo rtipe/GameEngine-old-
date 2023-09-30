@@ -23,7 +23,12 @@
             },
             "textureName": "first",
             "children": [],
-            "scripts": []
+            "scripts": [
+                {
+                    "name": "VasselMovement",
+                    "speed": 10
+                }
+            ]
         }
     ]
 }

@@ -8,10 +8,9 @@
 #include "../UnitiGame.hpp"
 
 namespace UnitiGameEngine {
-    class AScript : IScript {
-        public:
+    class AScript : public IScript {
+        protected:
             AScript(IObject &gameObject): _gameObject(gameObject) {}
-        private:
             IObject &_gameObject;
     };
 }

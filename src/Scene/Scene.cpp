@@ -7,7 +7,6 @@
 #include "../Object/SpriteObject/SpriteObject.hpp"
 #include "../Object/TextObject/TextObject.hpp"
 #include "../Object/EmptyObject/EmptyObject.hpp"
-#include "../Object/IObject.hpp"
 
 namespace UnitiGameEngine {
 

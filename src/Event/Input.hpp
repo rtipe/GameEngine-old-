@@ -13,12 +13,13 @@ namespace UnitiGameEngine {
     class Input {
         public:
             Input();
-            void checkEvents();
+            void checkEvents(sf::Event &event);
             bool isPressed(std::string key);
             bool isReleased(std::string key);
             bool isMousePressed(std::string key);
             bool isMouseReleased(std::string key);
             std::vector<std::string> &getEvents();
+            void clearEvents();
         private:
             std::vector<std::string> _events;
     };

@@ -34,10 +34,11 @@ namespace UnitiGameEngine {
         this->_window.setFramerateLimit(this->_projectInfo.framerateLimit);
         while (this->_window.isOpen()) {
             this->_clock.restart();
+            this->_input.clearEvents();
             while (this->_window.pollEvent(event)) {
                 if (event.type == sf::Event::Closed)
                     this->_window.close();
-                this->_input.checkEvents();
+                this->_input.checkEvents(event);
             }
             this->_window.clear(background);
             this->_sceneManager.update();

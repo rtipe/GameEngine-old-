@@ -18,6 +18,6 @@ add_executable(UnitiGameEngine
         src/Object/TextObject/TextObject.cpp
         src/Script/ScriptFactory.hpp
         src/Script/ScriptFactory.hpp
-        src/Script/ScriptFactory.cpp src/Event/Input.hpp src/Event/Input.cpp)
+        src/Script/ScriptFactory.cpp src/Event/Input.hpp src/Event/Input.cpp scripts/VasselMovement.cpp scripts/VasselMovement.hpp)
 
 target_link_libraries(UnitiGameEngine PRIVATE sfml-system sfml-network sfml-graphics sfml-window JsonCpp::JsonCpp)
