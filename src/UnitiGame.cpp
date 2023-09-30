@@ -2,7 +2,6 @@
 // Created by youba on 25/09/2023.
 //
 
-#include <fstream>
 #include <SFML/Window/Event.hpp>
 #include "UnitiGame.hpp"
 #include <iostream>
@@ -17,17 +16,7 @@ namespace UnitiGameEngine {
         return *_instance;
     }
 
-    Uniti::Uniti(const std::string &projectPath): _sceneManager() {
-        std::ifstream file(projectPath);
-        std::cout << projectPath <<std::endl;
-        Json::Value information;
-        file >> information;
-        this->_projectInfo = ProjectInfo(information);
-        this->_window.create(sf::VideoMode(
-                this->_projectInfo.width,
-                this->_projectInfo.height
-        ), this->_projectInfo.titleWindow);
-        this->_window.setFramerateLimit(this->_projectInfo.framerateLimit);
+    Uniti::Uniti(const std::string &projectPath): _sceneManager(), _projectInfo(projectPath) {
         Uniti::_instance.reset(this);
     }
 
@@ -35,12 +24,18 @@ namespace UnitiGameEngine {
         sf::Event event;
         const sf::Color background(255, 255, 255);
 
+        this->_window.create(sf::VideoMode(
+                this->_projectInfo.width,
+                this->_projectInfo.height
+        ), this->_projectInfo.titleWindow);
+        this->_window.setFramerateLimit(this->_projectInfo.framerateLimit);
+        this->_sceneManager.init();
         while (this->_window.isOpen()) {
             this->_clock.restart();
             while (this->_window.pollEvent(event)) {
                 if (event.type == sf::Event::Closed)
                     this->_window.close();
-                // TODO: Mettre l'update de l'object input
+                this->_input.checkEvents();
             }
             this->_window.clear(background);
             this->_sceneManager.update();
@@ -79,5 +74,13 @@ namespace UnitiGameEngine {
 
     ProjectInfo &Uniti::getProjectInfo() {
         return this->_projectInfo;
+    }
+
+    const Input &Uniti::getInput() const {
+        return this->_input;
+    }
+
+    Input &Uniti::getInput() {
+        return this->_input;
     }
 }

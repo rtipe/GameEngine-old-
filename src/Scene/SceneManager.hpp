@@ -17,10 +17,12 @@ namespace UnitiGameEngine {
             const Scene &getGlobalScene() const;
             Scene &getGlobalScene();
             const std::vector<ScenePath> &getAllScenes() const;
+            const ScenePath &getScenePath(const std::string &name) const;
             void addScenePath(ScenePath &scenePath);
             bool removeScenePath(const std::string &name);
             bool changeScene(const std::string &name);
             void update();
+            void init();
             const Displayer &getDisplayer() const;
             Displayer &getDisplayer();
         private:

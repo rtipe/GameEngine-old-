@@ -10,8 +10,7 @@
 namespace UnitiGameEngine {
     struct ProjectInfo {
         public:
-            ProjectInfo() = default;
-            ProjectInfo(const Json::Value &project);
+            ProjectInfo(const std::string &projectPath);
             std::string name;
             std::string startScene;
             std::string globalScene;

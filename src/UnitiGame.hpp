@@ -11,6 +11,7 @@
 #include "Scene/SceneManager.hpp"
 #include "ProjectInfo.hpp"
 #include "Script/ScriptFactory.hpp"
+#include "Event/Input.hpp"
 
 namespace UnitiGameEngine {
     class Uniti {
@@ -26,6 +27,8 @@ namespace UnitiGameEngine {
             const sf::RenderWindow &getWindow() const;
             sf::RenderWindow &getWindow();
             static Uniti &getInstance();
+            const Input &getInput() const;
+            Input &getInput();
         private:
             static std::unique_ptr<Uniti> _instance;
             SceneManager _sceneManager;
@@ -33,5 +36,6 @@ namespace UnitiGameEngine {
             sf::RenderWindow _window;
             sf::Clock _clock;
             ScriptFactory _scriptFactory;
+            Input _input;
     };
 }

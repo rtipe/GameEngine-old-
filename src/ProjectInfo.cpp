@@ -2,15 +2,20 @@
 // Created by youba on 25/09/2023.
 //
 
-#include "ProjectInfo.hpp"
+#include <string>
 #include <filesystem>
+#include <fstream>
+#include "ProjectInfo.hpp"
 
 const std::string ERROR_GLOBAL_SCENE = "Error: can't find globalScene in projectInfos";
 const std::string ERROR_STARTING_SCENE = "Error: can't find startingScene in projectInfos";
 const std::string ERROR_SCENE_DIRECTORY_PATH = "Error: can't find scene directory path in projectInfos";
 
 namespace UnitiGameEngine {
-    ProjectInfo::ProjectInfo(const Json::Value &project) {
+    ProjectInfo::ProjectInfo(const std::string &projectPath) {
+        std::ifstream file(projectPath);
+        Json::Value project;
+        file >> project;
         Json::Value windowInfos = project["windowInfos"];
 
         this->name = project.get("name", "game").asString();

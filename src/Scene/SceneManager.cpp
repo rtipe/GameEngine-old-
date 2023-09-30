@@ -3,6 +3,7 @@
 //
 
 #include <fstream>
+#include <iostream>
 #include "SceneManager.hpp"
 #include "../UnitiGame.hpp"
 
@@ -72,5 +73,27 @@ namespace UnitiGameEngine {
 
     Displayer &SceneManager::getDisplayer() {
         return this->_displayer;
+    }
+
+    void SceneManager::init() {
+        std::ifstream firstFile(getScenePath(Uniti::getInstance().getProjectInfo().globalScene).path);
+        Json::Value globalScene;
+        firstFile >> globalScene;
+        this->_globalScene = std::make_unique<Scene>(globalScene, Uniti::getInstance().getProjectInfo().globalScene);
+        std::ifstream secondFirst(getScenePath(Uniti::getInstance().getProjectInfo().startScene).path);
+        Json::Value startScene;
+        secondFirst >> startScene;
+        this->_globalScene = std::make_unique<Scene>(startScene, Uniti::getInstance().getProjectInfo().startScene);
+    }
+
+    const ScenePath &SceneManager::getScenePath(const std::string &name) const {
+        std::cout << this->getAllScenes().size() << std::endl;
+        auto it = std::find_if(Uniti::getInstance().getProjectInfo().scenes.begin(), Uniti::getInstance().getProjectInfo().scenes.end(),
+            [name](ScenePath &path) {
+                return path.name == name;
+        });
+        if (it == Uniti::getInstance().getProjectInfo().scenes.end())
+            throw std::invalid_argument("name not found");
+        return it.operator*();
     }
 }
