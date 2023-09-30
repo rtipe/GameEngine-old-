@@ -18,8 +18,8 @@ namespace UnitiGameEngine {
         public:
             std::unique_ptr<IScript> createScript(const std::string &name, IObject &object);
             template<typename OBJECT>
-            creatorFunction<> addScript() {
-                return [&](IObject &object) -> std::unique_ptr<IScript> {
+            void addScript(const std::string &name) {
+                this->creators[name] = [&](IObject &object) -> std::unique_ptr<IScript> {
                     return std::make_unique<OBJECT>(object);
                 };
             }
