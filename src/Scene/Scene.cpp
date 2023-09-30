@@ -2,6 +2,7 @@
 // Created by youba on 25/09/2023.
 //
 
+#include <iostream>
 #include "Scene.hpp"
 #include "../Object/SpriteObject/SpriteObject.hpp"
 #include "../Object/TextObject/TextObject.hpp"

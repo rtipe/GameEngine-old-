@@ -16,7 +16,6 @@
 namespace UnitiGameEngine {
     class Uniti {
         public:
-            Uniti(const std::string &projectPath);
             void start();
             const ProjectInfo &getProjectInfo() const;
             ProjectInfo &getProjectInfo();
@@ -27,9 +26,11 @@ namespace UnitiGameEngine {
             const sf::RenderWindow &getWindow() const;
             sf::RenderWindow &getWindow();
             static Uniti &getInstance();
+            static void initGameProject(const std::string &projectPath);
             const Input &getInput() const;
             Input &getInput();
         private:
+            Uniti(const std::string &projectPath);
             static std::unique_ptr<Uniti> _instance;
             SceneManager _sceneManager;
             ProjectInfo _projectInfo;
@@ -37,5 +38,6 @@ namespace UnitiGameEngine {
             sf::Clock _clock;
             ScriptFactory _scriptFactory;
             Input _input;
+            std::string _projectPath;
     };
 }

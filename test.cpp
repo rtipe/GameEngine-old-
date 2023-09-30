@@ -4,7 +4,7 @@
 int main()
 {
     try {
-        UnitiGameEngine::Uniti("../Json/projectInfos.json");
+        UnitiGameEngine::Uniti::initGameProject("../Json/projectInfos.json");
 
         UnitiGameEngine::Uniti::getInstance().start();
     } catch (std::exception &e) {

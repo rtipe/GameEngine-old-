@@ -83,11 +83,10 @@ namespace UnitiGameEngine {
         std::ifstream secondFirst(getScenePath(Uniti::getInstance().getProjectInfo().startScene).path);
         Json::Value startScene;
         secondFirst >> startScene;
-        this->_globalScene = std::make_unique<Scene>(startScene, Uniti::getInstance().getProjectInfo().startScene);
+        this->_currentScene = std::make_unique<Scene>(startScene, Uniti::getInstance().getProjectInfo().startScene);
     }
 
     const ScenePath &SceneManager::getScenePath(const std::string &name) const {
-        std::cout << this->getAllScenes().size() << std::endl;
         auto it = std::find_if(Uniti::getInstance().getProjectInfo().scenes.begin(), Uniti::getInstance().getProjectInfo().scenes.end(),
             [name](ScenePath &path) {
                 return path.name == name;

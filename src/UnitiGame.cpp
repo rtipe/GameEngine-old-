@@ -16,20 +16,22 @@ namespace UnitiGameEngine {
         return *_instance;
     }
 
-    Uniti::Uniti(const std::string &projectPath): _sceneManager(), _projectInfo(projectPath) {
-        Uniti::_instance.reset(this);
+    void Uniti::initGameProject(const std::string &projectPath) {
+        Uniti::_instance.reset(new Uniti(projectPath));
     }
+
+    Uniti::Uniti(const std::string &projectPath): _projectInfo(projectPath), _projectPath(projectPath) { }
 
     void Uniti::start() {
         sf::Event event;
         const sf::Color background(255, 255, 255);
 
+        this->_sceneManager.init();
         this->_window.create(sf::VideoMode(
                 this->_projectInfo.width,
                 this->_projectInfo.height
         ), this->_projectInfo.titleWindow);
         this->_window.setFramerateLimit(this->_projectInfo.framerateLimit);
-        this->_sceneManager.init();
         while (this->_window.isOpen()) {
             this->_clock.restart();
             while (this->_window.pollEvent(event)) {

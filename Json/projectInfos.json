@@ -1,8 +1,8 @@
 {
     "name": "R-TYPE",
-    "directoryScenePath": "./Json/Scenes/",
-    "startScene": "test",
-    "globalScene": "global",
+    "directoryScenePath": "../Json/Scenes/",
+    "startScene": "test.json",
+    "globalScene": "global.json",
     "windowInfos": {
         "title": "Fenetre stylée",
         "width": 1920,

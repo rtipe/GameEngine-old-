@@ -27,7 +27,7 @@ namespace UnitiGameEngine {
         this->height = windowInfos.get("height", 1080).asInt();
         this->framerateLimit = windowInfos.get("fps", 60).asInt();
 
-        for (const auto &entry : std::filesystem::recursive_directory_iterator(".")) {
+        for (const auto &entry : std::filesystem::recursive_directory_iterator(this->directoryScenePath)) {
             std::string fullPath = entry.path().string();
             std::string directoryPath, fileType, fileName;
             auto pos = fullPath.find_last_of('/');
@@ -40,6 +40,7 @@ namespace UnitiGameEngine {
                 if (fileType == ".json") {
                     pos += 1;
                     fileName = fullPath.substr(pos, posFileType - pos) += ".json";
+                    directoryPath += fileName;
                     this->scenes.push_back(ScenePath(fileName, directoryPath));
                 }
             }

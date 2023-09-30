@@ -28,7 +28,7 @@ namespace UnitiGameEngine {
         private:
             std::unique_ptr<Scene> _globalScene;
             std::unique_ptr<Scene> _currentScene;
-            std::optional<ScenePath> _nextScene;
+            std::optional<ScenePath> _nextScene = std::nullopt;
             Displayer _displayer;
     };
 }
