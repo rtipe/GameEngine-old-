@@ -26,7 +26,7 @@ namespace UnitiGameEngine {
     void Displayer::sort() {
         std::sort(this->_objects.begin(), this->_objects.end(),
         [](IObject &object1, IObject &object2) {
-            return object1.getTransform().position.z > object2.getTransform().position.z;
+            return object1.getTransform().position.z < object2.getTransform().position.z;
         });
     }
 }

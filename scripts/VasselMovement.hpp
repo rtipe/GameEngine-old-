@@ -13,7 +13,7 @@ class VasselMovement: public UnitiGameEngine::AScript {
         void update() override;
         void awake(const Json::Value &value) override;
     private:
-        float _speed;
+        float _speed = 0;
         bool _isUp = false;
         bool _isDown = false;
         sf::Clock _deltaTime;

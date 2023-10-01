@@ -1,12 +1,44 @@
 {
     "assets": {
         "fonts": [],
-        "textures": [{
-            "path": "../assets/first.png",
-            "isRepeated": false,
-            "isSmooth": false,
-            "name": "first"
-        }]
+        "textures": [
+            {
+                "path": "../assets/first.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "first"
+            },
+            {
+                "path": "../assets/parallax/1.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "parallax-1"
+            },
+            {
+                "path": "../assets/parallax/2.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "parallax-2"
+            },
+            {
+                "path": "../assets/parallax/3.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "parallax-3"
+            },
+            {
+                "path": "../assets/parallax/4.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "parallax-4"
+            },
+            {
+                "path": "../assets/parallax/5.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "parallax-5"
+            }
+        ]
     },
     "objects": [
         {
@@ -14,7 +46,8 @@
             "name": "first",
             "position": {
                 "x": 150,
-                "y": 150
+                "y": 150,
+                "z": 12
             },
             "rotation": 0,
             "scale": {
@@ -27,6 +60,215 @@
                 {
                     "name": "VasselMovement",
                     "speed": 10
+                }
+            ]
+        },
+        {
+            "type": "sprite",
+            "name": "background",
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "rotation": 0,
+            "scale": {
+                "x": 5,
+                "y": 5
+            },
+            "textureName": "parallax-1",
+            "children": [],
+            "scripts": []
+        },
+        {
+            "type": "empty",
+            "name": "parallax-3",
+            "scripts": [
+                {
+                    "name": "ForwardParallax",
+                    "width": 1360,
+                    "end": -50,
+                    "speed": 2
+                }
+            ],
+            "children": [
+                {
+                    "type": "sprite",
+                    "name": "1",
+                    "position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotation": 0,
+                    "scale": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "textureName": "parallax-3",
+                    "children": [],
+                    "scripts": []
+                },
+                {
+                    "type": "sprite",
+                    "name": "2",
+                    "position": {
+                        "x": 1360,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotation": 0,
+                    "scale": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "textureName": "parallax-3",
+                    "children": [],
+                    "scripts": []
+                }
+            ]
+        },
+        {
+            "type": "empty",
+            "name": "parallax-4",
+            "scripts": [
+                {
+                    "name": "ForwardParallax",
+                    "width": 2720,
+                    "end": -50,
+                    "speed": 3
+                }
+            ],
+            "children": [
+                {
+                    "type": "sprite",
+                    "name": "1",
+                    "position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotation": 0,
+                    "scale": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "textureName": "parallax-4",
+                    "children": [],
+                    "scripts": []
+                },
+                {
+                    "type": "sprite",
+                    "name": "2",
+                    "position": {
+                        "x": 2720,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotation": 0,
+                    "scale": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "textureName": "parallax-4",
+                    "children": [],
+                    "scripts": []
+                }
+            ]
+        },
+        {
+            "type": "empty",
+            "name": "parallax-5",
+            "scripts": [
+                {
+                    "name": "ForwardParallax",
+                    "width": 2720,
+                    "end": -50,
+                    "speed": 4
+                }
+            ],
+            "children": [
+                {
+                    "type": "sprite",
+                    "name": "1",
+                    "position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotation": 0,
+                    "scale": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "textureName": "parallax-5",
+                    "children": [],
+                    "scripts": []
+                },
+                {
+                    "type": "sprite",
+                    "name": "2",
+                    "position": {
+                        "x": 2720,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotation": 0,
+                    "scale": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "textureName": "parallax-5",
+                    "children": [],
+                    "scripts": []
+                }
+            ]
+        },
+        {
+            "type": "empty",
+            "name": "parallax-2",
+            "scripts": [
+                {
+                    "name": "ForwardParallax",
+                    "width": 2720,
+                    "end": -50,
+                    "speed": 5
+                }
+            ],
+            "children": [
+                {
+                    "type": "sprite",
+                    "name": "1",
+                    "position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotation": 0,
+                    "scale": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "textureName": "parallax-2",
+                    "children": [],
+                    "scripts": []
+                },
+                {
+                    "type": "sprite",
+                    "name": "2",
+                    "position": {
+                        "x": 2720,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotation": 0,
+                    "scale": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "textureName": "parallax-2",
+                    "children": [],
+                    "scripts": []
                 }
             ]
         }

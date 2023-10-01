@@ -17,6 +17,7 @@ namespace UnitiGameEngine {
         if (values.isMember("position")) {
             this->_transform.position.x = values["position"]["x"].asFloat();
             this->_transform.position.y = values["position"]["y"].asFloat();
+            this->_transform.position.z = values["position"]["z"].asFloat();
         }
         if (values.isMember("rotation")) {
             this->_transform.rotation.angle = values["rotation"].asFloat();
