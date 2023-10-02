@@ -30,8 +30,13 @@ jobs:
       if: ${{ runner.os == 'Windows' }}
       run: move build\YourLibrary.lib release\
 
-    - name: Upload Release Artifacts
-      uses: actions/upload-artifact@v2
+    - name: Create GitHub Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
       with:
-        name: release
-        path: release/
+        files: release/* # Spécifiez les fichiers que vous souhaitez ajouter à la version
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Assurez-vous que vous avez le token GITHUB_TOKEN dans vos secrets de repository
+
+    - name: Display Release URL
+      run: echo "Release URL: ${{ steps.create_release.outputs.html_url }}"
