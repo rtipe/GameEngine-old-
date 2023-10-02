@@ -37,6 +37,3 @@ jobs:
         files: release/* # Spécifiez les fichiers que vous souhaitez ajouter à la version
       env:
         GITHUB_TOKEN: "token_release" # Assurez-vous que vous avez le token GITHUB_TOKEN dans vos secrets de repository
-
-    - name: Display Release URL
-      run: echo "Release URL: ${{ steps.create_release.outputs.html_url }}"
