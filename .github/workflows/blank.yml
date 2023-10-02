@@ -24,11 +24,11 @@ jobs:
 
     - name: Move Library to Release
       if: ${{ runner.os == 'Linux' }}
-      run: mv build/libYourLibrary.a release/
+      run: mv build/lib/libUnitiGameEngine.a release/
 
     - name: Move Library to Release (Windows)
       if: ${{ runner.os == 'Windows' }}
-      run: move build\YourLibrary.lib release\
+      run: move build\lib\libUnitiGameEngine.lib release\
 
     - name: Create GitHub Release
       id: create_release
