@@ -2,8 +2,8 @@ name: Build and Release C++ Project GameEngine
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - '*' # Déclencher l'action pour toutes les balises
 
 jobs:
   build:
@@ -23,12 +23,13 @@ jobs:
       run: mkdir release
 
     - name: Move Library to Release
-      run: move build\lib\Debug\UnitiGameEngine.lib release\
+      run: move build\lib\Release\UnitiGameEngine.lib release\
 
     - name: Create GitHub Release
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
-        files: release/* # Specify the files you want to include in the release
+        tag_name: ${{ github.ref }} # Utilisez la balise (tag) de la version actuelle
+        files: release/* # Spécifiez les fichiers que vous voulez inclure dans la release
       env:
-        GITHUB_TOKEN: "token_release"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
