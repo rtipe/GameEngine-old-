@@ -37,6 +37,8 @@ jobs:
 
   build-ubuntu:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Install Dependencies on Ubuntu
