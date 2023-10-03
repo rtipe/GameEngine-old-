@@ -24,7 +24,7 @@ jobs:
     - name: Build with CMake
       run: cmake --build build
 
-    - name: Create Release Directory
+    - name: Create Release Directory.
       run: mkdir release
 
     - name: Move Library to Release
