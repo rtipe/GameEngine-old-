@@ -23,7 +23,7 @@ jobs:
       run: mkdir release
 
     - name: Move Library to Release
-      run: move build\lib\libUnitiGameEngine.lib release\
+      run: move build\lib\Debug\UnitiGameEngine.lib release\
 
     - name: Create GitHub Release
       id: create_release
