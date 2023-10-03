@@ -2,8 +2,11 @@ name: Build and Release C++ Project GameEngine
 
 on:
   push:
+    branches:
+      - main
     tags:
       - '*' # Déclencher l'action pour toutes les balises
+
 
 jobs:
   build:
