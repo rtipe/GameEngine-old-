@@ -2,8 +2,6 @@ name: Build and Release C++ Project GameEngine
 
 on:
   push:
-    branches:
-      - main
     tags:
       - '*' # Déclencher l'action pour toutes les balises
 
@@ -13,6 +11,7 @@ jobs:
     runs-on: windows-latest
     permissions:
       contents: write
+    if: github.ref == 'refs/heads/main' # Déclencher l'action uniquement pour la branche master
 
     steps:
     - name: Checkout code
