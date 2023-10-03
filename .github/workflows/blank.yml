@@ -35,4 +35,4 @@ jobs:
         tag_name: ${{ github.ref }} # Utilisez la balise (tag) de la version actuelle
         files: release/* # Spécifiez les fichiers que vous voulez inclure dans la release
       env:
-        GITHUB_TOKEN: "token_release"
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
