@@ -34,7 +34,6 @@ jobs:
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ github.ref }} # Utilisez la balise (tag) de la version actuelle
         files: release/* # Spécifiez les fichiers que vous voulez inclure dans la release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
