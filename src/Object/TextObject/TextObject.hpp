@@ -31,7 +31,7 @@ namespace UnitiGameEngine {
             Transform _transform;
             std::vector<std::unique_ptr<IObject>> _children;
             Scene &_scene;
-            bool _isEnabled;
+            bool _isEnabled = true;
             std::string _name;
             sf::Text _text;
             std::string _textString;
