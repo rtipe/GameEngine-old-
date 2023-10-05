@@ -28,7 +28,7 @@ add_library(UnitiGameEngine STATIC
         src/Object/TextObject/TextObject.cpp
         src/Script/ScriptFactory.hpp
         src/Script/ScriptFactory.hpp
-        src/Script/ScriptFactory.cpp src/Event/Input.hpp src/Event/Input.cpp scripts/VasselMovement.cpp scripts/VasselMovement.hpp scripts/ForwardParallax.cpp scripts/ForwardParallax.hpp)
+        src/Script/ScriptFactory.cpp src/Event/Input.hpp src/Event/Input.cpp)
 
 target_link_libraries(UnitiGameEngine sfml-graphics sfml-audio sfml-window sfml-system jsoncpp_lib)
 target_compile_features(UnitiGameEngine PUBLIC cxx_std_17)

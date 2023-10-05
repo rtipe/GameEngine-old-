@@ -36,10 +36,55 @@ namespace UnitiGameEngine {
                 //TODO error
             }
         }
+        this->_name = values["name"].asString();
+        this->_scripts = scripts;
         for (int i = 0; i < scripts.size(); i++) {
             auto name = scripts[i]["name"].asString();
             this->_scriptManager.addScript(Uniti::getInstance().getScriptFactory().createScript(name, *this), name);
             this->_scriptManager.getScript(name).awake(scripts[i]);
+        }
+        this->_scriptManager.start();
+    }
+
+    EmptyObject::EmptyObject(Scene &scene): _scene(scene) {
+        Transform transform;
+
+        transform.position.x = 0;
+        transform.position.y = 0;
+        transform.position.z = 0;
+        transform.rotation = 0;
+        transform.scale.x = 0;
+        transform.scale.y = 0;
+
+        this->_transform = transform;
+    }
+
+    EmptyObject::EmptyObject(IObject &object, Scene &scene): _scene(scene) {
+        this->_transform.position.x = object.getTransform().position.x;
+        this->_transform.position.y = object.getTransform().position.y;
+        this->_transform.position.z = object.getTransform().position.z;
+        this->_transform.rotation.angle = object.getTransform().rotation.angle;
+        this->_transform.scale.x = object.getTransform().scale.x;
+        this->_transform.scale.y = object.getTransform().scale.y;
+        this->_name = object.getName();
+
+        for (int i = 0; i < object.getChildren().size(); i++) {
+            const UnitiGameEngine::ObjectTypes type = object.getChildren()[i].get()->getType();
+
+            if (type == UnitiGameEngine::ObjectTypes::Empty) {
+                this->_children.push_back(std::make_unique<UnitiGameEngine::EmptyObject>(*object.getChildren()[i], this->_scene));
+            } else if (type == UnitiGameEngine::ObjectTypes::Sprite) {
+                this->_children.push_back(std::make_unique<UnitiGameEngine::SpriteObject>(*object.getChildren()[i], this->_scene));
+            } else if (type == UnitiGameEngine::ObjectTypes::Text) {
+                this->_children.push_back(std::make_unique<UnitiGameEngine::TextObject>(*object.getChildren()[i], this->_scene));
+            } else {
+                //TODO error
+            }
+        }
+        for (int i = 0; i < object.getScripts().size(); i++) {
+            auto name = object.getScripts()[i]["name"].asString();
+            this->_scriptManager.addScript(Uniti::getInstance().getScriptFactory().createScript(name, *this), name);
+            this->_scriptManager.getScript(name).awake(object.getScripts()[i]);
         }
         this->_scriptManager.start();
     }
@@ -49,6 +94,10 @@ namespace UnitiGameEngine {
         this->_scriptManager.update();
         for (const auto &child : this->_children)
             child->update();
+    }
+
+    void EmptyObject::setName(std::string name) {
+        this->_name = name;
     }
 
     const std::string &EmptyObject::getName() const {
@@ -89,6 +138,10 @@ namespace UnitiGameEngine {
 
     Scene &EmptyObject::getScene() {
         return this->_scene;
+    }
+
+    Json::Value &EmptyObject::getScripts() {
+        return this->_scripts;
     }
 
     ScriptManager &EmptyObject::getScriptManager() {
