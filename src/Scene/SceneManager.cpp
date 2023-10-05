@@ -61,6 +61,7 @@ namespace UnitiGameEngine {
             Json::Value scene;
             file >> scene;
             this->_currentScene = std::make_unique<Scene>(scene, this->_nextScene->name);
+            this->_nextScene = std::nullopt;
         }
         this->_currentScene->update();
         this->_globalScene->update();
