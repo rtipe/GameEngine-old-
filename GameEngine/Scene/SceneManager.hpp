@@ -9,5 +9,4 @@ namespace Uniti::Game {
     class SceneManager {
 
     };
-} // Uniti
-// Game
+}
