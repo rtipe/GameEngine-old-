@@ -6,5 +6,4 @@
 
 
 namespace Uniti::Game {
-} // Uniti
-// Game
+}
