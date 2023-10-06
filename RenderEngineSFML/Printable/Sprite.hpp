@@ -24,7 +24,16 @@ namespace Uniti::Render {
         const float getRotation() const override;
         void setPosition(const Vector3f &position) override;
         void setScale(const Vector2f &scale) override;
-        void setRotation(const Vector2f &rotation) override;
+        void setRotation(float rotation) override;
         void setOrigin(const Vector2f &origin) override;
+    private:
+        std::mutex _mutex;
+        sf::Sprite _sprite;
+        Texture &_texture;
+        const std::string _type = "sprite";
+        Vector3f _position;
+        Vector2f _scale;
+        Vector2f _origin;
+        float _rotation;
     };
 }

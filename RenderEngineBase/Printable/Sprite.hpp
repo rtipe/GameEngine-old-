@@ -24,7 +24,7 @@ namespace Uniti::Render {
         const float getRotation() const override;
         void setPosition(const Vector3f &position) override;
         void setScale(const Vector2f &scale) override;
-        void setRotation(const Vector2f &rotation) override;
+        void setRotation(float rotation) override;
         void setOrigin(const Vector2f &origin) override;
     };
 }

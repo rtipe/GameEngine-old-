@@ -7,7 +7,9 @@
 
 namespace Uniti::Render {
     void Clock::restart() {
+        const std::lock_guard<std::mutex> lock(this->_mutex);
         _start = std::chrono::high_resolution_clock::now();
+        _paused = false;
     }
 
     long long Clock::getSeconds() const {
@@ -29,11 +31,13 @@ namespace Uniti::Render {
     }
 
     void Clock::pause() {
+        const std::lock_guard<std::mutex> lock(this->_mutex);
         _paused = true;
         _pause = std::chrono::high_resolution_clock::now();
     }
 
     void Clock::start() {
+        const std::lock_guard<std::mutex> lock(this->_mutex);
         if (_paused) {
             auto current_time = std::chrono::high_resolution_clock::now();
             auto pause_duration = std::chrono::duration_cast<std::chrono::nanoseconds>(current_time - _pause);

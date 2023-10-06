@@ -6,6 +6,7 @@
 
 
 #include <string>
+#include <SFML/Graphics.hpp>
 
 // mettre une méthode spécial pour chaque render (comme le getTexture() pour la sfml)
 // ou si sprite n'a pas besoin de texture, se servir de texture peut stocker les paramètres comme le chemin, smooth...
@@ -18,5 +19,6 @@ namespace Uniti::Render {
         const std::string &getPath() const;
         bool isSmooth() const;
         bool isRepeated() const;
+        sf::Texture &getTexture();
     };
 }

@@ -16,6 +16,7 @@ namespace Uniti::Render {
         void pause();
         void start();
     private:
+        std::mutex _mutex;
         std::chrono::high_resolution_clock::time_point _start;
         std::chrono::high_resolution_clock::time_point _pause;
         bool _paused = false;

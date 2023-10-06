@@ -15,10 +15,10 @@ namespace Uniti::Render {
         Color(const Color &color);
         Color(int r, int g, int b);
         Color(int r, int g, int b, int a);
-        int getR();
-        int getG();
-        int getB();
-        int getA();
+        int getR() const;
+        int getG() const;
+        int getB() const;
+        int getA() const;
         void setR(int value);
         void setG(int value);
         void setB(int value);
