@@ -5,9 +5,25 @@
 #pragma once
 
 
-namespace Uniti::Game {
-    class ProjectInfo {
+#include <string>
+#include <vector>
+#include <json/value.h>
+#include "ScenePath.hpp"
 
+namespace Uniti::Game {
+    struct ProjectInfo {
+        ProjectInfo(const std::string &projectPath);
+        std::string name;
+        std::string startScene;
+        std::string globalScene;
+        std::string directoryScenePath;
+        std::vector<ScenePath> scenes;
+        int width;
+        int height;
+        std::string title;
+        int framerateLimit;
+        std::string iconPath;
+        Json::Value data;
     };
 }
 
