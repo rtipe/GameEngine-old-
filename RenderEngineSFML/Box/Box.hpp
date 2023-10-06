@@ -12,16 +12,19 @@ namespace Uniti::Render {
     class Box {
     public:
         Box(const Json::Value &value);
-        Box(float x, float y, float left, float top);
+        Box(float x, float y, float width, float height);
         const Vector2f &getPosition() const;
         const Vector2f &getDimension() const;
         void setPosition(const Vector2f &position);
         void setDimension(const Vector2f &dimension);
         void setX(float x);
         void setY(float y);
-        void setLeft(float left);
-        void setTop(float top);
+        void setWidth(float width);
+        void setHeight(float height);
         bool isInside(const Vector2f &point) const;
         bool isInside(const Box &box) const;
+    private:
+        Vector2f _position;
+        Vector2f _dimension;
     };
 }
