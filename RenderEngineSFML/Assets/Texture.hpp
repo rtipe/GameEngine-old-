@@ -7,9 +7,8 @@
 
 #include <string>
 #include <SFML/Graphics.hpp>
+#include <mutex>
 
-// mettre une méthode spécial pour chaque render (comme le getTexture() pour la sfml)
-// ou si sprite n'a pas besoin de texture, se servir de texture peut stocker les paramètres comme le chemin, smooth...
 namespace Uniti::Render {
     class Texture {
     public:
@@ -20,5 +19,9 @@ namespace Uniti::Render {
         bool isSmooth() const;
         bool isRepeated() const;
         sf::Texture &getTexture();
+    private:
+        sf::Texture _texture;
+        std::string _path;
+        std::mutex _mutex;
     };
 }

@@ -6,9 +6,8 @@
 
 #include <string>
 #include <SFML/Graphics.hpp>
+#include <mutex>
 
-// mettre une méthode spécial pour chaque render (comme le getFont() pour la sfml)
-// ou si le texte n'a pas besoin de font, se servir de font peut stocker les paramètres comme le chemin...
 namespace Uniti::Render {
     class Font {
     public:
@@ -17,5 +16,9 @@ namespace Uniti::Render {
         const std::string &getPath() const;
         bool isSmooth() const;
         sf::Font &getFontAsset();
+    private:
+        sf::Font _font;
+        std::string _path;
+        std::mutex _mutex;
     };
 }
