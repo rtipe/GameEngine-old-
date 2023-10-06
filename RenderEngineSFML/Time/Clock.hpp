@@ -4,13 +4,20 @@
 
 #pragma once
 
+#include <chrono>
+
 namespace Uniti::Render {
     class Clock {
     public:
         void restart();
-        float getSeconds() const;
-        float getMilliSeconds() const;
-        float getMicroSeconds() const;
+        long long getSeconds() const;
+        long long getMilliSeconds() const;
+        long long getMicroSeconds() const;
         void pause();
+        void start();
+    private:
+        std::chrono::high_resolution_clock::time_point _start;
+        std::chrono::high_resolution_clock::time_point _pause;
+        bool _paused = false;
     };
 }

@@ -8,9 +8,10 @@ namespace Uniti::Render {
     class Clock {
     public:
         void restart();
-        float getSeconds() const;
-        float getMilliSeconds() const;
-        float getMicroSeconds() const;
+        long long getSeconds() const;
+        long long getMilliSeconds() const;
+        long long getMicroSeconds() const;
         void pause();
+        void start();
     };
 }
