@@ -4,12 +4,13 @@
 
 #pragma once
 
-namespace Uniti {
-    namespace Game {
-        namespace Utils {
-            class Script {
 
-            };
-        } // Uniti
-    } // Game
-} // Utils
+#include "IScript.hpp"
+
+namespace Uniti::Game::Utils {
+    class Script {
+        static IScript &find(const std::string &name);
+        template<typename SCRIPT>
+        static SCRIPT &find(const std::string &name);
+    };
+}
