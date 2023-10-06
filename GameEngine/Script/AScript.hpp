@@ -4,10 +4,10 @@
 
 #pragma once
 
+#include "IScript.hpp"
 
 namespace Uniti::Game {
-    class AScript {
+    class AScript : public IScript {
 
     };
-} // Uniti
-// Game
+}
