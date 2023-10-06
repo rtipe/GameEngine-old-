@@ -23,7 +23,7 @@ namespace Uniti::Render {
         bool isMousePressed(KeyMouse keyMouse);
         bool isMouseReleased(const std::string &key);
         bool isMouseReleased(KeyMouse keyMouse);
-        Vector2f getPosition();
+        Vector2f getPosition(Window &window);
         std::vector<std::string> &getEvents();
         void clearEvents();
     };

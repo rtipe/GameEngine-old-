@@ -23,8 +23,10 @@ namespace Uniti::Render {
         static bool isMousePressed(KeyMouse keyMouse);
         static bool isMouseReleased(const std::string &key);
         static bool isMouseReleased(KeyMouse keyMouse);
-        static Vector2f getPosition();
+        static Vector2f getPosition(Window &window);
         static std::vector<std::string> &getEvents();
         static void clearEvents();
+    private:
+        static std::vector<std::string> _events;
     };
 }
