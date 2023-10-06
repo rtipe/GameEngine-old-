@@ -6,5 +6,11 @@
 
 
 namespace Uniti::Game {
-} // Uniti
-// Game
+    std::unique_ptr<IScript> ScriptFactory::createScript(const std::string &name, Object &object) {
+        auto it = this->creators.find(name);
+
+        if (it == this->creators.end())
+            throw std::invalid_argument("Invalid type");
+        return it->second(object);
+    }
+}
