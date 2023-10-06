@@ -6,6 +6,7 @@
 
 
 #include <json/value.h>
+#include <mutex>
 
 namespace Uniti::Render {
     class Color {
@@ -25,5 +26,11 @@ namespace Uniti::Render {
         void setA(int value);
         void set(int r, int g, int b);
         void set(int r, int g, int b, int a);
+    private:
+        int _r;
+        int _g;
+        int _b;
+        int _a;
+        std::mutex _mutex;
     };
 }
