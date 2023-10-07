@@ -42,14 +42,14 @@ namespace Uniti::Game {
         Render::Vector3f newPosition = position + normal3f * speed3f * getDeltaTime();
         this->_object.getTransform().getPosition().setX(newPosition.getX());
         this->_object.getTransform().getPosition().setY(newPosition.getY());
-        std::optional<Object> isCollided = Utils::Collisions::isCollided(this->_object);
-        std::optional<Object> isOverlapped = Utils::Collisions::isOverlapped(this->_object);
+        std::optional<std::reference_wrapper<Object>> isCollided = Utils::Collisions::isCollided(this->_object);
+        std::optional<std::reference_wrapper<Object>> isOverlapped = Utils::Collisions::isOverlapped(this->_object);
         if (isCollided && !this->_object.getCollision().isOverlap()) {
-            isCollided.value().getScriptManager().emitEvent("collided", this->_object);
+            isCollided.value().get().getScriptManager().emitEvent("collided", this->_object);
             this->_object.getTransform().getPosition().operator=(position);
         }
         if (isOverlapped)
-            isOverlapped.value().getScriptManager().emitEvent("overlapped", this->_object);
+            isOverlapped.value().get().getScriptManager().emitEvent("overlapped", this->_object);
     }
 
     void Movement::cancelMovement() {

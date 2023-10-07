@@ -3,7 +3,7 @@
 //
 
 #include "Collision.hpp"
-
+#include "Object.hpp"
 
 namespace Uniti::Game {
     Collision::Collision() { }
@@ -59,5 +59,15 @@ namespace Uniti::Game {
     void Collision::setOverlap(bool isOverlap) {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         this->_isOverlap = isOverlap;
+    }
+
+    bool Collision::isInside(const Object &object) const {
+        for (const auto &inBox : this->_collisions) {
+            for (const auto &outBox : object.getCollision().getBox()) {
+                if (inBox.isInside(outBox))
+                    return true;
+            }
+        }
+        return false;
     }
 }

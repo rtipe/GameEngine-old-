@@ -9,8 +9,8 @@
 
 namespace Uniti::Game::Utils {
     class Script {
-        static IScript &find(const std::string &name);
+        static std::optional<std::reference_wrapper<IScript>> find(Object &object, const std::string &name);
         template<typename SCRIPT>
-        static SCRIPT &find(const std::string &name);
+        static std::optional<std::reference_wrapper<SCRIPT>> find_type(Object &object, const std::string &name);
     };
 }

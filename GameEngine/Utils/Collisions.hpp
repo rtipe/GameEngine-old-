@@ -13,13 +13,13 @@
 namespace Uniti::Game::Utils {
     class Collisions {
     public:
-        static std::optional<Object> isCollided(const Render::Vector2f &position);
-        static std::optional<Object> isCollided(const Render::Vector3f &position);
-        static std::optional<Object> isCollided(const Render::Box &position);
-        static std::optional<Object> isCollided(const Object &position);
-        static std::optional<Object> isOverlapped(const Render::Vector2f &position);
-        static std::optional<Object> isOverlapped(const Render::Vector3f &position);
-        static std::optional<Object> isOverlapped(const Render::Box &position);
-        static std::optional<Object> isOverlapped(const Object &position);
+        static std::optional<std::reference_wrapper<Object>> isCollided(const Render::Vector2f &position);
+        static std::optional<std::reference_wrapper<Object>> isCollided(const Render::Vector3f &position);
+        static std::optional<std::reference_wrapper<Object>> isCollided(const Render::Box &position);
+        static std::optional<std::reference_wrapper<Object>> isCollided(const Object &position);
+        static std::optional<std::reference_wrapper<Object>> isOverlapped(const Render::Vector2f &position);
+        static std::optional<std::reference_wrapper<Object>> isOverlapped(const Render::Vector3f &position);
+        static std::optional<std::reference_wrapper<Object>> isOverlapped(const Render::Box &position);
+        static std::optional<std::reference_wrapper<Object>> isOverlapped(const Object &position);
     };
 }

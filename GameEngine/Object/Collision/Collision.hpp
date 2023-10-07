@@ -8,6 +8,7 @@
 #include "Box.hpp"
 
 namespace Uniti::Game {
+    class Object;
     class Collision {
     public:
         Collision();
@@ -19,6 +20,7 @@ namespace Uniti::Game {
         std::vector<Render::Box> &getBox();
         bool isInside(const Render::Vector2f &point) const;
         bool isInside(const Render::Box &box) const;
+        bool isInside(const Object &object) const;
         bool isOverlap() const;
         void setOverlap(bool isOverlap);
     private:
