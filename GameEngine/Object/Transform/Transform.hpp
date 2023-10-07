@@ -11,6 +11,8 @@
 namespace Uniti::Game {
     class Transform {
     public:
+        Transform();
+        Transform(const Json::Value &value);
         const Render::Vector3f &getPosition() const;
         Render::Vector3f &getPosition();
         const Render::Vector2f &getScale() const;
