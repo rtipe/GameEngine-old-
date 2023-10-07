@@ -12,6 +12,7 @@ namespace Uniti::Game {
     class Transform {
     public:
         Transform();
+        Transform(const Transform &transform);
         Transform(const Json::Value &value);
         const Render::Vector3f &getPosition() const;
         Render::Vector3f &getPosition();
@@ -26,6 +27,6 @@ namespace Uniti::Game {
         Render::Vector3f _position;
         Render::Vector2f _scale;
         Render::Vector2f _origin;
-        float _rotation;
+        float _rotation = 0;
     };
 }

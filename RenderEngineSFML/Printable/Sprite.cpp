@@ -75,4 +75,13 @@ namespace Uniti::Render {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         this->_origin = origin;
     }
+
+    Sprite::Sprite(Sprite &sprite):
+    _texture(sprite._texture) {
+        this->_sprite = sprite._sprite;
+        this->_position = sprite._position;
+        this->_scale = sprite._scale;
+        this->_origin = sprite._origin;
+        this->_rotation = sprite._rotation;
+    }
 }

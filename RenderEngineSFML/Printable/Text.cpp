@@ -98,4 +98,12 @@ namespace Uniti::Render {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         this->_origin = origin;
     }
+
+    Text::Text(Text &text): _font(text._font) {
+        this->_text = text._text;
+        this->_scale = text._scale;
+        this->_position = text._position;
+        this->_rotation = text._rotation;
+        this->_origin = text._origin;
+    }
 }

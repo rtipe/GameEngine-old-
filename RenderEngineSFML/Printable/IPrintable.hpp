@@ -12,6 +12,7 @@
 namespace Uniti::Render {
     class IPrintable {
     public:
+        virtual ~IPrintable() = default;
         virtual void display(Uniti::Render::Window &window) = 0;
         virtual const std::string &getTypeName() const = 0;
         virtual const Vector3f &getPosition() const = 0;

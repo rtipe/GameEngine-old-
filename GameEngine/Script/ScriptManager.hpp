@@ -18,8 +18,12 @@ namespace Uniti::Game {
         bool contentScript(const std::string &name) const;
         void update();
         void start();
+        template<typename... Args>
+        void emitEvent(const std::string &name, Args... args);
+        const Json::Value &getData() const;
     private:
         std::mutex _mutex;
         std::map<std::string, std::unique_ptr<IScript>> _scripts;
+        Json::Value _data;
     };
 }

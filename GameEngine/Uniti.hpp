@@ -10,7 +10,7 @@
 #include "ScriptFactory.hpp"
 
 namespace Uniti::Game {
-    class Uniti {
+    class Core {
     public:
         static void start();
         static ProjectInfo &getProjectInfo();
@@ -19,8 +19,8 @@ namespace Uniti::Game {
         static Render::Window &getWindow();
         static void initProject(const std::string &projectPath);
     private:
-        Uniti(const std::string &projectPath);
-        static std::unique_ptr<Uniti> _instance;
+        Core(const std::string &projectPath);
+        static std::unique_ptr<Core> _instance;
         Render::Window _window;
         ProjectInfo _projectInfo;
         SceneManager _sceneManager;

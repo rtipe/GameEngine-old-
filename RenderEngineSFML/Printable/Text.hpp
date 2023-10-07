@@ -18,6 +18,7 @@ namespace Uniti::Render {
             ITALIC,
             REGULAR
         };
+        Text(Text &text);
         Text(Font &font);
         void setString(const std::string &value);
         void setFont(Font &font);
@@ -41,6 +42,6 @@ namespace Uniti::Render {
         Vector3f _position;
         Vector2f _scale;
         Vector2f _origin;
-        float _rotation;
+        float _rotation = 0;
     };
 }

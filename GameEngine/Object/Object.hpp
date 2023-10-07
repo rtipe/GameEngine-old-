@@ -17,7 +17,7 @@
 namespace Uniti::Game {
     class Object {
     public:
-        Object(const Object &object);
+        Object(Object &object);
         Object(const Json::Value &value, Scene &scene);
         Object(const std::string &name, Scene &scene);
         void update();
@@ -39,9 +39,10 @@ namespace Uniti::Game {
         Collision &getCollision();
         const std::string &getLayer() const;
         void setLayer(const std::string &layer);
+        bool hasPrintable() const;
         const Render::IPrintable &getPrintable() const;
         Render::IPrintable &getPrintable();
-        void setPrintable(Json::Value &value);
+        void setPrintable(const Json::Value &value);
     private:
         Scene &_scene;
         Movement _movement;
@@ -53,5 +54,6 @@ namespace Uniti::Game {
         ObjectManager _children;
         std::string _name;
         std::mutex _mutex;
+        bool _isEnable = true;
     };
 }

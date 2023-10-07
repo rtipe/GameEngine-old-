@@ -51,4 +51,13 @@ namespace Uniti::Game {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         this->_collisions.push_back(box);
     }
+
+    bool Collision::isOverlap() const {
+        return this->_isOverlap;
+    }
+
+    void Collision::setOverlap(bool isOverlap) {
+        const std::lock_guard<std::mutex> lock(this->_mutex);
+        this->_isOverlap = isOverlap;
+    }
 }

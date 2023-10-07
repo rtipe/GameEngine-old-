@@ -19,8 +19,11 @@ namespace Uniti::Game {
         std::vector<Render::Box> &getBox();
         bool isInside(const Render::Vector2f &point) const;
         bool isInside(const Render::Box &box) const;
+        bool isOverlap() const;
+        void setOverlap(bool isOverlap);
     private:
         std::vector<Render::Box> _collisions;
         std::mutex _mutex;
+        bool _isOverlap;
     };
 }

@@ -9,7 +9,6 @@
 #include <vector>
 #include <json/value.h>
 #include <mutex>
-#include "Scene.hpp"
 
 namespace Uniti::Game {
     class Object;
@@ -17,6 +16,7 @@ namespace Uniti::Game {
     class ObjectManager {
     public:
         ObjectManager(const Json::Value &value, Scene &scene);
+        ObjectManager(const std::vector<std::unique_ptr<Object>> &objects);
         void add(std::unique_ptr<Object> object);
         void remove(const std::string &name);
         const std::vector<std::unique_ptr<Object>> &getObjects() const;
@@ -25,6 +25,5 @@ namespace Uniti::Game {
     private:
         std::vector<std::unique_ptr<Object>> _objects;
         std::mutex _mutex;
-        Scene &_scene;
     };
 }

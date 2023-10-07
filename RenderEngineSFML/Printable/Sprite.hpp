@@ -13,6 +13,7 @@
 namespace Uniti::Render {
     class Sprite : public IPrintable {
     public:
+        Sprite(Sprite &sprite);
         Sprite(Texture &texture);
         void setTexture(Texture &texture);
         void setTextureRect(const Box &rect);
@@ -34,6 +35,6 @@ namespace Uniti::Render {
         Vector3f _position;
         Vector2f _scale;
         Vector2f _origin;
-        float _rotation;
+        float _rotation = 0;
     };
 }

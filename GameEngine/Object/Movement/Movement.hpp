@@ -5,6 +5,8 @@
 #pragma once
 
 #include "Vector2f.hpp"
+#include "Clock.hpp"
+#include "Vector3f.hpp"
 
 namespace Uniti::Game {
     class Object;
@@ -20,13 +22,17 @@ namespace Uniti::Game {
         void cancelMovement();
         bool isMoving() const;
         float getSpeed() const;
-        void setSpeed();
+        void setSpeed(float speed);
         void update();
+        const Render::Clock &getClock() const;
+        Render::Clock &getClock();
     private:
+        Render::Vector3f getDeltaTime();
         std::mutex _mutex;
         Object &_object;
-        float _speed;
-        Render::Vector2f &_to;
-        bool isTo;
+        float _speed = 0;
+        Render::Vector2f _to;
+        bool _isTo = false;
+        Render::Clock _clock;
     };
 }
