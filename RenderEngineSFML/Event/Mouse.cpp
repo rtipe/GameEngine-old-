@@ -5,6 +5,8 @@
 #include "Mouse.hpp"
 
 namespace Uniti::Render {
+    std::vector<std::string> Mouse::_events = {};
+
     void Mouse::update(Window &window) {
         std::string name;
 

@@ -50,10 +50,9 @@ namespace Uniti::Game {
         return this->_data;
     }
 
-    template<typename... Args>
-    void ScriptManager::emitEvent(const std::string &name, Args... args) {
+    void ScriptManager::emitEvent(const std::string &name, const Json::Value &value) {
         for (const auto &script : this->_scripts) {
-            script.second->getEvent().emitEvent(name, args...);
+            script.second->getEvent().emitEvent(name, value);
         }
     }
 }

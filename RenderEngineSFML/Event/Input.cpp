@@ -6,6 +6,8 @@
 
 
 namespace Uniti::Render {
+    std::vector<std::string> Input::_events = {};
+
     void Input::update(Window &window) {
         std::string name;
 

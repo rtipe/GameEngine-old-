@@ -45,11 +45,11 @@ namespace Uniti::Game {
         std::optional<std::reference_wrapper<Object>> isCollided = Utils::Collisions::isCollided(this->_object);
         std::optional<std::reference_wrapper<Object>> isOverlapped = Utils::Collisions::isOverlapped(this->_object);
         if (isCollided && !this->_object.getCollision().isOverlap()) {
-            isCollided.value().get().getScriptManager().emitEvent("collided", this->_object);
+            isCollided.value().get().getScriptManager().emitEvent("collided", this->_object.getName());
             this->_object.getTransform().getPosition().operator=(position);
         }
         if (isOverlapped)
-            isOverlapped.value().get().getScriptManager().emitEvent("overlapped", this->_object);
+            isOverlapped.value().get().getScriptManager().emitEvent("overlapped", this->_object.getName());
     }
 
     void Movement::cancelMovement() {

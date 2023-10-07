@@ -6,7 +6,7 @@
 
 
 namespace Uniti::Game {
-    std::size_t Event::addEvent(const std::string &name, eventFunction function) {
+    std::size_t Event::addEvent(const std::string &name, eventFunction &function) {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         if (!this->_events.contains(name))
             this->_events[name] = std::vector<eventFunction>();
@@ -24,10 +24,12 @@ namespace Uniti::Game {
         this->_events[name].erase(this->_events[name].begin() + id);
     }
 
-    template<typename... Args>
-    void Event::emitEvent(const std::string &name, Args... args) {
-        if (this->_events.contains(name))
-            return;
-        this->_events[name](args...);
+    void Event::emitEvent(const std::string &name, const Json::Value &value) {
+        auto it = _events.find(name);
+        if (it != _events.end()) {
+            for (auto &function : it->second) {
+                function(value);
+            }
+        }
     }
 }

@@ -18,8 +18,7 @@ namespace Uniti::Game {
         bool contentScript(const std::string &name) const;
         void update();
         void start();
-        template<typename... Args>
-        void emitEvent(const std::string &name, Args... args);
+        void emitEvent(const std::string &name, const Json::Value &value);
         const Json::Value &getData() const;
     private:
         std::mutex _mutex;

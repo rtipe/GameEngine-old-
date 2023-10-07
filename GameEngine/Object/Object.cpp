@@ -76,9 +76,9 @@ namespace Uniti::Game {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         this->_isEnable = value;
         if (this->_isEnable)
-            this->_scriptManager.emitEvent("onEnable");
+            this->_scriptManager.emitEvent("onEnable", {});
         else
-            this->_scriptManager.emitEvent("onDisable");
+            this->_scriptManager.emitEvent("onDisable", {});
     }
 
     bool Object::isEnabled() const {
