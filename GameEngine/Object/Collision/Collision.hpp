@@ -14,6 +14,7 @@ namespace Uniti::Game {
         Collision(const Json::Value &value);
         Collision(const std::vector<Render::Box> &collisions);
         Collision(const Render::Box &box);
+        void addBox(const Render::Box &box);
         const std::vector<Render::Box> &getBox() const;
         std::vector<Render::Box> &getBox();
         bool isInside(const Render::Vector2f &point) const;

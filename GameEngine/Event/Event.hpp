@@ -16,6 +16,7 @@ namespace Uniti::Game {
     public:
         std::size_t addEvent(const std::string &name, eventFunction function);
         void removeEvent(const std::string &name);
+        void removeEvent(const std::string &name, std::size_t id);
         template<typename... Args>
         void emitEvent(const std::string &name, Args... args);
     private:
