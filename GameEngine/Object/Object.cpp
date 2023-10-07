@@ -58,7 +58,7 @@ namespace Uniti::Game {
             this->_printable->setOrigin(this->_transform.getOrigin());
             this->_printable->setRotation(this->_transform.getRotation());
             this->_printable->setPosition(this->_transform.getPosition());
-            this->_printable->display(Uniti::Game::Core::getWindow());
+            Uniti::Game::Core::getWindow().print(this->_printable);
         }
     }
 

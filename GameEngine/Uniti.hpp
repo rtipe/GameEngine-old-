@@ -4,10 +4,11 @@
 
 #pragma once
 
-
 #include "ProjectInfo.hpp"
 #include "SceneManager.hpp"
 #include "ScriptFactory.hpp"
+#include "Window.hpp"
+#include "Sound.hpp"
 
 namespace Uniti::Game {
     class Core {
@@ -17,6 +18,7 @@ namespace Uniti::Game {
         static SceneManager &getSceneManager();
         static ScriptFactory &getScriptFactory();
         static Render::Window &getWindow();
+        static Render::Sound &getSound();
         static void initProject(const std::string &projectPath);
     private:
         Core(const std::string &projectPath);
@@ -26,5 +28,6 @@ namespace Uniti::Game {
         SceneManager _sceneManager;
         ScriptFactory _scriptFactory;
         std::string _projectPath;
+        Render::Sound _sound;
     };
 }

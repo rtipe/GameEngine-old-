@@ -20,7 +20,7 @@ namespace Uniti::Render {
         Mouse::clearEvents();
         while (this->_window.pollEvent(this->_event)) {
             if (this->_event.type == sf::Event::Closed)
-                this->_window.close();
+                this->close();
             Input::update(*this);
             Mouse::update(*this);
         }
