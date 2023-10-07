@@ -55,8 +55,13 @@ namespace Uniti::Game {
         this->_scriptManager.update();
         this->_movement.update();
         this->_children.update();
-        if (this->_printable)
+        if (this->_printable) {
+            this->_printable->setScale(this->_transform.getScale());
+            this->_printable->setOrigin(this->_transform.getOrigin());
+            this->_printable->setRotation(this->_transform.getRotation());
+            this->_printable->setPosition(this->_transform.getPosition());
             this->_printable->display(Uniti::Game::Core::getWindow());
+        }
     }
 
     void Object::setName(const std::string &name) {
@@ -147,11 +152,25 @@ namespace Uniti::Game {
 
         if (type == "sprite") {
             const std::string &textureName = value.get("texture", "").asString();
-            this->_printable = std::make_unique<Render::Sprite>(this->_scene.getAssetManager().getTexture(textureName));
+            std::unique_ptr<Render::Sprite> sprite = std::make_unique<Render::Sprite>(this->_scene.getAssetManager().getTexture(textureName));
+            if (value.isMember("textureRect"))
+                sprite->setTextureRect(value["textureRect"]);
+            this->_printable = std::move(sprite);
         }
         if (type == "text") {
             const std::string &fontName = value.get("font", "").asString();
-            this->_printable = std::make_unique<Render::Text>(this->_scene.getAssetManager().getFont(fontName));
+            std::unique_ptr<Render::Text> text = std::make_unique<Render::Text>(this->_scene.getAssetManager().getFont(fontName));
+            text->setString(value.get("text", "").asString());
+            text->setColor(value["color"]);
+            const std::string &style = value.get("style", "regular").asString();
+            if (style == "regular")
+                text->setStyle(Uniti::Render::Text::REGULAR);
+            if (style == "bold")
+                text->setStyle(Uniti::Render::Text::BOLD);
+            if (style == "italic")
+                text->setStyle(Uniti::Render::Text::ITALIC);
+            text->setCharacterSize(value.get("size", 24).asInt());
+            this->_printable = std::move(text);
         }
         if (type == "empty")
             this->_printable = nullptr;

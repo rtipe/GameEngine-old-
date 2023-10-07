@@ -19,10 +19,10 @@ namespace Uniti::Game {
         const std::vector<ScenePath> &getAllScenes() const;
         const ScenePath &getScenePath(const std::string &name) const;
         void addScenePath(ScenePath &scenePath);
-        bool removeScenePath(const std::string &name);
         bool changeScene(const std::string &name);
         void update();
         void init();
+        Json::Value getSceneValue(const ScenePath &scenePath) const;
     private:
         std::unique_ptr<Scene> _globalScene;
         std::unique_ptr<Scene> _currentScene;

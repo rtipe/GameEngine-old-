@@ -22,5 +22,6 @@ namespace Uniti::Game {
     private:
         std::string _name;
         AssetManager _assetManager;
+        ObjectManager _objectManager;
     };
 }
