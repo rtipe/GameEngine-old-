@@ -19,5 +19,7 @@ namespace Uniti::Game {
         virtual Object &getGameObject() = 0;
         virtual const Event &getEvent() const = 0;
         virtual Event &getEvent() = 0;
+        virtual const Render::Clock &getClock() const = 0;
+        virtual Render::Clock &getClock() = 0;
     };
 }

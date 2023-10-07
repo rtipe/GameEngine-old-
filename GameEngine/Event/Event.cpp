@@ -26,6 +26,8 @@ namespace Uniti::Game {
 
     template<typename... Args>
     void Event::emitEvent(const std::string &name, Args... args) {
+        if (this->_events.contains(name))
+            return;
         this->_events[name](args...);
     }
 }

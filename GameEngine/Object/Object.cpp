@@ -16,7 +16,7 @@ namespace Uniti::Game {
     _layer(object.getLayer()),
     _name(object.getName()),
     _movement(*this),
-    _scriptManager(object.getScriptManager().getData()) {
+    _scriptManager(object.getScriptManager().getData(), *this) {
         if (object.hasPrintable()) {
             if (object.getPrintable().getTypeName() == "sprite") {
                 this->_printable = std::make_unique<Render::Sprite>(dynamic_cast<Render::Sprite &>(object.getPrintable()));
@@ -25,7 +25,6 @@ namespace Uniti::Game {
                 this->_printable = std::make_unique<Render::Text>(dynamic_cast<Render::Text &>(object.getPrintable()));
             }
         }
-        this->_scriptManager.start();
     }
 
     Object::Object(const Json::Value &value, Scene &scene):
@@ -36,9 +35,8 @@ namespace Uniti::Game {
     _layer(value.get("layer", "").asString()),
     _name(value.get("name", "").asString()),
     _movement(*this),
-    _scriptManager(value["scripts"]) {
+    _scriptManager(value["scripts"], *this) {
         this->setPrintable(value);
-        this->_scriptManager.start();
     }
 
     Object::Object(const std::string &name, Scene &scene):
@@ -46,7 +44,7 @@ namespace Uniti::Game {
     _children({}),
     _name(name),
     _movement(*this),
-    _scriptManager({}) { }
+    _scriptManager({}, *this) { }
 
     void Object::update() {
         if (!this->_isEnable)
@@ -76,6 +74,10 @@ namespace Uniti::Game {
     void Object::setEnable(bool value) {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         this->_isEnable = value;
+        if (this->_isEnable)
+            this->_scriptManager.emitEvent("onEnable");
+        else
+            this->_scriptManager.emitEvent("onDisable");
     }
 
     bool Object::isEnabled() const {

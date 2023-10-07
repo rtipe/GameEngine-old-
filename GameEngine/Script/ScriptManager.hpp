@@ -9,9 +9,10 @@
 #include "IScript.hpp"
 
 namespace Uniti::Game {
+    class Object;
     class ScriptManager {
     public:
-        ScriptManager(const Json::Value &value);
+        ScriptManager(const Json::Value &value, Object &object);
         void addScript(std::unique_ptr<IScript> script, const std::string &name);
         bool removeScript(const std::string &name);
         IScript &getScript(const std::string &name);
