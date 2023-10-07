@@ -4,7 +4,7 @@
 
 #pragma once
 
-
+#include <optional>
 #include "IScript.hpp"
 
 namespace Uniti::Game::Utils {

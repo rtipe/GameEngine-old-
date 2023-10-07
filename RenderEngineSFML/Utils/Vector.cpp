@@ -2,8 +2,8 @@
 // Created by youba on 05/10/2023.
 //
 
+#include <cmath>
 #include "Vector.hpp"
-
 
 namespace Uniti::Render::Utils {
     float Vector::getDistance(const Vector2i &a, const Vector2i &b) {

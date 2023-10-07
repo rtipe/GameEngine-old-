@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <optional>
 #include "Object.hpp"
 
 namespace Uniti::Game::Utils {

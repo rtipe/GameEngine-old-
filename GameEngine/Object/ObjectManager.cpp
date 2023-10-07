@@ -2,9 +2,8 @@
 // Created by youba on 05/10/2023.
 //
 
-#include "Object.hpp"
-#include "ObjectManager.hpp"
 #include "Scene.hpp"
+#include "Object.hpp"
 
 namespace Uniti::Game {
     ObjectManager::ObjectManager(const Json::Value &value, Scene &scene) {

@@ -58,13 +58,11 @@ namespace Uniti::Game {
     void AssetManager::addFont(const Json::Value &params) {
         const std::string &path = params.get("path", "").asString();
         const std::string &name = params.get("name", "").asString();
-        bool isSmooth = params.get("isSmooth", false).asBool();
-        this->addFont(path, name, isSmooth);
+        this->addFont(path, name);
     }
 
-    void AssetManager::addFont(const std::string &path, const std::string &name, bool isSmooth) {
+    void AssetManager::addFont(const std::string &path, const std::string &name) {
         std::unique_ptr<Render::Font> font = std::make_unique<Render::Font>(path);
-        font->setSmooth(isSmooth);
         const std::lock_guard<std::mutex> lock(this->_mutex);
         this->_fonts[name] = std::move(font);
     }

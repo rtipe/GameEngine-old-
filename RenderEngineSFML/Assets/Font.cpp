@@ -9,17 +9,8 @@ namespace Uniti::Render {
         this->_font.loadFromFile(path);
     }
 
-    void Font::setSmooth(bool smooth) {
-        const std::lock_guard<std::mutex> lock(this->_mutex);
-        this->_font.setSmooth(smooth);
-    }
-
     const std::string &Font::getPath() const {
         return this->_path;
-    }
-
-    bool Font::isSmooth() const {
-        return this->_font.isSmooth();
     }
 
     sf::Font &Font::getFontAsset() {

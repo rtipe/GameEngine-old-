@@ -20,7 +20,7 @@ namespace Uniti::Game {
         void addTexture(const std::string &path, const std::string &name, bool isSmooth = false, bool isRepeated = false);
         void addTexture(std::unique_ptr<Render::Texture> texture, const std::string &name);
         void addFont(const Json::Value &params);
-        void addFont(const std::string &path, const std::string &name, bool isSmooth = false);
+        void addFont(const std::string &path, const std::string &name);
         bool removeTexture(const std::string &name);
         bool removeFont(const std::string &name);
         void clearTextures();

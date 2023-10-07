@@ -37,7 +37,7 @@ namespace Uniti::Render {
     private:
         std::mutex _mutex;
         sf::Text _text;
-        Font &_font;
+        std::reference_wrapper<Font> _font;
         const std::string _type = "text";
         Vector3f _position;
         Vector2f _scale;

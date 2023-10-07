@@ -4,7 +4,6 @@
 
 #pragma once
 
-
 #include <json/value.h>
 #include "IScript.hpp"
 

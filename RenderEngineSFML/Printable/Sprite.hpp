@@ -30,7 +30,7 @@ namespace Uniti::Render {
     private:
         std::mutex _mutex;
         sf::Sprite _sprite;
-        Texture &_texture;
+        std::reference_wrapper<Texture> _texture;
         const std::string _type = "sprite";
         Vector3f _position;
         Vector2f _scale;

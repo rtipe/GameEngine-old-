@@ -8,7 +8,6 @@
 #include <functional>
 #include <map>
 #include <mutex>
-#include "IScript.hpp"
 
 namespace Uniti::Game {
     using eventFunction = std::function<void()>;

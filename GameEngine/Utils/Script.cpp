@@ -2,8 +2,8 @@
 // Created by youba on 05/10/2023.
 //
 
+#include "Object.hpp"
 #include "Script.hpp"
-
 
 namespace Uniti::Game::Utils {
     std::optional<std::reference_wrapper<IScript>> Script::find(Object &object, const std::string &name) {

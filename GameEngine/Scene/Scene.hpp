@@ -6,8 +6,8 @@
 
 
 #include <json/value.h>
+#include "Object.hpp"
 #include "AssetManager.hpp"
-#include "ObjectManager.hpp"
 
 namespace Uniti::Game {
     class Scene {

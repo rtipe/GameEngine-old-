@@ -4,7 +4,6 @@
 
 #include "Scene.hpp"
 
-
 namespace Uniti::Game {
     Scene::Scene(const Json::Value &scene, const std::string &name):
     _objectManager(scene["objects"], *this),

@@ -5,6 +5,7 @@
 #pragma once
 
 #include <chrono>
+#include <mutex>
 
 namespace Uniti::Render {
     class Clock {

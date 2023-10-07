@@ -80,7 +80,7 @@ namespace Uniti::Render {
             }
         }
         if (this->_musics.contains(name)) {
-            sf::SoundSource::Status status = this->_musics[name].getStatus();
+            sf::SoundSource::Status status = this->_musics[name]->getStatus();
             switch (status) {
                 case sf::SoundSource::Stopped:
                     return PAUSE;

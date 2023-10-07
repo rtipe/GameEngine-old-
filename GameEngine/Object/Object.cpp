@@ -6,6 +6,7 @@
 #include "Sprite.hpp"
 #include "Text.hpp"
 #include "Uniti.hpp"
+#include "Scene.hpp"
 
 namespace Uniti::Game {
     Object::Object(Object &object):
@@ -58,7 +59,7 @@ namespace Uniti::Game {
             this->_printable->setOrigin(this->_transform.getOrigin());
             this->_printable->setRotation(this->_transform.getRotation());
             this->_printable->setPosition(this->_transform.getPosition());
-            Uniti::Game::Core::getWindow().print(this->_printable);
+            Uniti::Game::Core::getWindow().print(*this->_printable);
         }
     }
 

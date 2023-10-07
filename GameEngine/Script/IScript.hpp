@@ -5,10 +5,11 @@
 #pragma once
 
 #include <json/value.h>
-#include "Object.hpp"
 #include "Event.hpp"
+#include "Clock.hpp"
 
 namespace Uniti::Game {
+    class Object;
     class IScript {
     public:
         virtual ~IScript() = default;
