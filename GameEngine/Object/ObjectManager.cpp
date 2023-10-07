@@ -2,8 +2,8 @@
 // Created by youba on 05/10/2023.
 //
 
-#include "ObjectManager.hpp"
 #include "Object.hpp"
+#include "ObjectManager.hpp"
 #include "Scene.hpp"
 
 namespace Uniti::Game {

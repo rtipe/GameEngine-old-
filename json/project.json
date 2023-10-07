@@ -1,0 +1,13 @@
+{
+    "name": "R-Tip",
+    "directoryScenePath": "../json/scenes/",
+    "startScene": "start.json",
+    "globalScene": "global.json",
+    "windowInfos": {
+        "title": "R-Tip",
+        "width": 1920,
+        "height": 1080,
+        "fps": 60,
+        "icon": "../assets/icon.png"
+    }
+}

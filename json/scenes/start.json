@@ -1,0 +1,30 @@
+{
+    "assets": {
+        "fonts": [],
+        "textures": [{
+            "path": "../assets/icon.png",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "first"
+        }]
+    },
+    "objects": [
+        {
+            "type": "sprite",
+            "name": "first",
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 11
+            },
+            "rotation": 0,
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "textureName": "first",
+            "children": [],
+            "scripts": []
+        }
+    ]
+}

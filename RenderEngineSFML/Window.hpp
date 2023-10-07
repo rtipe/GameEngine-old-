@@ -7,9 +7,9 @@
 #include <json/value.h>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include "IPrintable.hpp"
 
 namespace Uniti::Render {
+    class IPrintable;
     class Window {
     public:
         bool isOpen() const;

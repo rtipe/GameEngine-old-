@@ -5,6 +5,7 @@
 #include "Window.hpp"
 #include "Input.hpp"
 #include "Mouse.hpp"
+#include "IPrintable.hpp"
 
 namespace Uniti::Render {
     bool Window::isOpen() const {
