@@ -61,7 +61,6 @@ namespace Uniti::Game::Utils {
                 continue;
             if (object->getCollision().isOverlap())
                 continue;
-            std::cout << object->getName() << std::endl;
             if (object->getCollision().isInside(position))
                 return *object;
         }
