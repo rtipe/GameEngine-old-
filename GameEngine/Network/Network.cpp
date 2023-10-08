@@ -4,6 +4,7 @@
 
 #include <json/json.h>
 #include <iostream>
+#include <thread>
 #include "Network.hpp"
 
 namespace Uniti::Game {
@@ -12,11 +13,22 @@ namespace Uniti::Game {
     _latence(latence),
     _port(port) { }
 
+    Network::~Network() {
+        if (this->_ioThread.joinable())
+            this->_ioThread.join();
+    }
+
     void Network::start() {
         this->startReceive();
-        std::async(std::launch::async, [&]() {
-           this->sendPackets();
-        });
+        this->_ioThread = std::thread([](boost::asio::io_context &io_context) {
+            io_context.run();
+        }, std::ref(this->_ioService));
+    }
+
+    void Network::update() {
+        this->sendPackets();
+        for (const auto &server : this->_servers)
+            server.second->updateEvent();
     }
 
     void Network::addServer(const std::string &name, const std::string &ip, unsigned int port , const Json::Value &user) {
@@ -36,24 +48,34 @@ namespace Uniti::Game {
     }
 
     void Network::startReceive() {
-        std::string buffer;
-        boost::asio::ip::udp::endpoint senderEndPoint;
-        this->_socketUDP.async_receive_from(boost::asio::buffer(buffer), senderEndPoint,
+        this->_socketUDP.async_receive_from(boost::asio::buffer(this->_buffer, this->_size), _senderEndPoint,
         [&] (const boost::system::error_code &error, std::size_t length) {
-            this->receiveBuffer(buffer, senderEndPoint, error, length);
-            this->startReceive();
+            if (!error) {
+                std::string text(this->_buffer, length);
+                std::cout << text << std::endl;
+                this->receiveBuffer(text, _senderEndPoint, error, length);
+                memset(this->_buffer, 0, this->_size);
+                this->startReceive();
+            } else {
+                std::cerr << "Error : " << error.message() << std::endl;
+            }
         });
     }
 
     void Network::sendPackets() {
+        if (this->_clock.getMilliSeconds() < this->_latence)
+            return;
+        this->_clock.restart();
         auto packets = this->getPacketToSend();
         for (auto &pair : packets) {
-            Json::FastWriter fastWriter;
-            std::string output = fastWriter.write(pair.second);
-            this->_socketUDP.send_to(boost::asio::buffer(output), pair.first);
+            try {
+                Json::FastWriter fastWriter;
+                std::string output = fastWriter.write(pair.second);
+                this->_socketUDP.send_to(boost::asio::buffer(output), pair.first);
+            } catch (std::exception &e) {
+                std::cout << "error sent " << e.what() << std::endl;
+            }
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(this->_latence));
-        this->sendPackets();
     }
 
     void Network::receiveBuffer(const std::string &buffer, boost::asio::ip::udp::endpoint &senderEndPoint,

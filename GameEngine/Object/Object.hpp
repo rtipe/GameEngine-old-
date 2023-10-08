@@ -23,6 +23,7 @@ namespace Uniti::Game {
         const std::vector<std::unique_ptr<Object>> &getObjects() const;
         std::vector<std::unique_ptr<Object>> &getObjects();
         void update();
+        void emitEvent(const std::string &name, const Json::Value &value);
     private:
         std::vector<std::unique_ptr<Object>> _objects;
         std::mutex _mutex;

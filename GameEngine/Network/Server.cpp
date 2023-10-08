@@ -4,7 +4,7 @@
 
 #include <algorithm>
 #include "Server.hpp"
-
+#include "Uniti.hpp"
 
 namespace Uniti::Game {
     Server::Server(const std::string &ip, unsigned int port, const Json::Value &user):
@@ -41,6 +41,7 @@ namespace Uniti::Game {
     }
 
     void Server::updateEvent() {
+        std::unique_lock<std::mutex> lock(this->_mutex);
         int nextId = (this->_waitedId + 1 >= 100) ? 0 : this->_waitedId + 1;
 
         auto itToHandle = std::find_if(this->_packetToHandle.begin(), this->_packetToHandle.end(),
@@ -53,9 +54,11 @@ namespace Uniti::Game {
 
         for (const auto &event : events) {
             const std::string &name = event.get("name", "undefined").asString();
-            // TODO: Call event of all script
+            lock.unlock();
+            Core::getSceneManager().getCurrentScene().getObjects().emitEvent(name, event);
+            Core::getSceneManager().getGlobalScene().getObjects().emitEvent(name, event);
+            lock.lock();
         }
-        std::unique_lock<std::mutex> lock(this->_mutex);
         if (this->_packetHandled.size() > 16)
             this->_packetHandled.pop_front();
         this->_packetHandled.push_back(nextId);

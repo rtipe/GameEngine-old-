@@ -9,5 +9,8 @@
         "height": 1080,
         "fps": 60,
         "icon": "../assets/icon.png"
+    },
+    "networkInfos": {
+        "latence": 1000
     }
 }

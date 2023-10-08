@@ -40,4 +40,9 @@ namespace Uniti::Game {
         for (const auto &object: this->_objects)
             object->update();
     }
+
+    void ObjectManager::emitEvent(const std::string &name, const Json::Value &value) {
+        for (const auto &object : this->_objects)
+            object->getScriptManager().emitEvent(name, value);
+    }
 }

@@ -15,6 +15,7 @@ namespace Uniti::Game {
         while (_instance->_window.isOpen()) {
             _instance->_sceneManager.update();
             _instance->_window.display();
+            _instance->_network.update();
         }
     }
 
@@ -49,7 +50,9 @@ namespace Uniti::Game {
     Core::Core(const std::string &projectPath):
     _projectInfo(projectPath),
     _projectPath(projectPath),
-    _network(_projectInfo.port, _projectInfo.latence) { }
+    _network(_projectInfo.port, _projectInfo.latence) {
+        this->_network.start();
+    }
 
     Render::Sound &Core::getSound() {
         if (!Core::_instance)
