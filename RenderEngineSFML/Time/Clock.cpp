@@ -6,6 +6,10 @@
 
 
 namespace Uniti::Render {
+    Clock::Clock() {
+        _start = std::chrono::high_resolution_clock::now();
+    }
+
     void Clock::restart() {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         _start = std::chrono::high_resolution_clock::now();

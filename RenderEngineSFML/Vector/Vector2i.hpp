@@ -31,3 +31,5 @@ namespace Uniti::Render {
         int _y;
     };
 }
+
+std::ostream& operator<<(std::ostream& os, const Uniti::Render::Vector2i& vector);

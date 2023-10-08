@@ -4,7 +4,6 @@
 
 #include "AScript.hpp"
 
-
 namespace Uniti::Game {
     const Object &AScript::getGameObject() const {
         return this->_gameObject;

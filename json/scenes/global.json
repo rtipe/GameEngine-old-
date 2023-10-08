@@ -2,7 +2,7 @@
     "assets": {
         "fonts": [],
         "textures": [{
-            "path": "../assets/icon.png",
+            "path": "../assets/first.png",
             "isRepeated": false,
             "isSmooth": false,
             "name": "first"

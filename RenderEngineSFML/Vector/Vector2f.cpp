@@ -65,3 +65,8 @@ namespace Uniti {
         }
     }
 }
+
+std::ostream& operator<<(std::ostream& os, const Uniti::Render::Vector2f& vector) {
+    os << "x = " << vector.getX() << " y = " << vector.getY() << std::endl;
+    return os;
+}

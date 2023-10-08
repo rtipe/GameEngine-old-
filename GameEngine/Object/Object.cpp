@@ -50,9 +50,9 @@ namespace Uniti::Game {
     void Object::update() {
         if (!this->_isEnable)
             return;
-        this->_movement.getClock().restart();
         this->_scriptManager.update();
         this->_movement.update();
+        this->_movement.getClock().restart();
         this->_children.update();
         if (this->_printable) {
             this->_printable->setScale(this->_transform.getScale());

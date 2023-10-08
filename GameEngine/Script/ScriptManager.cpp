@@ -35,8 +35,8 @@ namespace Uniti::Game {
 
     void ScriptManager::update() {
         for (const auto &script : this->_scripts) {
-            script.second->getClock().restart();
             script.second->update();
+            script.second->getClock().restart();
         }
     }
 

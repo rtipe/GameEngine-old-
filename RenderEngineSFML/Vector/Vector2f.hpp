@@ -30,3 +30,5 @@ namespace Uniti::Render {
         float _y;
     };
 }
+
+std::ostream& operator<<(std::ostream& os, const Uniti::Render::Vector2f& vector);

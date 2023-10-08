@@ -14,3 +14,4 @@ target_link_libraries(project PRIVATE sfml-graphics sfml-audio sfml-window sfml-
 add_subdirectory(GameEngine)
 add_subdirectory(RenderEngineSFML)
 add_subdirectory(src)
+add_subdirectory(Scripts)

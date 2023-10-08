@@ -77,3 +77,8 @@ namespace Uniti {
         }
     }
 }
+
+std::ostream& operator<<(std::ostream& os, const Uniti::Render::Vector3f& vector) {
+    os << "x = " << vector.getX() << " y = " << vector.getY() << " z = " << vector.getZ() << std::endl;
+    return os;
+}

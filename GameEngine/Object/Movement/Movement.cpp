@@ -2,6 +2,7 @@
 // Created by youba on 05/10/2023.
 //
 
+#include <iostream>
 #include "Movement.hpp"
 #include "Object.hpp"
 #include "Vector.hpp"
@@ -76,6 +77,7 @@ namespace Uniti::Game {
             Render::Vector2f normal = Render::Utils::Vector::getNormal({position.getX(), position.getY()}, this->_to);
             this->move(normal, this->_speed);
             const std::lock_guard<std::mutex> lock(this->_mutex);
+            this->_isTo = true;
             Render::Vector3f newPosition = this->_object.getTransform().getPosition();
             Render::Vector3f normal3f(normal.getX(), normal.getY(), 0);
             Render::Vector3f speed3f(this->_speed, this->_speed, this->_speed);
@@ -84,7 +86,7 @@ namespace Uniti::Game {
             Render::Vector3f to3f = {this->_to.getX(), this->_to.getY(), 0};
             Render::Vector3f roundPosition = newPosition - to3f;
             roundPosition.set(abs(roundPosition.getX()), abs(roundPosition.getY()), 0);
-            if (round.getX() > to3f.getX() && round.getY() > to3f.getY())
+            if (round.getX() > roundPosition.getX() && round.getY() > roundPosition.getY())
                 this->_isTo = false;
         }
     }
@@ -98,9 +100,9 @@ namespace Uniti::Game {
     }
 
     Render::Vector3f Movement::getDeltaTime() {
-        return {static_cast<float>(this->_clock.getMicroSeconds()) / 1000,
-                static_cast<float>(this->_clock.getMicroSeconds()) / 1000,
-                static_cast<float>(this->_clock.getMicroSeconds()) / 1000};
+        return {static_cast<float>(this->_clock.getMicroSeconds()) / 1000000,
+                static_cast<float>(this->_clock.getMicroSeconds()) / 1000000,
+                static_cast<float>(this->_clock.getMicroSeconds()) / 1000000};
     }
 }
 

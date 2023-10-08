@@ -34,3 +34,5 @@ namespace Uniti::Render {
         float _z;
     };
 }
+
+std::ostream& operator<<(std::ostream& os, const Uniti::Render::Vector3f& vector);
