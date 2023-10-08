@@ -6,26 +6,28 @@
 
 #include <json/value.h>
 #include "Box.hpp"
+#include "Transform.hpp"
 
 namespace Uniti::Game {
     class Object;
     class Collision {
     public:
-        Collision();
-        Collision(const Json::Value &value);
-        Collision(const std::vector<Render::Box> &collisions);
-        Collision(const Render::Box &box);
+        Collision(Transform &transform);
+        Collision(const Json::Value &value, Transform &transform);
+        Collision(const std::vector<Render::Box> &collisions, Transform &transform);
+        Collision(const Render::Box &box, Transform &transform);
         void addBox(const Render::Box &box);
         const std::vector<Render::Box> &getBox() const;
         std::vector<Render::Box> &getBox();
         bool isInside(const Render::Vector2f &point) const;
-        bool isInside(const Render::Box &box) const;
+        bool isInside(const Render::Box &box, const Render::Vector3f &position) const;
         bool isInside(const Object &object) const;
         bool isOverlap() const;
         void setOverlap(bool isOverlap);
     private:
         std::vector<Render::Box> _collisions;
         std::mutex _mutex;
-        bool _isOverlap;
+        Transform &_transform;
+        bool _isOverlap = false;
     };
 }

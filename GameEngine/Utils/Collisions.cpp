@@ -2,6 +2,7 @@
 // Created by youba on 07/10/2023.
 //
 
+#include <iostream>
 #include "Collisions.hpp"
 #include "Uniti.hpp"
 
@@ -38,17 +39,17 @@ namespace Uniti::Game::Utils {
         return std::nullopt;
     }
 
-    std::optional<std::reference_wrapper<Object>> Collisions::isCollided(const Render::Box &position) {
+    std::optional<std::reference_wrapper<Object>> Collisions::isCollided(const Render::Box &position, const Render::Vector3f &parent) {
         for (const auto &object : Uniti::Game::Core::getSceneManager().getGlobalScene().getObjects().getObjects()) {
             if (object->getCollision().isOverlap())
                 continue;
-            if (object->getCollision().isInside(position))
+            if (object->getCollision().isInside(position, parent))
                 return *object;
         }
         for (const auto &object : Uniti::Game::Core::getSceneManager().getCurrentScene().getObjects().getObjects()) {
             if (object->getCollision().isOverlap())
                 continue;
-            if (object->getCollision().isInside(position))
+            if (object->getCollision().isInside(position, parent))
                 return *object;
         }
         return std::nullopt;
@@ -56,12 +57,17 @@ namespace Uniti::Game::Utils {
 
     std::optional<std::reference_wrapper<Object>> Collisions::isCollided(const Object &position) {
         for (const auto &object : Uniti::Game::Core::getSceneManager().getGlobalScene().getObjects().getObjects()) {
+            if (object->getName() == position.getName())
+                continue;
             if (object->getCollision().isOverlap())
                 continue;
+            std::cout << object->getName() << std::endl;
             if (object->getCollision().isInside(position))
                 return *object;
         }
         for (const auto &object : Uniti::Game::Core::getSceneManager().getCurrentScene().getObjects().getObjects()) {
+            if (object->getName() == position.getName())
+                continue;
             if (object->getCollision().isOverlap())
                 continue;
             if (object->getCollision().isInside(position))
@@ -102,17 +108,17 @@ namespace Uniti::Game::Utils {
         return std::nullopt;
     }
 
-    std::optional<std::reference_wrapper<Object>> Collisions::isOverlapped(const Render::Box &position) {
+    std::optional<std::reference_wrapper<Object>> Collisions::isOverlapped(const Render::Box &position, const Render::Vector3f &parent) {
         for (const auto &object : Uniti::Game::Core::getSceneManager().getGlobalScene().getObjects().getObjects()) {
             if (!object->getCollision().isOverlap())
                 continue;
-            if (object->getCollision().isInside(position))
+            if (object->getCollision().isInside(position, parent))
                 return *object;
         }
         for (const auto &object : Uniti::Game::Core::getSceneManager().getCurrentScene().getObjects().getObjects()) {
             if (!object->getCollision().isOverlap())
                 continue;
-            if (object->getCollision().isInside(position))
+            if (object->getCollision().isInside(position, parent))
                 return *object;
         }
         return std::nullopt;
@@ -120,12 +126,16 @@ namespace Uniti::Game::Utils {
 
     std::optional<std::reference_wrapper<Object>> Collisions::isOverlapped(const Object &position) {
         for (const auto &object : Uniti::Game::Core::getSceneManager().getGlobalScene().getObjects().getObjects()) {
+            if (object->getName() == position.getName())
+                continue;
             if (!object->getCollision().isOverlap())
                 continue;
             if (object->getCollision().isInside(position))
                 return *object;
         }
         for (const auto &object : Uniti::Game::Core::getSceneManager().getCurrentScene().getObjects().getObjects()) {
+            if (object->getName() == position.getName())
+                continue;
             if (!object->getCollision().isOverlap())
                 continue;
             if (object->getCollision().isInside(position))

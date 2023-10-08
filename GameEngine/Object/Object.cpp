@@ -11,9 +11,9 @@
 namespace Uniti::Game {
     Object::Object(Object &object):
     _scene(object.getScene()),
-    _collision(object.getCollision().getBox()),
     _children(object.getChildren().getObjects()),
     _transform(object.getTransform()),
+    _collision(object.getCollision().getBox(), _transform),
     _layer(object.getLayer()),
     _name(object.getName()),
     _movement(*this),
@@ -30,9 +30,9 @@ namespace Uniti::Game {
 
     Object::Object(const Json::Value &value, Scene &scene):
     _scene(scene),
-    _collision(value["collision"]),
     _children(value["children"], scene),
     _transform(value["transform"]),
+    _collision(value["collision"], _transform),
     _layer(value.get("layer", "").asString()),
     _name(value.get("name", "").asString()),
     _movement(*this),
@@ -44,6 +44,8 @@ namespace Uniti::Game {
     _scene(scene),
     _children({}),
     _name(name),
+    _transform(),
+    _collision(_transform),
     _movement(*this),
     _scriptManager({}, *this) { }
 

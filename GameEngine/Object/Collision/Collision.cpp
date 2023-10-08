@@ -6,20 +6,21 @@
 #include "Object.hpp"
 
 namespace Uniti::Game {
-    Collision::Collision() { }
+    Collision::Collision(Transform &transform): _transform(transform) { }
 
-    Collision::Collision(const Json::Value &value) {
-        for (const auto &box : value)
+    Collision::Collision(const Json::Value &value, Transform &transform): _transform(transform) {
+        this->_isOverlap = value.get("isOverlap", false).asBool();
+        for (const auto &box : value["boxs"])
             this->_collisions.push_back(box);
     }
 
-    Collision::Collision(const std::vector<Render::Box> &collisions) {
+    Collision::Collision(const std::vector<Render::Box> &collisions, Transform &transform): _transform(transform) {
         for (const auto &box : collisions) {
             this->_collisions.push_back(box);
         }
     }
 
-    Collision::Collision(const Render::Box &box) {
+    Collision::Collision(const Render::Box &box, Transform &transform): _transform(transform) {
         this->_collisions.push_back(box);
     }
 
@@ -33,15 +34,15 @@ namespace Uniti::Game {
 
     bool Collision::isInside(const Render::Vector2f &point) const {
         for (const auto &box : this->_collisions) {
-            if (box.isInside(point))
+            if (box.isInside(point, this->_transform.getPosition()))
                 return true;
         }
         return false;
     }
 
-    bool Collision::isInside(const Render::Box &box) const {
+    bool Collision::isInside(const Render::Box &box, const Render::Vector3f &position) const {
         for (const auto &inBox : this->_collisions) {
-            if (inBox.isInside(box))
+            if (inBox.isInside(box, this->_transform.getPosition(), position))
                 return true;
         }
         return false;
@@ -64,7 +65,7 @@ namespace Uniti::Game {
     bool Collision::isInside(const Object &object) const {
         for (const auto &inBox : this->_collisions) {
             for (const auto &outBox : object.getCollision().getBox()) {
-                if (inBox.isInside(outBox))
+                if (inBox.isInside(outBox, this->_transform.getPosition(), object.getTransform().getPosition()))
                     return true;
             }
         }
