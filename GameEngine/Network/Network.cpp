@@ -14,6 +14,7 @@ namespace Uniti::Game {
     _port(port) { }
 
     Network::~Network() {
+        this->_ioService.stop();
         if (this->_ioThread.joinable())
             this->_ioThread.join();
     }
