@@ -23,6 +23,8 @@ namespace Uniti::Game {
         int framerateLimit;
         std::string iconPath;
         Json::Value data;
+        int port;
+        int latence;
     };
 }
 

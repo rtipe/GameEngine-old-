@@ -46,11 +46,20 @@ namespace Uniti::Game {
         Core::_instance.reset(new Core(projectPath));
     }
 
-    Core::Core(const std::string &projectPath): _projectInfo(projectPath), _projectPath(projectPath) { }
+    Core::Core(const std::string &projectPath):
+    _projectInfo(projectPath),
+    _projectPath(projectPath),
+    _network(_projectInfo.port, _projectInfo.latence) { }
 
     Render::Sound &Core::getSound() {
         if (!Core::_instance)
             throw std::invalid_argument("core not initialized");
         return Core::_instance->_sound;
+    }
+
+    Network &Core::getNetwork() {
+        if (!Core::_instance)
+            throw std::invalid_argument("core not initialized");
+        return Core::_instance->_network;
     }
 }

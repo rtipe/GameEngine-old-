@@ -13,6 +13,7 @@ namespace Uniti::Game {
         Json::Value project;
         file >> project;
         Json::Value windowInfos = project["windowInfos"];
+        Json::Value network = project["networkInfos"];
 
         this->data = project;
         this->name = project.get("name", "game").asString();
@@ -24,6 +25,8 @@ namespace Uniti::Game {
         this->height = windowInfos.get("height", 1080).asInt();
         this->framerateLimit = windowInfos.get("fps", 60).asInt();
         this->iconPath = windowInfos.get("icon", "").asString();
+        this->port = network.get("port", 0).asInt();
+        this->latence = network.get("latence", 10).asInt();
 
         for (const auto &entry : std::filesystem::recursive_directory_iterator(this->directoryScenePath)) {
             std::string fullPath = entry.path().string();
