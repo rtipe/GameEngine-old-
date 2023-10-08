@@ -2,6 +2,7 @@
 // Created by youba on 05/10/2023.
 //
 
+#include <iostream>
 #include "Window.hpp"
 #include "Input.hpp"
 #include "Mouse.hpp"
@@ -29,9 +30,9 @@ namespace Uniti::Render {
         [](IPrintable &printable1, IPrintable &printable2) {
             return printable1.getPosition().getZ() < printable2.getPosition().getZ();
         });
+        this->_window.clear({0, 0, 0});
         for (const auto &printable : this->_printable)
             printable.get().display(*this);
-        this->_window.clear({0, 0, 0});
         this->_window.display();
         this->_printable.clear();
     }
@@ -40,7 +41,7 @@ namespace Uniti::Render {
         int width = value.get("width", 1920).asInt();
         int height = value.get("height", 1080).asInt();
         int framerateLimit = value.get("framerateLimit", 60).asInt();
-        std::string iconPath = value.get("iconPath", "").asString();
+        std::string iconPath = value.get("icon", "").asString();
         std::string title = value.get("title", "undefined").asString();
 
         this->_window.create(sf::VideoMode(width, height), title);

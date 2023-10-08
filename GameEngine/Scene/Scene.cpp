@@ -6,10 +6,9 @@
 
 namespace Uniti::Game {
     Scene::Scene(const Json::Value &scene, const std::string &name):
+    _assetManager(scene["assets"]),
     _objectManager(scene["objects"], *this),
-    _name(name) {
-        this->_assetManager.loadAssets(scene["assets"]);
-    }
+    _name(name) { }
 
     void Scene::update() {
         this->_objectManager.update();

@@ -11,6 +11,7 @@
 namespace Uniti::Game {
     class AssetManager {
     public:
+        AssetManager(const Json::Value &assets);
         void loadAssets(const Json::Value &assets);
         const Render::Font &getFont(const std::string &name) const;
         Render::Font &getFont(const std::string &name);

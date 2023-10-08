@@ -11,7 +11,7 @@ namespace Uniti::Game {
         if (!Core::_instance)
             throw std::invalid_argument("core not initialized");
         _instance->_sceneManager.init();
-        _instance->_window.create(_instance->_projectInfo.data);
+        _instance->_window.create(_instance->_projectInfo.data["windowInfos"]);
         while (_instance->_window.isOpen()) {
             _instance->_sceneManager.update();
             _instance->_window.display();

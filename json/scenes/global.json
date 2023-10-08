@@ -12,17 +12,19 @@
         {
             "type": "sprite",
             "name": "first",
-            "position": {
-                "x": 0,
-                "y": 0,
-                "z": 11
+            "transform": {
+                "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 11
+                },
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                }
             },
-            "rotation": 0,
-            "scale": {
-                "x": 1,
-                "y": 1
-            },
-            "textureName": "first",
+            "texture": "first",
             "children": [],
             "scripts": []
         }

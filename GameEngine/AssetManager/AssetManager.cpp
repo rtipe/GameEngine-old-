@@ -4,8 +4,11 @@
 
 #include "AssetManager.hpp"
 
-
 namespace Uniti::Game {
+    AssetManager::AssetManager(const Json::Value &assets) {
+        this->loadAssets(assets);
+    }
+
     void AssetManager::loadAssets(const Json::Value &assets) {
         Json::Value textures = assets["textures"];
         Json::Value fonts = assets["fonts"];
