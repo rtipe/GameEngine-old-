@@ -55,7 +55,7 @@ namespace Uniti::Game {
         [&] (const boost::system::error_code &error, std::size_t length) {
             if (!error) {
                 std::string text(this->_buffer, length);
-                std::cout << text << std::endl;
+                //std::cout << text << std::endl;
                 memset(this->_buffer, 0, this->_size);
                 auto *packet = new std::tuple<boost::asio::ip::udp::endpoint, std::string>(_senderEndPoint, text);
                 this->_queue.push(packet);

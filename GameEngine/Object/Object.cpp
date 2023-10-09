@@ -2,6 +2,7 @@
 // Created by youba on 05/10/2023.
 //
 
+#include <iostream>
 #include "Object.hpp"
 #include "Sprite.hpp"
 #include "Text.hpp"
@@ -9,6 +10,7 @@
 #include "Scene.hpp"
 
 namespace Uniti::Game {
+
     Object::Object(Object &object):
     _scene(object.getScene()),
     _children(object.getChildren().getObjects()),
@@ -36,7 +38,8 @@ namespace Uniti::Game {
     _layer(value.get("layer", "").asString()),
     _name(value.get("name", "").asString()),
     _movement(*this),
-    _scriptManager(value["scripts"], *this) {
+    _scriptManager(value["scripts"], *this),
+    _data(value) {
         this->setPrintable(value);
     }
 
@@ -182,6 +185,10 @@ namespace Uniti::Game {
     }
 
     bool Object::hasPrintable() const {
-        return this->_printable == nullptr;
+        return this->_printable != nullptr;
+    }
+
+    const Json::Value &Object::getData() const {
+        return this->_data;
     }
 }

@@ -9,6 +9,7 @@
 
 namespace Uniti::Game::Utils {
     class Objects {
+    public:
         static std::optional<std::reference_wrapper<Object>> find(const std::string &name, bool recursive = true);
         static std::optional<std::reference_wrapper<Object>> find(const std::string &name, const Scene &scene, bool recursive = true);
         static std::optional<std::reference_wrapper<Object>> find(const std::string &name, const ObjectManager &objectManager, bool recursive = true);

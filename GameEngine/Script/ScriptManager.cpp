@@ -51,7 +51,7 @@ namespace Uniti::Game {
     }
 
     void ScriptManager::emitEvent(const std::string &name, const Json::Value &value) {
-        for (const auto &script : this->_scripts) {
+        for (auto &script : this->_scripts) {
             script.second->getEvent().emitEvent(name, value);
         }
     }

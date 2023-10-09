@@ -15,10 +15,15 @@ void MouseMovement::start() {
 
 void MouseMovement::update() {
     if (Uniti::Render::Mouse::isMousePressed(Uniti::Render::Mouse::KeyMouse::LEFT)) {
-        this->getGameObject().getMovement().moveTo(
-            Uniti::Render::Mouse::getPosition(Uniti::Game::Core::getWindow()),
-            this->_speed
-        );
+        //this->getGameObject().getMovement().moveTo(
+        //    Uniti::Render::Mouse::getPosition(Uniti::Game::Core::getWindow()),
+        //    this->_speed
+        //);
+        Uniti::Render::Vector2f positionMouse = Uniti::Render::Mouse::getPosition(Uniti::Game::Core::getWindow());
+        Json::Value position;
+        position["x"] = positionMouse.getX();
+        position["y"] = positionMouse.getY();
+        Uniti::Game::Core::getNetwork().getServer("test").sendEvent("vesselMovement", position);
     }
 }
 

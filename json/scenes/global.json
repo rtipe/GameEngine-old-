@@ -36,7 +36,12 @@
                 ]
             },
             "children": [],
-            "scripts": []
+            "scripts": [
+                {
+                    "name": "NetworkTest",
+                    "speed": 100
+                }
+            ]
         }
     ]
 }

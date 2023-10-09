@@ -6,7 +6,7 @@
 
 
 namespace Uniti::Game {
-    std::size_t Event::addEvent(const std::string &name, eventFunction &function) {
+    std::size_t Event::addEvent(const std::string &name, eventFunction function) {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         if (!this->_events.contains(name))
             this->_events[name] = std::vector<eventFunction>();

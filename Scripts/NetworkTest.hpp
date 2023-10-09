@@ -13,4 +13,6 @@ public:
     void update() override;
     void awake(const Json::Value &value) override;
 private:
+    float _speed;
+    bool _created = false;
 };

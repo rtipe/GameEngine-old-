@@ -118,6 +118,7 @@ namespace Uniti::Game {
             received.insert(i, idPacket);
             i++;
         }
+        this->_events.clear();
         this->_receivedPacket.clear();
         packet["events"] = events;
         packet["received"] = received;

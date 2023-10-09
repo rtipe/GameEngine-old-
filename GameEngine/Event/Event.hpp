@@ -14,7 +14,7 @@ namespace Uniti::Game {
     using eventFunction = std::function<void(const Json::Value &value)>;
     class Event {
     public:
-        std::size_t addEvent(const std::string &name, eventFunction &function);
+        std::size_t addEvent(const std::string &name, eventFunction function);
         void removeEvent(const std::string &name);
         void removeEvent(const std::string &name, std::size_t id);
         void emitEvent(const std::string &name, const Json::Value &value);

@@ -56,7 +56,9 @@ namespace Uniti::Game {
         const Render::IPrintable &getPrintable() const;
         Render::IPrintable &getPrintable();
         void setPrintable(const Json::Value &value);
+        const Json::Value &getData() const;
     private:
+        Json::Value _data;
         Scene &_scene;
         Movement _movement;
         ScriptManager _scriptManager;
