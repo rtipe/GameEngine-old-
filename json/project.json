@@ -11,6 +11,7 @@
         "icon": "../assets/icon.png"
     },
     "networkInfos": {
-        "latence": 1000
+        "latence": 1000,
+        "port": 13
     }
 }

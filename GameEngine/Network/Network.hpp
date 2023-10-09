@@ -5,6 +5,7 @@
 #pragma once
 
 #include <boost/asio.hpp>
+#include <boost/lockfree/queue.hpp>
 #include "Server.hpp"
 #include "Clock.hpp"
 
@@ -23,7 +24,8 @@ namespace Uniti::Game {
     private:
         std::map<boost::asio::ip::udp::endpoint, Json::Value> getPacketToSend();
         void startReceive();
-        void receiveBuffer(const std::string &buffer, boost::asio::ip::udp::endpoint &senderEndPoint, const boost::system::error_code &error, std::size_t length);
+        void receiveBuffer(const std::string &buffer, boost::asio::ip::udp::endpoint &senderEndPoint);
+        void handlePackets();
         std::map<std::string, std::unique_ptr<Server>> _servers;
         boost::asio::io_service _ioService;
         boost::asio::ip::udp::socket _socketUDP;
@@ -35,5 +37,6 @@ namespace Uniti::Game {
         int _size = 50000;
         char _buffer[50000];
         boost::asio::ip::udp::endpoint _senderEndPoint;
+        boost::lockfree::queue<std::tuple<boost::asio::ip::udp::endpoint, std::string> *> _queue;
     };
 }
