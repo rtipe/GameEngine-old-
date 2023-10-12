@@ -6,6 +6,7 @@
 
 #include <json/value.h>
 #include <boost/asio/ip/udp.hpp>
+#include <list>
 
 namespace Uniti::Game {
     class Server {
