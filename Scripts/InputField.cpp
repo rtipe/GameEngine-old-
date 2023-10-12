@@ -71,5 +71,14 @@ void InputField::writeInputField() {
         for (int i = 0; i < nbReturn && nextString.size() >= 1; i++)
             nextString = nextString.substr(0, nextString.length() - nbReturn);
         currentText.setString(nextString);
+        this->_string = nextString;
     }
+}
+
+const std::string &InputField::getString() const {
+    return this->_string;
+}
+
+std::string InputField::getString() {
+    return this->_string;
 }
