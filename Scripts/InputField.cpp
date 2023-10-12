@@ -26,7 +26,6 @@ void InputField::awake(const Json::Value &value) {
     this->_height = value.get("height", 100).asFloat();
     this->_width = value.get("width", 300).asFloat();
     this->_maxChar = value.get("maxChar", 32).asInt();
-    this->_minChar = value.get("minChar", 5).asInt();
 }
 
 void InputField::checkActive() {
@@ -51,23 +50,26 @@ void InputField::writeInputField() {
     std::string text;
     int nbReturn;
 
-    for (int i = 0; i < events.size(); i++) {
-        if (events[i].substr(events[i].length() - 8) == "_PRESSED") {
-            size_t firstUnderscore = events[i].find('_');
-            size_t secondUnderscore = events[i].find('_', firstUnderscore + 1);
-            int keyId = stoi(events[i].substr(firstUnderscore + 1, secondUnderscore - firstUnderscore - 1));
-            std::cout << events[i] << std::endl;
-            if (keyId >= 0 && keyId <= 25)
-                text += keyId + 65;
-            if (keyId == 57)
-                text += "  ";
-            if (keyId == 59)
-                nbReturn++;
+    if (this->_active) {
+        for (int i = 0; i < events.size(); i++) {
+            if (events[i].substr(events[i].length() - 8) == "_PRESSED") {
+                size_t firstUnderscore = events[i].find('_');
+                size_t secondUnderscore = events[i].find('_', firstUnderscore + 1);
+                int keyId = stoi(events[i].substr(firstUnderscore + 1, secondUnderscore - firstUnderscore - 1));
+                if (keyId >= 0 && keyId <= 25)
+                    text += keyId + 65;
+                if (keyId == 57)
+                    text += "  ";
+                if (keyId == 59)
+                    nbReturn++;
+            }
         }
+        auto &currentText = dynamic_cast<Uniti::Render::Text &>(this->getGameObject().getPrintable());
+        std::string nextString = currentText.getString() + text;
+        if (nextString.size() > this->_maxChar)
+            nextString = nextString.substr(0, this->_maxChar);
+        for (int i = 0; i < nbReturn && nextString.size() >= 1; i++)
+            nextString = nextString.substr(0, nextString.length() - nbReturn);
+        currentText.setString(nextString);
     }
-    auto &currentText = dynamic_cast<Uniti::Render::Text &>(this->getGameObject().getPrintable());
-    std::string nextString = currentText.getString() + text;
-    for (int i = 0; i < nbReturn && nextString.size() >= 1; i++)
-        nextString = nextString.substr(0, nextString.length() - nbReturn);
-    currentText.setString(nextString);
 }

@@ -44,7 +44,6 @@
           "width": 200,
           "height": 200,
           "active": false,
-          "minChar": 5,
           "maxChar": 10
         }
       ]

@@ -19,5 +19,4 @@ class InputField : public Uniti::Game::AScript {
         float _height;
         bool _active;
         int _maxChar;
-        int _minChar;
 };
