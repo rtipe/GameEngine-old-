@@ -26,6 +26,8 @@ namespace Uniti::Game {
         void emitEvent(const std::string &name, const Json::Value &value);
     private:
         std::vector<std::unique_ptr<Object>> _objects;
+        std::vector<std::unique_ptr<Object>> _inObjects;
+        std::vector<std::string> _outObjects;
         std::mutex _mutex;
     };
     class Object {

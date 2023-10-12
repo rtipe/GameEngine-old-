@@ -26,6 +26,7 @@ namespace Uniti::Render {
         void setStyle(TextStyle style);
         void setColor(const Color &color);
         void display(Window &window) override;
+        const std::string getString() const;
         const std::string &getTypeName() const override;
         const Vector3f &getPosition() const override;
         const Vector2f &getScale() const override;
