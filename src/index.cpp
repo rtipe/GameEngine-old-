@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Uniti.hpp"
 #include "MouseMovement.hpp"
+#include "ButtonNavigation.hpp"
 #include "Animation.hpp"
 #include "NetworkBase.hpp"
 
@@ -12,6 +13,7 @@ int main() {
     Uniti::Game::Core::initProject("../../json/project.json");
 
     Uniti::Game::Core::getScriptFactory().addScript<MouseMovement>("MouseMovement");
+    Uniti::Game::Core::getScriptFactory().addScript<ButtonNavigation>("ButtonNavigation");
     Uniti::Game::Core::getScriptFactory().addScript<Animation>("Animation");
     Uniti::Game::Core::getScriptFactory().addScript<NetworkBase>("NetworkBase");
 

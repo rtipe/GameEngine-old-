@@ -1,7 +1,7 @@
 {
     "name": "R-Tip",
+    "startScene": "MainMenu.json",
     "directoryScenePath": "../../json/scenes/",
-    "startScene": "start.json",
     "globalScene": "global.json",
     "windowInfos": {
         "title": "R-Tip",
