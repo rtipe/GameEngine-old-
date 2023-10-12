@@ -8,6 +8,7 @@
 #include "ButtonNavigation.hpp"
 #include "Animation.hpp"
 #include "NetworkBase.hpp"
+#include "Missile.hpp"
 
 int main() {
     Uniti::Game::Core::initProject("../../json/project.json");
@@ -16,6 +17,7 @@ int main() {
     Uniti::Game::Core::getScriptFactory().addScript<ButtonNavigation>("ButtonNavigation");
     Uniti::Game::Core::getScriptFactory().addScript<Animation>("Animation");
     Uniti::Game::Core::getScriptFactory().addScript<NetworkBase>("NetworkBase");
+    Uniti::Game::Core::getScriptFactory().addScript<Missile>("Missile");
 
     std::cout << Uniti::Game::Core::getProjectInfo().name << std::endl;
     Uniti::Game::Core::start();

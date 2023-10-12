@@ -38,6 +38,7 @@ namespace Uniti::Game {
         void update();
         void setName(const std::string &name);
         const std::string &getName() const;
+        std::string &getName();
         void setEnable(bool value);
         bool isEnabled() const;
         const Transform &getTransform() const;

@@ -35,17 +35,17 @@ namespace Uniti::Game {
     }
 
     void ObjectManager::update() {
-        for (const auto &object: this->_objects)
-            object->update();
-        while (!this->_inObjects.empty()) {
-            this->_objects.push_back(std::move(this->_inObjects[0]));
-            this->_inObjects.erase(this->_inObjects.begin());
-        }
         while (!this->_outObjects.empty()) {
             std::erase_if(this->_objects, [&] (const std::unique_ptr<Object> &object) {
                 return object->getName() == this->_outObjects.front();
             });
             this->_outObjects.erase(this->_outObjects.begin());
+        }
+        for (const auto &object: this->_objects)
+            object->update();
+        while (!this->_inObjects.empty()) {
+            this->_objects.push_back(std::move(this->_inObjects[0]));
+            this->_inObjects.erase(this->_inObjects.begin());
         }
     }
 
