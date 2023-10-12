@@ -63,6 +63,10 @@ namespace Uniti::Render {
         window.getRenderWindow().draw(this->_text);
     }
 
+    const std::string Text::getString() const {
+        return this->_text.getString();
+    }
+
     const std::string &Text::getTypeName() const {
         return this->_type;
     }
