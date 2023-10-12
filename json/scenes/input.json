@@ -1,0 +1,52 @@
+{
+  "assets": {
+    "fonts": [{
+      "path": "../assets/Pacifico.ttf",
+      "name": "pacifico"
+    }],
+    "textures": [{
+      "path": "../assets/first.png",
+      "isRepeated": false,
+      "isSmooth": false,
+      "name": "first"
+    }]
+  },
+  "objects": [
+    {
+      "type": "text",
+      "name": "first",
+      "transform": {
+        "position": {
+          "x": 1000,
+          "y": 100,
+          "z": 11
+        },
+        "rotation": 0,
+        "scale": {
+          "x": 1,
+          "y": 1
+        }
+      },
+      "collision": {},
+      "font": "pacifico",
+      "text": "",
+      "color": {
+        "r": 255,
+        "g": 255,
+        "b": 255
+      },
+      "style": "regular",
+      "size": 20,
+      "children": [],
+      "scripts": [
+        {
+          "name": "InputField",
+          "width": 200,
+          "height": 200,
+          "active": false,
+          "maxChar": 10
+        }
+      ]
+    }
+  ]
+}
