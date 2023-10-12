@@ -2,7 +2,7 @@
     "assets": {
         "fonts": [],
         "textures": [{
-            "path": "../assets/first.png",
+            "path": "../../assets/first.png",
             "isRepeated": false,
             "isSmooth": false,
             "name": "first"
@@ -10,13 +10,27 @@
     },
     "objects": [
         {
+            "type": "empty",
+            "name": "movementSystem",
+            "scripts": [
+                {
+                    "name": "NetworkBase",
+                    "speed": 100
+                },
+                {
+                    "name": "MouseMovement",
+                    "speed": 100
+                }
+            ]
+        },
+        {
             "type": "sprite",
-            "name": "second",
+            "name": "exampleVessel",
             "transform": {
                 "position": {
-                    "x": 500,
-                    "y": 500,
-                    "z": 11
+                    "x": -500,
+                    "y": -500,
+                    "z": 10
                 },
                 "rotation": 0,
                 "scale": {
@@ -36,12 +50,7 @@
             },
             "texture": "first",
             "children": [],
-            "scripts": [
-                {
-                    "name": "MouseMovement",
-                    "speed": 100
-                }
-            ]
+            "scripts": []
         }
     ]
 }

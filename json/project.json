@@ -1,6 +1,6 @@
 {
     "name": "R-Tip",
-    "directoryScenePath": "../json/scenes/",
+    "directoryScenePath": "../../json/scenes/",
     "startScene": "start.json",
     "globalScene": "global.json",
     "windowInfos": {
@@ -8,7 +8,7 @@
         "width": 1920,
         "height": 1080,
         "fps": 60,
-        "icon": "../assets/icon.png"
+        "icon": "../../assets/icon.png"
     },
     "networkInfos": {
         "latence": 20,
