@@ -19,7 +19,7 @@ void LiveScript::start() {
 
 void LiveScript::update() {
     if (this->_life <= 0) {
-        Uniti::Game::Core::getSceneManager().getCurrentScene().getObjects().emitEvent("playerDie", Json::Value());
+        Uniti::Game::Core::getSceneManager().getCurrentScene().getObjects().emitEvent("playerDie", this->getGameObject().getName());
     }
 }
 
