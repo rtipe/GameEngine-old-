@@ -2,7 +2,7 @@
     "assets": {
         "fonts": [],
         "textures": [{
-            "path": "../assets/first.png",
+            "path": "../../assets/first.png",
             "isRepeated": false,
             "isSmooth": false,
             "name": "first"
@@ -37,10 +37,6 @@
             },
             "children": [],
             "scripts": [
-                {
-                    "name": "NetworkTest",
-                    "speed": 100
-                }
             ]
         }
     ]
