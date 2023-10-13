@@ -4,6 +4,9 @@ on:
   push:
     tags:
       - '*'
+    pull_request: # Ajout de la vérification des PR
+      branches:
+        - '*'
 
 jobs:
   build-ubuntu:
