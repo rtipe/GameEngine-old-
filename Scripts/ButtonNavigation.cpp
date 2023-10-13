@@ -44,11 +44,9 @@ void ButtonNavigation::update() {
 
 void ButtonNavigation::awake(const Json::Value &value) {
     this->updatePos();
-    this->_currentButton = value.get("currentButton", "").asString();
     this->_redirections = value.get("redirection", "").asString();
     this->_data.width = value.get("width", 0.0).asFloat();
     this->_data.height = value.get("height", 0.0).asFloat();
-    std::cout << this->_currentButton << std::endl;
     std::cout << this->_redirections << std::endl;
     std::cout << this->_data.width << std::endl;
     std::cout << this->_data.height << std::endl;

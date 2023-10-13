@@ -25,6 +25,5 @@ class ButtonNavigation: public Uniti::Game::AScript {
     private:
         void updatePos();
         ButtonNavigationData _data;
-        std::string _currentButton;
         std::string _redirections;
 };

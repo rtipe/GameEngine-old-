@@ -46,7 +46,6 @@
         "scripts": [
             {
                 "name": "ButtonNavigation",
-                "currentButton": "Up",
                 "redirection": "start.json"
             }
         ]
@@ -100,7 +99,6 @@
         "scripts": [
             {
                 "name": "ButtonNavigation",
-                "currentButton": "Down",
                 "redirection": "controls.json"
             }
         ]
