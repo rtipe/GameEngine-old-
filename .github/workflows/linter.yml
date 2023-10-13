@@ -2,7 +2,7 @@ name: Lint C++ Code format
 
 on:
   workflow_run:
-    workflows: ["Build and Release C++ Project GameEngine (Linux)"]
+    workflows: ["buildlinux"]
     types:
       - completed
 
