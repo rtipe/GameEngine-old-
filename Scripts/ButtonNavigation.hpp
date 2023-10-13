@@ -12,6 +12,8 @@
 struct ButtonNavigationData {
     float width;
     float height;
+    float positionX;
+    float positionY;
 };
 
 class ButtonNavigation: public Uniti::Game::AScript {
@@ -21,6 +23,7 @@ class ButtonNavigation: public Uniti::Game::AScript {
         void update() override;
         void awake(const Json::Value &value) override;
     private:
+        void updatePos();
         ButtonNavigationData _data;
         std::string _currentButton;
         std::string _redirections;

@@ -18,19 +18,24 @@ ButtonNavigation::ButtonNavigation(Uniti::Game::Object &gameObject) :
 
 void ButtonNavigation::start() { }
 
+void ButtonNavigation::updatePos() {
+    this->_data.positionX = this->getGameObject().getTransform().getPosition().getX();
+    this->_data.positionY = this->getGameObject().getTransform().getPosition().getY();
+}
+
 void ButtonNavigation::update() {
 
     Uniti::Render::Vector2f positionMouse = Uniti::Render::Mouse::getPosition(Uniti::Game::Core::getWindow());
 
-    float buttonX = 150;
-    float buttonY = 150;
+    this->updatePos();
+
     float buttonWidth = 600;
     float buttonHeight = 200;
 
-    if (positionMouse.getX() >= buttonX &&
-        positionMouse.getX() <= buttonX + buttonWidth &&
-        positionMouse.getY() >= buttonY &&
-        positionMouse.getY() <= buttonY + buttonHeight &&
+    if (positionMouse.getX() >= this->_data.positionX &&
+        positionMouse.getX() <= this->_data.positionX + buttonWidth &&
+        positionMouse.getY() >= this->_data.positionY &&
+        positionMouse.getY() <= this->_data.positionY + buttonHeight &&
         Uniti::Render::Mouse::isMousePressed(Uniti::Render::Mouse::KeyMouse::LEFT)) {
         std::cout << "Clic de souris sur le bouton détecté" << std::endl;
         Uniti::Game::Core::getSceneManager().changeScene(_redirections);
@@ -38,10 +43,13 @@ void ButtonNavigation::update() {
 }
 
 void ButtonNavigation::awake(const Json::Value &value) {
+    this->updatePos();
     this->_currentButton = value.get("currentButton", "").asString();
     this->_redirections = value.get("redirection", "").asString();
     this->_data.width = value.get("width", 0.0).asFloat();
     this->_data.height = value.get("height", 0.0).asFloat();
     std::cout << this->_currentButton << std::endl;
     std::cout << this->_redirections << std::endl;
+    std::cout << this->_data.width << std::endl;
+    std::cout << this->_data.height << std::endl;
 }
