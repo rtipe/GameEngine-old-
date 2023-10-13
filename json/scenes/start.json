@@ -1,6 +1,9 @@
 {
     "assets": {
-        "fonts": [],
+        "fonts": [{
+            "path": "../../assets/Pacifico.ttf",
+            "name": "pacifico"
+        }],
         "textures": [
             {
                 "path": "../../assets/first.png",
@@ -127,6 +130,38 @@
                             ]
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name": "HP",
+            "type": "text",
+            "transform": {
+                "position": {
+                    "x": 20,
+                    "y": 20,
+                    "z": 1
+                },
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "collision": {},
+            "font": "pacifico",
+            "text": "",
+            "color": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+            },
+            "style": "regular",
+            "size": 20,
+            "children": [],
+            "scripts": [
+                {
+                    "name": "DisplayHP"
                 }
             ]
         }
