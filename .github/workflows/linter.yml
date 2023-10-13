@@ -1,4 +1,4 @@
-name: Lint C++ Code format
+name: Lint code
 
 on:
   workflow_run:
@@ -30,6 +30,6 @@ jobs:
           git diff --staged --quiet || git commit -m "Apply Clang Format"
           
       - name: Push Changes
-        uses: ad-m/github-push-action@v0.5
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
