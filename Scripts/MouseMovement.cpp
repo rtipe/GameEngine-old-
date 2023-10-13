@@ -35,6 +35,11 @@ void MouseMovement::start() {
             }
         }
     });
+    this->getEvent().addEvent("destroyEntity", [&] (const Json::Value &value) {
+        for (const auto &name : value["data"]) {
+            this->getGameObject().getScene().getObjects().remove(name.asString());
+        }
+    });
 }
 
 void MouseMovement::update() {
