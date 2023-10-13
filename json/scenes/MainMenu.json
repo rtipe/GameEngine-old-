@@ -1,0 +1,38 @@
+{
+    "assets": {
+      "fonts": [],
+      "textures": [
+        {
+          "path": "../assets/menu/PlayButton.png",
+          "isRepeated": false,
+          "isSmooth": false,
+          "name": "PlayButton"
+        }
+      ]
+    },
+    "objects": [
+      {
+        "type": "sprite",
+        "name": "Button",
+        "transform": { "position": {
+            "x": 150,
+            "y": 150,
+            "z": 12
+          }, "rotation": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          }},
+        "texture": "PlayButton",
+        "children": [],
+        "scripts": [
+            {
+                "name": "ButtonNavigation",
+                "currentButton": "Up",
+                "redirection": "start.json"
+            }
+        ]
+      }
+    ]
+
+}
