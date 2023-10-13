@@ -2,6 +2,7 @@
 // Created by youba on 05/10/2023.
 //
 
+#include <iostream>
 #include "Input.hpp"
 
 
@@ -32,7 +33,7 @@ namespace Uniti::Render {
     }
 
     bool Input::isPressed(Input::Key key) {
-        std::string eventName = "MOUSE_" + std::to_string(key) + "_PRESSED";
+        std::string eventName = "KEY_" + std::to_string(key) + "_PRESSED";
         return std::find(Input::_events.begin(), Input::_events.end(), eventName) != Input::_events.end();
     }
 
@@ -45,7 +46,7 @@ namespace Uniti::Render {
     }
 
     bool Input::isReleased(Input::Key key) {
-        std::string eventName = "MOUSE_" + std::to_string(key) + "_RELEASED";
+        std::string eventName = "KEY_" + std::to_string(key) + "_RELEASED";
         return std::find(Input::_events.begin(), Input::_events.end(), eventName) != Input::_events.end();
     }
 

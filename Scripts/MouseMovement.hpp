@@ -14,4 +14,6 @@ public:
     void awake(const Json::Value &value) override;
 private:
     float _speed = 0;
+    Uniti::Render::Vector2f _normal;
+    bool isPressed = false;
 };

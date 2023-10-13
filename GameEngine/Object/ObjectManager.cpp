@@ -22,7 +22,6 @@ namespace Uniti::Game {
     }
 
     void ObjectManager::remove(const std::string &name) {
-        const std::lock_guard<std::mutex> lock(this->_mutex);
         this->_outObjects.push_back(name);
     }
 
