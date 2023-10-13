@@ -1,0 +1,12 @@
+{
+    "assets": {
+        "fonts": [],
+        "textures": [{
+            "path": "../../assets/first.png",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "first"
+        }]
+    },
+    "objects": []
+}
