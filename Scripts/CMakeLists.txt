@@ -5,7 +5,7 @@ target_sources(project PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/Animation.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/NetworkBase.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/InputField.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Missile.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/MissileHandler.cpp"
 )
 
 target_include_directories(project PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
