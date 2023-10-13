@@ -1,0 +1,35 @@
+name: Lint C++ Code
+
+on:
+  workflow_run:
+    workflows: ["Build and Release C++ Project GameEngine (Linux)"]
+    types:
+      - completed
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Clang Format (You can use another linter tool if you prefer)
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y clang-format
+          clang-format --version
+          
+      - name: Lint C++ Code
+        run: clang-format -i -style=file <your-source-code-files>
+
+      - name: Commit Changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git diff --staged --quiet || git commit -m "Apply Clang Format"
+          
+      - name: Push Changes
+        uses: ad-m/github-push-action@v0.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
