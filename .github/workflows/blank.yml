@@ -58,9 +58,6 @@ jobs:
     - name: Create Release Directory
       run: mkdir release
 
-    - name: Move Library to Release
-      run: mv build/lib/libUnitiGameEngine.a release/
-
     - name: Create GitHub Release
       id: create_release
       uses: softprops/action-gh-release@v1
