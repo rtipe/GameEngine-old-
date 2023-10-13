@@ -1,4 +1,4 @@
-name: Lint C++ Code
+name: Lint C++ Codes
 
 on:
   workflow_run:
