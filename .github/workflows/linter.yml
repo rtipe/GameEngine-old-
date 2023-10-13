@@ -1,4 +1,4 @@
-name: Lint code
+name: Lint C++ Code
 
 on:
   workflow_run:
@@ -13,14 +13,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Clang Format (You can use another linter tool if you prefer)
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Set up Clang Format
         run: |
           sudo apt-get update -y
           sudo apt-get install -y clang-format
           clang-format --version
-          
+
       - name: Lint C++ Code
-        run: clang-format -i -style=file <your-source-code-files>
+        run: |
+          find . -name "*.cpp" -exec clang-format -i -style=file {} \;
 
       - name: Commit Changes
         run: |
@@ -28,7 +34,7 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git diff --staged --quiet || git commit -m "Apply Clang Format"
-          
+
       - name: Push Changes
         uses: ad-m/github-push-action@master
         with:
