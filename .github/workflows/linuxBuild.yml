@@ -1,4 +1,4 @@
-name: Build and Release C++ Project GameEngine (Linux)
+name: buildlinux
 
 on:
   push:
