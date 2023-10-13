@@ -1,38 +1,119 @@
 {
     "assets": {
-      "fonts": [],
-      "textures": [
-        {
-          "path": "../assets/menu/PlayButton.png",
-          "isRepeated": false,
-          "isSmooth": false,
-          "name": "PlayButton"
-        }
-      ]
-    },
-    "objects": [
-      {
-        "type": "sprite",
-        "name": "Button",
-        "transform": { "position": {
-            "x": 150,
-            "y": 150,
-            "z": 12
-          }, "rotation": 0,
-          "scale": {
-            "x": 1,
-            "y": 1
-          }},
-        "texture": "PlayButton",
-        "children": [],
-        "scripts": [
+        "fonts": [],
+        "textures": [
             {
-                "name": "ButtonNavigation",
-                "currentButton": "Up",
-                "redirection": "start.json"
+                "path": "../../assets/menu/PlayButton.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "PlayButton"
+            },
+            {
+                "path": "../../assets/menu/ExitButton.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "ExitButton"
+            },
+            {
+                "path": "../../assets/menu/Background.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "Background"
+            },
+            {
+                "path": "../../assets/menu/ControlsButton.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "ControlsButton"
             }
         ]
-      }
+    },
+    "objects": [
+        {
+            "type": "sprite",
+            "name": "StartButton",
+            "transform": {
+                "position": {
+                    "x": 150,
+                    "y": 150,
+                    "z": 12
+                },
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "texture": "PlayButton",
+            "children": [],
+            "scripts": [
+                {
+                    "name": "ButtonNavigation",
+                    "redirection": "start.json"
+                }
+            ]
+        },
+        {
+            "type": "sprite",
+            "name": "ExitButton",
+            "transform": {
+                "position": {
+                    "x": 150,
+                    "y": 650,
+                    "z": 12
+                },
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "texture": "ExitButton",
+            "children": [],
+            "scripts": []
+        },
+        {
+            "type": "sprite",
+            "name": "Background",
+            "transform": {
+                "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "texture": "Background",
+            "children": [],
+            "scripts": []
+        },
+        {
+            "type": "sprite",
+            "name": "ControlsButton",
+            "transform": {
+                "position": {
+                    "x": 150,
+                    "y": 400,
+                    "z": 12
+                },
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "texture": "ControlsButton",
+            "children": [],
+            "scripts": [
+                {
+                    "name": "ButtonNavigation",
+                    "redirection": "controls.json"
+                }
+            ]
+        }
     ]
-
 }
