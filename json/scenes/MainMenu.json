@@ -19,6 +19,12 @@
             "isRepeated": false,
             "isSmooth": false,
             "name": "Background"
+        },
+        {
+            "path": "../../assets/menu/ControlsButton.png",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "ControlsButton"
         }
       ]
     },
@@ -50,7 +56,7 @@
         "name": "ExitButton",
         "transform": { "position": {
             "x": 150,
-            "y": 450,
+            "y": 650,
             "z": 12
           }, "rotation": 0,
           "scale": {
@@ -76,6 +82,28 @@
         "texture": "Background",
         "children": [],
         "scripts": []
+      },
+      {
+        "type": "sprite",
+        "name": "ControlsButton",
+        "transform": { "position": {
+            "x": 150,
+            "y": 400,
+            "z": 12
+          }, "rotation": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          }},
+        "texture": "ControlsButton",
+        "children": [],
+        "scripts": [
+            {
+                "name": "ButtonNavigation",
+                "currentButton": "Down",
+                "redirection": "controls.json"
+            }
+        ]
       }
     ]
 

@@ -1,0 +1,32 @@
+{
+    "assets": {
+      "fonts": [],
+      "textures": [
+        {
+            "path": "../../assets/controls/Background.jpg",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "Background"
+        }
+      ]
+    },
+    "objects": [
+      {
+        "type": "sprite",
+        "name": "Background",
+        "transform": { "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }, "rotation": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          }},
+        "texture": "Background",
+        "children": [],
+        "scripts": []
+      }
+    ]
+
+}
