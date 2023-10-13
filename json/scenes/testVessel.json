@@ -1,0 +1,115 @@
+{
+    "assets": {
+      "fonts": [],
+      "textures": [
+        {
+          "path": "../../assets/controls/Background.jpg",
+          "isRepeated": false,
+          "isSmooth": false,
+          "name": "Background"
+        },
+        {
+          "path": "../../assets/vessel.gif",
+          "isRepeated": false,
+          "isSmooth": false,
+          "name": "vessel"
+        }
+      ]
+    },
+    "objects": [
+      {
+        "type": "sprite",
+        "name": "Background",
+        "transform": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        "texture": "Background",
+        "children": [],
+        "scripts": []
+      },
+      {
+        "type": "sprite",
+        "name": "OwnVessel",
+        "transform": {
+            "position": {
+                "x": 150,
+                "y": 150,
+                "z": 11
+            },
+            "rotation": 0,
+            "scale": {
+                "x": 1,
+                "y": 1
+            }
+        },
+        "texture": "vessel",
+        "textureRect": {
+          "x": 0,
+          "y": 0,
+          "width": 34,
+          "height": 16
+          },
+        "children": [],
+        "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.1,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 32,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 64,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 96,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 128,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 160,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    ]
+    
+}
+  
