@@ -7,6 +7,12 @@
             "isRepeated": false,
             "isSmooth": false,
             "name": "Background"
+        },
+        {
+            "path": "../../assets/controls/MenuButton.png",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "MenuButton"
         }
       ]
     },
@@ -26,6 +32,27 @@
         "texture": "Background",
         "children": [],
         "scripts": []
+      },
+      {
+          "type": "sprite",
+          "name": "MenuButton",
+          "transform": { "position": {
+              "x": 250,
+              "y": 250,
+              "z": 10
+          }, "rotation": 0,
+          "scale": {
+              "x": 1,
+              "y": 1
+          }},
+          "texture": "MenuButton",
+          "children": [],
+          "scripts": [
+            {
+                "name": "ButtonNavigation",
+                "redirection": "MainMenu.json"
+            }
+          ]
       }
     ]
 
