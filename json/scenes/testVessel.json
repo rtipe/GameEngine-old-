@@ -49,6 +49,12 @@
             "isRepeated": false,
             "isSmooth": false,
             "name": "bossEnnemy"
+        },
+        {
+            "path": "../../assets/Explosion.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "explosion"
         }
       ]
     },
@@ -661,7 +667,75 @@
                     }
                 ]
             }
-           ]
+        ]
+    },
+    {
+        "type": "sprite",
+        "name": "explosion",
+           "transform": {
+               "position": {
+                   "x": 1350,
+                   "y": 250,
+                   "z": 20
+               },
+               "rotation": 0,
+               "scale": {
+                   "x": 1,
+                   "y": 1
+               }
+           },
+         "texture": "explosion",
+           "textureRect": {
+               "x": 0,
+               "y": 98,
+               "width": 65,
+               "height": 65
+           },
+         "children": [],
+           "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.1,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 98,
+                                "width": 65,
+                                "height": 65
+                            },
+                            {
+                                "x": 65,
+                                "y": 98,
+                                "width": 65,
+                                "height": 65
+                            },
+                            {
+                                "x": 130,
+                                "y": 98,
+                                "width": 65,
+                                "height": 65
+                            },
+                            {
+                                "x": 195,
+                                "y": 98,
+                                "width": 65,
+                                "height": 65
+                            },
+                            {
+                                "x": 260,
+                                "y": 98,
+                                "width": 65,
+                                "height": 65
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+            
     }
   ]
     
