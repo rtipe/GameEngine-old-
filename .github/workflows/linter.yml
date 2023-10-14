@@ -24,7 +24,7 @@ jobs:
 
       - name: Lint C++ Code
         run: |
-          find . -name "*.cpp" -exec clang-format -i -style=file -fallback-style=Google -assume-filename=.clang-format {} \;
+          find . -name "*.cpp" -exec sed -i '1i #define IndentWidth 4' {} \; -exec clang-format -i {} \;
 
       - name: Commit Changes
         run: |
