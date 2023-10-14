@@ -19,6 +19,12 @@
             "isRepeated": false,
             "isSmooth": false,
             "name": "basicEnnemy"
+        },
+        {
+            "path": "../../assets/Ennemy/TankEnnemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "tankEnnemy"
         }
       ]
     },
@@ -260,6 +266,68 @@
                 ]
             }
         ]
+  },
+  {
+    "type": "sprite",
+    "name": "tankEnnemy",
+         "transform": {
+              "position": {
+                "x": 550,
+                "y": 550,
+                "z": 20
+              },
+              "rotation": 0,
+              "scale": {
+                "x": 1,
+                "y": 1
+              }
+         },
+      "texture": "tankEnnemy",
+         "textureRect": {
+              "x": 0,
+              "y": 0,
+              "width": 62,
+              "height": 130
+         },
+      "children": [],
+            "scripts": [
+                {
+                    "name": "Animation",
+                    "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.2,
+                        "frames": [
+                        {
+                            "x": 8,
+                            "y": 0,
+                            "width": 62,
+                            "height": 130
+                        },
+                        {
+                            "x": 68,
+                            "y": 0,
+                            "width": 62,
+                            "height": 130
+                        },
+                        {
+                            "x": 128,
+                            "y": 0,
+                            "width": 62,
+                            "height": 130
+                        },
+                        {
+                            "x": 189,
+                            "y": 0,
+                            "width": 70,
+                            "height": 130
+                        }
+                        
+                    ]
+                }
+            ]
+        }
+    ]
   }
   ]
     
