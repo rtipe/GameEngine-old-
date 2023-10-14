@@ -1,0 +1,316 @@
+{
+    "assets": {
+      "fonts": [],
+      "textures": [
+        {
+          "path": "../../assets/controls/Background.jpg",
+          "isRepeated": false,
+          "isSmooth": false,
+          "name": "Background"
+        },
+        {
+          "path": "../../assets/controls/MenuButton.png",
+          "isRepeated": false,
+          "isSmooth": false,
+          "name": "MenuButton"
+        },
+        {
+          "path": "../../assets/controls/gameover.png",
+          "isRepeated": false,
+          "isSmooth": false,
+          "name": "gameover"
+        },
+        {
+            "path": "../../assets/Ennemy/TankEnnemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "tankEnnemy"
+        },
+        {
+            "path": "../../assets/Ennemy/BossEnnemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "bossEnnemy"
+        }
+      ]
+    },
+    "objects": [
+      {
+        "type": "sprite",
+        "name": "Background",
+        "transform": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        "texture": "Background",
+        "children": [],
+        "scripts": []
+      },
+      {
+        "type": "sprite",
+        "name": "MenuButton",
+        "transform": {
+          "position": {
+            "x": 800,
+            "y": 800,
+            "z": 10
+          },
+          "rotation": 0,
+          "scale": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        "texture": "MenuButton",
+        "children": [],
+        "scripts": [
+          {
+            "name": "ButtonNavigation",
+            "redirection": "MainMenu.json"
+          }
+        ]
+      },
+      {
+        "type": "sprite",
+        "name": "gameover",
+        "transform": {
+          "position": {
+            "x": 600,
+            "y": 80,
+            "z": 10
+          },
+          "rotation": 0,
+          "scale": {
+            "x": 2,
+            "y": 2
+          }
+        },
+        "texture": "gameover",
+        "children": [],
+        "scripts": []
+      },
+      {
+        "type": "sprite",
+        "name": "tankEnnemy",
+             "transform": {
+                  "position": {
+                    "x": 550,
+                    "y": 350,
+                    "z": 20
+                  },
+                  "rotation": 0,
+                  "scale": {
+                    "x": 1,
+                    "y": 1
+                  }
+             },
+          "texture": "tankEnnemy",
+             "textureRect": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 65.5,
+                  "height": 130
+             },
+          "children": [],
+                "scripts": [
+                    {
+                        "name": "Animation",
+                        "animations": [
+                            {
+                                "name": "idle",
+                                "time": 0.1,
+                                "frames": [
+                                    {
+                                        "x": 0,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 65.5,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 131,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 196.5,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 262,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 327.5,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 393,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+        ]
+      },
+      {
+        "type": "sprite",
+        "name": "tankEnnemy",
+             "transform": {
+                  "position": {
+                    "x": 1280,
+                    "y": 350,
+                    "z": 20
+                  },
+                  "rotation": 0,
+                  "scale": {
+                    "x": 1,
+                    "y": 1
+                  }
+             },
+          "texture": "tankEnnemy",
+             "textureRect": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 65.5,
+                  "height": 130
+             },
+          "children": [],
+                "scripts": [
+                    {
+                        "name": "Animation",
+                        "animations": [
+                            {
+                                "name": "idle",
+                                "time": 0.1,
+                                "frames": [
+                                    {
+                                        "x": 0,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 65.5,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 131,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 196.5,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 262,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 327.5,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    },
+                                    {
+                                        "x": 393,
+                                        "y": 0,
+                                        "width": 65,
+                                        "height": 130
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+        ]
+      },
+      {
+        "type": "sprite",
+        "name": "bossEnnemy",
+           "transform": {
+               "position": {
+                   "x": 1350,
+                   "y": 880,
+                   "z": 20
+               },
+               "rotation": 0,
+               "scale": {
+                   "x": 1,
+                   "y": 1
+               }
+           },
+         "texture": "bossEnnemy",
+           "textureRect": {
+               "x": 0,
+               "y": 0,
+               "width": 260,
+               "height": 143
+           },
+         "children": [],
+           "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.2,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "width": 260,
+                                "height": 143
+                            },
+                            {
+                                "x": 0,
+                                "y": 143,
+                                "width": 260,
+                                "height": 143
+                            },
+                            {
+                                "x": 0,
+                                "y": 286,
+                                "width": 260,
+                                "height": 143
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    ]
+    
+}
+  
