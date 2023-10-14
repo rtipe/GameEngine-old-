@@ -14,8 +14,9 @@ class InputField : public Uniti::Game::AScript {
         void awake(const Json::Value &value) override;
         void checkActive();
         void writeInputField();
-    private:
-        float _width;
+        static std::string _username;
+private:
+    float _width;
         float _height;
         bool _active;
         int _maxChar;
