@@ -783,7 +783,7 @@
            },
          "texture": "vesselArmement",
            "textureRect": {
-               "x": 250,
+               "x": 198,
                "y": 0,
                "width": 49,
                "height": 49
@@ -798,31 +798,31 @@
                         "time": 0.1,
                         "frames": [
                             {
-                                "x": 249,
+                                "x": 199,
                                 "y": 0,
                                 "width": 50,
                                 "height": 50
                             },
                             {
-                                "x": 298,
+                                "x": 149,
                                 "y": 0,
                                 "width": 50,
                                 "height": 50
                             },
                             {
-                                "x": 348,
+                                "x": 99,
                                 "y": 0,
                                 "width": 50,
                                 "height": 50
                             },
                             {
-                                "x": 398,
+                                "x": 49,
                                 "y": 0,
                                 "width": 50,
                                 "height": 50
                             },
                             {
-                                "x": 448,
+                                "x": 0,
                                 "y": 0,
                                 "width": 50,
                                 "height": 50
@@ -843,18 +843,18 @@
                 "y": 250,
                 "z": 11
             },
-            "rotation": 0,
+            "rotation": 180,
             "scale": {
                 "x": 1,
                 "y": 1
             }
         },
-        "texture": "vessel",
+        "texture": "vesselHelp",
         "textureRect": {
           "x": 0,
-          "y": 17,
-          "width": 34,
-          "height": 16
+          "y": 98,
+          "width": 33,
+          "height": 35
           },
         "children": [],
         "scripts": [
@@ -867,33 +867,51 @@
                         "frames": [
                             {
                                 "x": 0,
-                                "y": 17,
-                                "width": 32,
-                                "height": 16
+                                "y": 98,
+                                "width": 33,
+                                "height": 35
                             },
                             {
-                                "x": 32,
-                                "y": 17,
-                                "width": 32,
-                                "height": 16
+                                "x": 33,
+                                "y": 98,
+                                "width": 33,
+                                "height": 35
                             },
                             {
-                                "x": 64,
-                                "y": 17,
-                                "width": 32,
-                                "height": 16
+                                "x": 66,
+                                "y": 98,
+                                "width": 33,
+                                "height": 35
                             },
                             {
-                                "x": 96,
-                                "y": 17,
-                                "width": 32,
-                                "height": 16
+                                "x": 99,
+                                "y": 98,
+                                "width": 33,
+                                "height": 35
                             },
                             {
-                                "x": 128,
-                                "y": 17,
-                                "width": 32,
-                                "height": 16
+                                "x": 132,
+                                "y": 98,
+                                "width": 33,
+                                "height": 35
+                            },
+                            {
+                                "x": 165,
+                                "y": 98,
+                                "width": 33,
+                                "height": 35
+                            },
+                            {
+                                "x": 198,
+                                "y": 98,
+                                "width": 33,
+                                "height": 35
+                            },
+                            {
+                                "x": 231,
+                                "y": 98,
+                                "width": 33,
+                                "height": 35
                             }
                         ]
                     }
@@ -904,4 +922,4 @@
   ]
     
 }
-  
+ 
