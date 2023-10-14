@@ -191,4 +191,8 @@ namespace Uniti::Game {
     const Json::Value &Object::getData() const {
         return this->_data;
     }
+
+    std::string &Object::getName() {
+        return this->_name;
+    }
 }
