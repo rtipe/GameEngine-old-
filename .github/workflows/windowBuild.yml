@@ -1,13 +1,3 @@
-name: buildwindow
-
-on:
-  push:
-    tags:
-      - '*'
-  pull_request: # Ajout de la vérification des PR
-    branches:
-      - '*'
-
 jobs:
   build-windows:
     runs-on: windows-latest
@@ -15,19 +5,17 @@ jobs:
       contents: write
 
     steps:
-      - name: Set up MSVC environment
-        uses: msys2/setup-msys2@v2
-        with:
-          arch: x86_64
-        shell: cmd
+    - name: Set up MSVC environment
+      uses: msys2/setup-msys2@v2
+      with:
+        arch: x86_64
 
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Configure and build
-        run: |
-          mkdir build
-          cd build
-          cmake -DCMAKE_BUILD_TYPE=Release ..
-          cmake --build . --config Release
-        shell: cmd
+    - name: Configure and build
+      run: |
+        mkdir build
+        cd build
+        cmake -DCMAKE_BUILD_TYPE=Release ..
+        cmake --build . --config Release
