@@ -38,6 +38,6 @@ jobs:
           git checkout ${{ steps.extract_branch.outputs.branch }}
           git add .
           git diff --staged --quiet || git commit -m "Apply Clang Format"
-          git push
+          git push --set-upstream origin ${{ steps.extract_branch.outputs.branch }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
