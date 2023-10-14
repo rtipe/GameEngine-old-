@@ -28,8 +28,11 @@ jobs:
 
       - name: Commit Changes
         run: |
+          pull_request_branch=$(echo $GITHUB_REF | awk -F'/' '{print $3}')
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
+          git fetch origin pull/$pull_request_branch/head:$pull_request_branch
+          git checkout $pull_request_branch
           git add .
           git diff --staged --quiet || git commit -m "Apply Clang Format"
           git push
