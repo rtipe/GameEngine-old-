@@ -6,12 +6,9 @@ on:
     types:
       - completed
 
-
 jobs:
   lint:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -29,16 +26,16 @@ jobs:
 
       - name: Lint C++ Code
         run: |
-          find . -name "*.cpp" -exec sed -i '1i #define IndentWidth 4' {} \; -exec clang-format -i {} \;
+          find . -name "*.cpp" -exec clang-format -i -style=file {} \;
 
       - name: Commit Changes
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git fetch --all
-          git checkout ${{ github.head_ref }}
           git add .
           git diff --staged --quiet || git commit -m "Apply Clang Format"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
