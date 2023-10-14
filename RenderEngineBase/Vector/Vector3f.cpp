@@ -5,6 +5,5 @@
 #include "Vector3f.hpp"
 
 namespace Uniti {
-    namespace Render {
-    } // Uniti
-} // Render
+namespace Render {} // namespace Render
+} // namespace Uniti

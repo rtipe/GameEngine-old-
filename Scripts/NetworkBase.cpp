@@ -2,20 +2,20 @@
 // Created by youba on 08/10/2023.
 //
 
-#include <iostream>
 #include "NetworkBase.hpp"
-#include "Uniti.hpp"
-#include "Objects.hpp"
 #include "InputField.hpp"
+#include "Objects.hpp"
+#include "Uniti.hpp"
+#include <iostream>
 
-NetworkBase::NetworkBase(Uniti::Game::Object &gameObject) : AScript(gameObject) { }
+NetworkBase::NetworkBase(Uniti::Game::Object &gameObject)
+    : AScript(gameObject) {}
 
 void NetworkBase::start() {
-    Uniti::Game::Core::getNetwork().addServer("game", "127.0.0.1", 7070, InputField::_username);
+  Uniti::Game::Core::getNetwork().addServer("game", "127.0.0.1", 7070,
+                                            InputField::_username);
 }
 
-void NetworkBase::update() {
+void NetworkBase::update() {}
 
-}
-
-void NetworkBase::awake(const Json::Value &value) { }
+void NetworkBase::awake(const Json::Value &value) {}
