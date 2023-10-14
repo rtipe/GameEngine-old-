@@ -31,6 +31,12 @@
             "isRepeated": false,
             "isSmooth": false,
             "name": "projectilEnnemy"
+        },
+        {
+            "path": "../../assets/Ennemy/sniper2Ennemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "sniper2Ennemy"
         }
       ]
     },
@@ -443,6 +449,67 @@
             ]
         }
        ]
+    },
+    {
+        "type": "sprite",
+        "name": "sniper2Ennemy",
+           "transform": {
+               "position": {
+                   "x": 550,
+                   "y": 350,
+                   "z": 20
+               },
+               "rotation": 0,
+               "scale": {
+                   "x": 1,
+                   "y": 1
+               }
+           },
+         "texture": "sniper2Ennemy",
+           "textureRect": {
+               "x": 0,
+               "y": 0,
+               "width": 51,
+               "height": 59
+           },
+         "children": [],
+           "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.3,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "width": 51,
+                                "height": 59
+                            },
+                            {
+                                "x": 51,
+                                "y": 0,
+                                "width": 51,
+                                "height": 59
+                            },
+                            {
+                                "x": 108,
+                                "y": 0,
+                                "width": 52,
+                                "height": 59
+                            },
+                            {
+                                "x": 51,
+                                "y": 0,
+                                "width": 51,
+                                "height": 59
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
   ]
     
