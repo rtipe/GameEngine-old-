@@ -37,6 +37,12 @@
             "isRepeated": false,
             "isSmooth": false,
             "name": "sniper2Ennemy"
+        },
+        {
+            "path": "../../assets/Ennemy/kamikaze1Ennemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "kamikaze1Ennemy"
         }
       ]
     },
@@ -504,6 +510,91 @@
                                 "y": 0,
                                 "width": 51,
                                 "height": 59
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "sprite",
+        "name": "kamikaze1Ennemy",
+           "transform": {
+               "position": {
+                   "x": 150,
+                   "y": 550,
+                   "z": 20
+               },
+               "rotation": 0,
+               "scale": {
+                   "x": 1,
+                   "y": 1
+               }
+           },
+         "texture": "kamikaze1Ennemy",
+           "textureRect": {
+               "x": 0,
+               "y": 0,
+               "width": 33,
+               "height": 32
+           },
+         "children": [],
+           "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.1,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 33,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 66,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 99,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 132,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 165,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 198,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 231,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
                             }
                         ]
                     }
