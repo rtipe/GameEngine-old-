@@ -10,6 +10,7 @@ target_sources(project PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/MissileHandler.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/DisplayHP.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/Timer.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Explosion.cpp"
 )
 
 target_include_directories(project PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
