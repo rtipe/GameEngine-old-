@@ -3,11 +3,13 @@
 //
 
 #include "InputField.hpp"
+
+#include <iostream>
+
 #include "Input.hpp"
 #include "Mouse.hpp"
 #include "Text.hpp"
 #include "Uniti.hpp"
-#include <iostream>
 
 std::string InputField::_username = "USER";
 
@@ -60,12 +62,9 @@ void InputField::writeInputField() {
         size_t secondUnderscore = events[i].find('_', firstUnderscore + 1);
         int keyId = stoi(events[i].substr(
             firstUnderscore + 1, secondUnderscore - firstUnderscore - 1));
-        if (keyId >= 0 && keyId <= 25)
-          text += keyId + 65;
-        if (keyId == 57)
-          text += "  ";
-        if (keyId == 59)
-          nbReturn++;
+        if (keyId >= 0 && keyId <= 25) text += keyId + 65;
+        if (keyId == 57) text += "  ";
+        if (keyId == 59) nbReturn++;
       }
     }
     auto &currentText = dynamic_cast<Uniti::Render::Text &>(

@@ -5,5 +5,5 @@
 #include "Vector2i.hpp"
 
 namespace Uniti {
-namespace Render {} // namespace Render
-} // namespace Uniti
+namespace Render {}  // namespace Render
+}  // namespace Uniti

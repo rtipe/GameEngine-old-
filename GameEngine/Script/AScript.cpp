@@ -16,4 +16,4 @@ Event &AScript::getEvent() { return this->_event; }
 const Render::Clock &AScript::getClock() const { return this->_clock; }
 
 Render::Clock &AScript::getClock() { return this->_clock; }
-} // namespace Uniti::Game
+}  // namespace Uniti::Game

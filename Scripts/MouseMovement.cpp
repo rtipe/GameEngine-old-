@@ -3,12 +3,14 @@
 //
 
 #include "MouseMovement.hpp"
+
+#include <iostream>
+
 #include "Explosion.hpp"
 #include "Input.hpp"
 #include "Mouse.hpp"
 #include "Objects.hpp"
 #include "Uniti.hpp"
-#include <iostream>
 
 MouseMovement::MouseMovement(Uniti::Game::Object &gameObject)
     : AScript(gameObject) {}
@@ -27,14 +29,12 @@ void MouseMovement::start() {
       auto it = std::find_if(
           vesselType.begin(), vesselType.end(),
           [&](const std::string &type) { return id.starts_with(type); });
-      if (it != vesselType.end())
-        vesselName = *it;
+      if (it != vesselType.end()) vesselName = *it;
 
       auto copy = Uniti::Game::Utils::Objects::find(vesselName);
       auto vessel = Uniti::Game::Utils::Objects::find(id);
 
-      if (copy == std::nullopt)
-        return;
+      if (copy == std::nullopt) return;
       if (vessel == std::nullopt) {
         auto newVessel = std::make_unique<Uniti::Game::Object>(copy.value());
         newVessel->getTransform().getPosition().setX(position.getX());
@@ -64,8 +64,7 @@ void MouseMovement::start() {
                              [&](const std::string &type) {
                                return name.asString().starts_with(type);
                              });
-      if (it != noExplosion.end())
-        continue;
+      if (it != noExplosion.end()) continue;
       Explosion::createExplosion({
           vessel.value().get().getTransform().getPosition().getX(),
           vessel.value().get().getTransform().getPosition().getY(),

@@ -6,10 +6,12 @@
 */
 
 #include "ButtonNavigation.hpp"
+
+#include <iostream>
+
 #include "Mouse.hpp"
 #include "MouseMovement.hpp"
 #include "Uniti.hpp"
-#include <iostream>
 
 ButtonNavigation::ButtonNavigation(Uniti::Game::Object &gameObject)
     : Uniti::Game::AScript(gameObject) {}
@@ -24,7 +26,6 @@ void ButtonNavigation::updatePos() {
 }
 
 void ButtonNavigation::update() {
-
   Uniti::Render::Vector2f positionMouse =
       Uniti::Render::Mouse::getPosition(Uniti::Game::Core::getWindow());
 

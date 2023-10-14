@@ -3,19 +3,24 @@
 //
 
 #include "Object.hpp"
+
+#include <iostream>
+
 #include "Scene.hpp"
 #include "Sprite.hpp"
 #include "Text.hpp"
 #include "Uniti.hpp"
-#include <iostream>
 
 namespace Uniti::Game {
 
 Object::Object(Object &object)
-    : _scene(object.getScene()), _children(object.getChildren().getObjects()),
+    : _scene(object.getScene()),
+      _children(object.getChildren().getObjects()),
       _transform(object.getTransform()),
       _collision(object.getCollision().getBox(), _transform),
-      _layer(object.getLayer()), _name(object.getName()), _movement(*this),
+      _layer(object.getLayer()),
+      _name(object.getName()),
+      _movement(*this),
       _scriptManager(object.getScriptManager().getData(), *this) {
   if (object.hasPrintable()) {
     if (object.getPrintable().getTypeName() == "sprite") {
@@ -30,22 +35,29 @@ Object::Object(Object &object)
 }
 
 Object::Object(const Json::Value &value, Scene &scene)
-    : _scene(scene), _children(value["children"], scene),
+    : _scene(scene),
+      _children(value["children"], scene),
       _transform(value["transform"]),
       _collision(value["collision"], _transform),
       _layer(value.get("layer", "").asString()),
-      _name(value.get("name", "").asString()), _movement(*this),
-      _scriptManager(value["scripts"], *this), _data(value) {
+      _name(value.get("name", "").asString()),
+      _movement(*this),
+      _scriptManager(value["scripts"], *this),
+      _data(value) {
   this->setPrintable(value);
 }
 
 Object::Object(const std::string &name, Scene &scene)
-    : _scene(scene), _children({}), _name(name), _transform(),
-      _collision(_transform), _movement(*this), _scriptManager({}, *this) {}
+    : _scene(scene),
+      _children({}),
+      _name(name),
+      _transform(),
+      _collision(_transform),
+      _movement(*this),
+      _scriptManager({}, *this) {}
 
 void Object::update() {
-  if (!this->_isEnable)
-    return;
+  if (!this->_isEnable) return;
   this->_scriptManager.update();
   this->_movement.update();
   this->_movement.getClock().restart();
@@ -134,17 +146,13 @@ void Object::setPrintable(const Json::Value &value) {
     text->setString(value.get("text", "").asString());
     text->setColor(value["color"]);
     const std::string &style = value.get("style", "regular").asString();
-    if (style == "regular")
-      text->setStyle(Uniti::Render::Text::REGULAR);
-    if (style == "bold")
-      text->setStyle(Uniti::Render::Text::BOLD);
-    if (style == "italic")
-      text->setStyle(Uniti::Render::Text::ITALIC);
+    if (style == "regular") text->setStyle(Uniti::Render::Text::REGULAR);
+    if (style == "bold") text->setStyle(Uniti::Render::Text::BOLD);
+    if (style == "italic") text->setStyle(Uniti::Render::Text::ITALIC);
     text->setCharacterSize(value.get("size", 24).asInt());
     this->_printable = std::move(text);
   }
-  if (type == "empty")
-    this->_printable = nullptr;
+  if (type == "empty") this->_printable = nullptr;
 }
 
 bool Object::hasPrintable() const { return this->_printable != nullptr; }
@@ -152,4 +160,4 @@ bool Object::hasPrintable() const { return this->_printable != nullptr; }
 const Json::Value &Object::getData() const { return this->_data; }
 
 std::string &Object::getName() { return this->_name; }
-} // namespace Uniti::Game
+}  // namespace Uniti::Game

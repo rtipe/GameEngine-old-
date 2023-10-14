@@ -3,10 +3,12 @@
 //
 
 #include "Window.hpp"
+
+#include <iostream>
+
 #include "IPrintable.hpp"
 #include "Input.hpp"
 #include "Mouse.hpp"
-#include <iostream>
 
 namespace Uniti::Render {
 bool Window::isOpen() const { return this->_window.isOpen(); }
@@ -17,8 +19,7 @@ void Window::display() {
   Input::clearEvents();
   Mouse::clearEvents();
   while (this->_window.pollEvent(this->_event)) {
-    if (this->_event.type == sf::Event::Closed)
-      this->close();
+    if (this->_event.type == sf::Event::Closed) this->close();
     Input::update(*this);
     Mouse::update(*this);
   }
@@ -28,8 +29,7 @@ void Window::display() {
                      printable2.getPosition().getZ();
             });
   this->_window.clear({0, 0, 0});
-  for (const auto &printable : this->_printable)
-    printable.get().display(*this);
+  for (const auto &printable : this->_printable) printable.get().display(*this);
   this->_window.display();
   this->_printable.clear();
 }
@@ -55,4 +55,4 @@ sf::RenderWindow &Window::getRenderWindow() { return this->_window; }
 void Window::print(IPrintable &printable) {
   this->_printable.emplace_back(printable);
 }
-} // namespace Uniti::Render
+}  // namespace Uniti::Render

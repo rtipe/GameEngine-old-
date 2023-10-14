@@ -3,6 +3,7 @@
 //
 
 #include "ProjectInfo.hpp"
+
 #include <filesystem>
 #include <fstream>
 #include <string>
@@ -48,4 +49,4 @@ ProjectInfo::ProjectInfo(const std::string &projectPath) {
     }
   }
 }
-} // namespace Uniti::Game
+}  // namespace Uniti::Game

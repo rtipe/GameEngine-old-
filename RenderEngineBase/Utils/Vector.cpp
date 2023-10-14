@@ -4,6 +4,6 @@
 
 #include "Vector.hpp"
 
-namespace Uniti::Render::Utils {} // namespace Uniti::Render::Utils
-                                  // Render
-                                  // Utils
+namespace Uniti::Render::Utils {}  // namespace Uniti::Render::Utils
+                                   // Render
+                                   // Utils

@@ -3,8 +3,10 @@
 //
 
 #include "Server.hpp"
-#include "Uniti.hpp"
+
 #include <algorithm>
+
+#include "Uniti.hpp"
 
 namespace Uniti::Game {
 Server::Server(const std::string &ip, unsigned int port,
@@ -27,20 +29,17 @@ boost::asio::ip::udp::endpoint &Server::getEndPoint() {
 void Server::addPacket(const Json::Value &packet) {
   int id = packet.get("id", -1).asInt();
 
-  if (id == -1)
-    return;
+  if (id == -1) return;
   auto itToHandle =
       std::find_if(this->_packetToHandle.begin(), this->_packetToHandle.end(),
                    [&](const auto &value) {
                      int otherId = value.get("id", -1).asInt();
                      return id == otherId;
                    });
-  if (itToHandle != this->_packetToHandle.end())
-    return;
+  if (itToHandle != this->_packetToHandle.end()) return;
   auto itHandled =
       std::find(this->_packetHandled.begin(), this->_packetHandled.end(), id);
-  if (itHandled != this->_packetHandled.end())
-    return;
+  if (itHandled != this->_packetHandled.end()) return;
   const std::lock_guard<std::mutex> lock(this->_mutex);
   this->_packetToHandle.push_back(packet);
 }
@@ -55,8 +54,7 @@ void Server::updateEvent() {
                      int id = value.get("id", -1).asInt();
                      return nextId == id;
                    });
-  if (itToHandle == this->_packetToHandle.end())
-    return;
+  if (itToHandle == this->_packetToHandle.end()) return;
   Json::Value events = itToHandle.operator*()["events"];
 
   for (const auto &event : events) {
@@ -68,8 +66,7 @@ void Server::updateEvent() {
                                                                     event);
     lock.lock();
   }
-  if (this->_packetHandled.size() > 16)
-    this->_packetHandled.pop_front();
+  if (this->_packetHandled.size() > 16) this->_packetHandled.pop_front();
   this->_packetHandled.push_back(nextId);
   this->_packetToHandle.erase(itToHandle);
   this->_waitedId = nextId;
@@ -135,4 +132,4 @@ Json::Value Server::createPacket() {
   packet["user"] = this->_user;
   return packet;
 }
-} // namespace Uniti::Game
+}  // namespace Uniti::Game

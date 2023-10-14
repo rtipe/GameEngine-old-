@@ -3,10 +3,12 @@
 //
 
 #include "NetworkBase.hpp"
+
+#include <iostream>
+
 #include "InputField.hpp"
 #include "Objects.hpp"
 #include "Uniti.hpp"
-#include <iostream>
 
 NetworkBase::NetworkBase(Uniti::Game::Object &gameObject)
     : AScript(gameObject) {}

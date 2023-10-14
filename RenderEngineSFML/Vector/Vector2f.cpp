@@ -60,8 +60,8 @@ Vector2f &Vector2f::operator=(const Vector2f &other) {
   this->_y = other.getY();
   return *this;
 }
-} // namespace Render
-} // namespace Uniti
+}  // namespace Render
+}  // namespace Uniti
 
 std::ostream &operator<<(std::ostream &os,
                          const Uniti::Render::Vector2f &vector) {

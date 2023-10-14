@@ -3,6 +3,7 @@
 //
 
 #include "Vector.hpp"
+
 #include <cmath>
 
 namespace Uniti::Render::Utils {
@@ -68,4 +69,4 @@ Uniti::Render::Vector3f Vector::getNormal(const Vector3f &base,
   }
   return normalVector;
 }
-} // namespace Uniti::Render::Utils
+}  // namespace Uniti::Render::Utils

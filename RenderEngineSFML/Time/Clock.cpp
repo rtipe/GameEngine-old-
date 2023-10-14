@@ -55,4 +55,4 @@ void Clock::start() {
     this->restart();
   }
 }
-} // namespace Uniti::Render
+}  // namespace Uniti::Render

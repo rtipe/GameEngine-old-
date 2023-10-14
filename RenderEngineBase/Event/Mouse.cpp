@@ -4,5 +4,5 @@
 
 #include "Mouse.hpp"
 
-namespace Uniti::Render {} // namespace Uniti::Render
-                           // Render
+namespace Uniti::Render {}  // namespace Uniti::Render
+                            // Render

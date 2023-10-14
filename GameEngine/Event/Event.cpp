@@ -31,4 +31,4 @@ void Event::emitEvent(const std::string &name, const Json::Value &value) {
     }
   }
 }
-} // namespace Uniti::Game
+}  // namespace Uniti::Game

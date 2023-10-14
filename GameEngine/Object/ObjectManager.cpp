@@ -41,8 +41,7 @@ void ObjectManager::update() {
     });
     this->_outObjects.erase(this->_outObjects.begin());
   }
-  for (const auto &object : this->_objects)
-    object->update();
+  for (const auto &object : this->_objects) object->update();
   while (!this->_inObjects.empty()) {
     this->_objects.push_back(std::move(this->_inObjects[0]));
     this->_inObjects.erase(this->_inObjects.begin());
@@ -54,4 +53,4 @@ void ObjectManager::emitEvent(const std::string &name,
   for (const auto &object : this->_objects)
     object->getScriptManager().emitEvent(name, value);
 }
-} // namespace Uniti::Game
+}  // namespace Uniti::Game

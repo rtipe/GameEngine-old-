@@ -3,6 +3,7 @@
 //
 
 #include "Box.hpp"
+
 #include <iostream>
 
 namespace Uniti::Render {
@@ -89,4 +90,4 @@ bool Box::isInside(const Box &box, const Vector3f &parentA,
   return !(thisRight < otherLeft || thisLeft > otherRight ||
            thisBottom < otherTop || thisTop > otherBottom);
 }
-} // namespace Uniti::Render
+}  // namespace Uniti::Render

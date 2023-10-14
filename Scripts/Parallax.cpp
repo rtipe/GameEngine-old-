@@ -3,6 +3,7 @@
 //
 
 #include "Parallax.hpp"
+
 #include "Uniti.hpp"
 
 Parallax::Parallax(Uniti::Game::Object &gameObject) : AScript(gameObject) {}

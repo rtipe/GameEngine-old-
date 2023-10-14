@@ -3,6 +3,7 @@
 //
 
 #include "Timer.hpp"
+
 #include "Text.hpp"
 
 Timer::Timer(Uniti::Game::Object &gameObject) : AScript(gameObject) {}

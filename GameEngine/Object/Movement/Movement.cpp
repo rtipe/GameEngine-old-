@@ -3,10 +3,12 @@
 //
 
 #include "Movement.hpp"
+
+#include <iostream>
+
 #include "Collisions.hpp"
 #include "Object.hpp"
 #include "Vector.hpp"
-#include <iostream>
 
 namespace Uniti::Game {
 Movement::Movement(Object &object) : _object(object) {}
@@ -94,4 +96,4 @@ Render::Vector3f Movement::getDeltaTime() {
           static_cast<float>(this->_clock.getMicroSeconds()) / 1000000,
           static_cast<float>(this->_clock.getMicroSeconds()) / 1000000};
 }
-} // namespace Uniti::Game
+}  // namespace Uniti::Game

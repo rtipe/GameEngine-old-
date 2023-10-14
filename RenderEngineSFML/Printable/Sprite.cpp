@@ -74,4 +74,4 @@ Sprite::Sprite(Sprite &sprite) : _texture(sprite._texture) {
   this->_origin = sprite._origin;
   this->_rotation = sprite._rotation;
 }
-} // namespace Uniti::Render
+}  // namespace Uniti::Render

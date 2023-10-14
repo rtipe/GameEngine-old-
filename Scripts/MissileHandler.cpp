@@ -3,9 +3,11 @@
 //
 
 #include "MissileHandler.hpp"
+
+#include <iostream>
+
 #include "Objects.hpp"
 #include "Uniti.hpp"
-#include <iostream>
 
 MissileHandler::MissileHandler(Uniti::Game::Object &gameObject)
     : AScript(gameObject) {}

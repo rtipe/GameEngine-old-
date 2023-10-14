@@ -3,6 +3,7 @@
 //
 
 #include "ScriptManager.hpp"
+
 #include "Uniti.hpp"
 
 namespace Uniti::Game {
@@ -57,4 +58,4 @@ void ScriptManager::emitEvent(const std::string &name,
     script.second->getEvent().emitEvent(name, value);
   }
 }
-} // namespace Uniti::Game
+}  // namespace Uniti::Game

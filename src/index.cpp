@@ -2,6 +2,8 @@
 // Created by youba on 07/10/2023.
 //
 
+#include <iostream>
+
 #include "Animation.hpp"
 #include "ButtonNavigation.hpp"
 #include "DisplayHP.hpp"
@@ -13,7 +15,6 @@
 #include "Parallax.hpp"
 #include "Timer.hpp"
 #include "Uniti.hpp"
-#include <iostream>
 
 int main() {
   Uniti::Game::Core::initProject("../../json/project.json");

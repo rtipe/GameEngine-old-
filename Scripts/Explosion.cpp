@@ -3,6 +3,7 @@
 //
 
 #include "Explosion.hpp"
+
 #include "Objects.hpp"
 #include "Scene.hpp"
 #include "Uniti.hpp"
@@ -25,8 +26,7 @@ void Explosion::awake(const Json::Value &value) {}
 void Explosion::createExplosion(const Uniti::Render::Vector2f &position) {
   auto copy = Uniti::Game::Utils::Objects::find("Explosion");
 
-  if (copy == std::nullopt)
-    return;
+  if (copy == std::nullopt) return;
   Explosion::_count = (Explosion::_count > 1000) ? 0 : Explosion::_count + 1;
   auto newExplosion = std::make_unique<Uniti::Game::Object>(copy.value());
   newExplosion->getTransform().getPosition().setX(position.getX());

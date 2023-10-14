@@ -63,4 +63,4 @@ void Color::set(int r, int g, int b, int a) {
   this->_b = b;
   this->_a = a;
 }
-} // namespace Uniti::Render
+}  // namespace Uniti::Render

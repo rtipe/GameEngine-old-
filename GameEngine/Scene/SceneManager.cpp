@@ -3,9 +3,12 @@
 //
 
 #include "SceneManager.hpp"
-#include "Uniti.hpp"
-#include <fstream>
+
 #include <json/json.h>
+
+#include <fstream>
+
+#include "Uniti.hpp"
 
 namespace Uniti::Game {
 const Scene &SceneManager::getCurrentScene() const {
@@ -39,8 +42,7 @@ bool SceneManager::changeScene(const std::string &name) {
   auto it =
       std::find_if(this->getAllScenes().begin(), this->getAllScenes().end(),
                    [&](const ScenePath &path) { return path.name == name; });
-  if (it == this->getAllScenes().end())
-    return false;
+  if (it == this->getAllScenes().end()) return false;
   this->_nextScene = *it;
   return true;
 }
@@ -72,4 +74,4 @@ Json::Value SceneManager::getSceneValue(const ScenePath &scenePath) const {
   file >> scene;
   return scene;
 }
-} // namespace Uniti::Game
+}  // namespace Uniti::Game

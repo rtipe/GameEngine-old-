@@ -1,4 +1,5 @@
 #include "LiveScript.hpp"
+
 #include "Uniti.hpp"
 
 LiveScript::LiveScript(Uniti::Game::Object &gameObject) : AScript(gameObject) {}
