@@ -1,6 +1,9 @@
 {
     "assets": {
-        "fonts": [],
+        "fonts": [{
+            "path": "../../assets/Pacifico.ttf",
+            "name": "pacifico"
+        }],
         "textures": [
             {
                 "path": "../../assets/menu/PlayButton.png",
@@ -25,6 +28,12 @@
                 "isRepeated": false,
                 "isSmooth": false,
                 "name": "ControlsButton"
+            },
+            {
+                "path": "../../assets/menu/input.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "input"
             }
         ]
     },
@@ -112,6 +121,61 @@
                 {
                     "name": "ButtonNavigation",
                     "redirection": "controls.json"
+                }
+            ]
+        },
+        {
+            "type": "sprite",
+            "name": "InputBackground",
+            "transform": {
+                "position": {
+                    "x": 1000,
+                    "y": 100,
+                    "z": 20
+                },
+                "rotation": 0,
+                "scale": {
+                    "x": 0.2,
+                    "y": 0.1
+                }
+            },
+            "texture": "input",
+            "children": [],
+            "scripts": []
+        },
+        {
+            "type": "text",
+            "name": "InputForground",
+            "transform": {
+                "position": {
+                    "x": 1025,
+                    "y": 120,
+                    "z": 21
+                },
+                "rotation": 0,
+                "scale": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "collision": {},
+            "font": "pacifico",
+            "text": "USER",
+            "color": {
+                "r": 255,
+                "g": 255,
+                "b": 255
+            },
+            "style": "regular",
+            "size": 20,
+            "children": [],
+            "scripts": [
+                {
+                    "name": "InputField",
+                    "width": 200,
+                    "height": 200,
+                    "active": false,
+                    "maxChar": 10
                 }
             ]
         }

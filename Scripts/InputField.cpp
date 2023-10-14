@@ -10,6 +10,8 @@
 #include "Text.hpp"
 #include <iostream>
 
+std::string InputField::_username = "USER";
+
 InputField::InputField(Uniti::Game::Object &gameObject) : AScript(gameObject) { }
 
 void InputField::start() {
@@ -48,7 +50,7 @@ void InputField::checkActive() {
 void InputField::writeInputField() {
     std::vector<std::string> &events = Uniti::Render::Input::getEvents();
     std::string text;
-    int nbReturn;
+    int nbReturn = 0;
 
     if (this->_active) {
         for (int i = 0; i < events.size(); i++) {
@@ -71,5 +73,6 @@ void InputField::writeInputField() {
         for (int i = 0; i < nbReturn && nextString.size() >= 1; i++)
             nextString = nextString.substr(0, nextString.length() - nbReturn);
         currentText.setString(nextString);
+        InputField::_username = nextString;
     }
 }

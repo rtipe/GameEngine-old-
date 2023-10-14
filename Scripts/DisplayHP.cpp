@@ -5,13 +5,15 @@
 #include <iostream>
 #include "DisplayHP.hpp"
 #include "Text.hpp"
+#include "InputField.hpp"
+#include "Uniti.hpp"
 
 DisplayHP::DisplayHP(Uniti::Game::Object &gameObject) : AScript(gameObject) {}
 
 void DisplayHP::start() {
     this->getEvent().addEvent("Vessel", [&] (const Json::Value &value) {
         for (const auto &nameVessel : value["data"].getMemberNames()) {
-            if (nameVessel != "test") continue; // TODO: remplacer "test" par le pseudo plus tard
+            if (nameVessel != InputField::_username) continue;
             auto data = value["data"][nameVessel];
 
             this->_life = data["life"].asFloat();
@@ -19,8 +21,9 @@ void DisplayHP::start() {
     });
     this->getEvent().addEvent("destroyEntity", [&] (const Json::Value &value) {
         for (const auto &name : value["data"]) {
-            if (name != "test") continue;
+            if (name != InputField::_username) continue;
             this->_life = 0;
+            Uniti::Game::Core::getSceneManager().changeScene("gameover.json");
         }
     });
 }
