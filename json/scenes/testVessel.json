@@ -163,7 +163,7 @@
       "texture": "vessel",
       "textureRect": {
         "x": 0,
-        "y": 0,
+        "y": 34,
         "width": 34,
         "height": 16
         },
@@ -178,31 +178,31 @@
                       "frames": [
                           {
                               "x": 0,
-                              "y": 32,
+                              "y": 34,
                               "width": 32,
                               "height": 16
                           },
                           {
                               "x": 32,
-                              "y": 32,
+                              "y": 34,
                               "width": 32,
                               "height": 16
                           },
                           {
                               "x": 64,
-                              "y": 32,
+                              "y": 34,
                               "width": 32,
                               "height": 16
                           },
                           {
                               "x": 96,
-                              "y": 32,
+                              "y": 34,
                               "width": 32,
                               "height": 16
                           },
                           {
                               "x": 128,
-                              "y": 32,
+                              "y": 34,
                               "width": 32,
                               "height": 16
                           }
