@@ -9,17 +9,25 @@ on:
       - '*'
 
 jobs:
-  build-ubuntu:
-    runs-on: ubuntu-latest
+  build-windows:
+    runs-on: windows-latest
     permissions:
       contents: write
 
     steps:
+      - name: Set up MSVC environment
+        uses: msys2/setup-msys2@v2
+        with:
+          arch: x86_64
+        shell: cmd
+
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up CMake
-        run: cmake -S . -B build
-
-      - name: Build with CMake
-        run: cmake --build build --config Release
+      - name: Configure and build
+        run: |
+          mkdir build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release ..
+          cmake --build . --config Release
+        shell: cmd
