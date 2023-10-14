@@ -833,6 +833,73 @@
             }
             
         ]       
+    },
+    {
+        "type": "sprite",
+        "name": "vesselHelp",
+        "transform": {
+            "position": {
+                "x": 150,
+                "y": 250,
+                "z": 11
+            },
+            "rotation": 0,
+            "scale": {
+                "x": 1,
+                "y": 1
+            }
+        },
+        "texture": "vessel",
+        "textureRect": {
+          "x": 0,
+          "y": 17,
+          "width": 34,
+          "height": 16
+          },
+        "children": [],
+        "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.1,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 17,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 32,
+                                "y": 17,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 64,
+                                "y": 17,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 96,
+                                "y": 17,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 128,
+                                "y": 17,
+                                "width": 32,
+                                "height": 16
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
   ]
     
