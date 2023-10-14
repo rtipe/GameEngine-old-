@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -74,14 +75,16 @@ void AssetManager::addFont(const std::string &path, const std::string &name) {
 }
 
 bool AssetManager::removeTexture(const std::string &name) {
-  if (!this->_textures.contains(name)) return false;
+  if (!this->_textures.contains(name))
+    return false;
   const std::lock_guard<std::mutex> lock(this->_mutex);
   this->_textures.erase(name);
   return true;
 }
 
 bool AssetManager::removeFont(const std::string &name) {
-  if (!this->_fonts.contains(name)) return false;
+  if (!this->_fonts.contains(name))
+    return false;
   const std::lock_guard<std::mutex> lock(this->_mutex);
   this->_fonts.erase(name);
   return true;
@@ -96,4 +99,4 @@ void AssetManager::clearFonts() {
   const std::lock_guard<std::mutex> lock(this->_mutex);
   this->_fonts.clear();
 }
-}  // namespace Uniti::Game
+} // namespace Uniti::Game

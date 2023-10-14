@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -90,4 +91,4 @@ bool Box::isInside(const Box &box, const Vector3f &parentA,
   return !(thisRight < otherLeft || thisLeft > otherRight ||
            thisBottom < otherTop || thisTop > otherBottom);
 }
-}  // namespace Uniti::Render
+} // namespace Uniti::Render

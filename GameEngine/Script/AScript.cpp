@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -16,4 +17,4 @@ Event &AScript::getEvent() { return this->_event; }
 const Render::Clock &AScript::getClock() const { return this->_clock; }
 
 Render::Clock &AScript::getClock() { return this->_clock; }
-}  // namespace Uniti::Game
+} // namespace Uniti::Game

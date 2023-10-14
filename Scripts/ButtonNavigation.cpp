@@ -1,3 +1,4 @@
+#define IndentWidth 4
 /*
 ** EPITECH PROJECT, 2023
 ** GameEngine

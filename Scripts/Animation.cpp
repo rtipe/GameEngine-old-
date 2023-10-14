@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 12/10/2023.
 //
@@ -17,16 +18,19 @@ void Animation::start() {
     bool loop = value.get("loop", false).asBool();
     int iteration = value.get("iteration", 1).asInt();
 
-    if (!this->_animations.contains(animationName)) return;
+    if (!this->_animations.contains(animationName))
+      return;
     this->_actualAnimation = animationName;
     this->_remaining = iteration;
-    if (loop) this->_remaining = -1;
+    if (loop)
+      this->_remaining = -1;
     this->_iteration = 0;
   });
 }
 
 void Animation::update() {
-  if (!this->_animations.contains(this->_actualAnimation)) return;
+  if (!this->_animations.contains(this->_actualAnimation))
+    return;
   if (static_cast<float>(this->_clock.getMilliSeconds()) / 1000 <
       this->_animations[this->_actualAnimation].secondRemaining)
     return;
@@ -59,6 +63,7 @@ void Animation::awake(const Json::Value &value) {
 }
 
 Animation::AnimationFrames::AnimationFrames(const Json::Value &value) {
-  for (const auto &frame : value["frames"]) this->frames.push_back(frame);
+  for (const auto &frame : value["frames"])
+    this->frames.push_back(frame);
   this->secondRemaining = value.get("time", 0).asFloat();
 }

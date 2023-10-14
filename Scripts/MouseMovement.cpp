@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 08/10/2023.
 //
@@ -29,12 +30,14 @@ void MouseMovement::start() {
       auto it = std::find_if(
           vesselType.begin(), vesselType.end(),
           [&](const std::string &type) { return id.starts_with(type); });
-      if (it != vesselType.end()) vesselName = *it;
+      if (it != vesselType.end())
+        vesselName = *it;
 
       auto copy = Uniti::Game::Utils::Objects::find(vesselName);
       auto vessel = Uniti::Game::Utils::Objects::find(id);
 
-      if (copy == std::nullopt) return;
+      if (copy == std::nullopt)
+        return;
       if (vessel == std::nullopt) {
         auto newVessel = std::make_unique<Uniti::Game::Object>(copy.value());
         newVessel->getTransform().getPosition().setX(position.getX());
@@ -64,7 +67,8 @@ void MouseMovement::start() {
                              [&](const std::string &type) {
                                return name.asString().starts_with(type);
                              });
-      if (it != noExplosion.end()) continue;
+      if (it != noExplosion.end())
+        continue;
       Explosion::createExplosion({
           vessel.value().get().getTransform().getPosition().getX(),
           vessel.value().get().getTransform().getPosition().getY(),

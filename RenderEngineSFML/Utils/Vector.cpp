@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -69,4 +70,4 @@ Uniti::Render::Vector3f Vector::getNormal(const Vector3f &base,
   }
   return normalVector;
 }
-}  // namespace Uniti::Render::Utils
+} // namespace Uniti::Render::Utils

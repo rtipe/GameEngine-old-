@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by azerlus on 12/10/23.
 //

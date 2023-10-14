@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -26,4 +27,4 @@ bool Texture::isSmooth() const { return this->_texture.isSmooth(); }
 bool Texture::isRepeated() const { return this->_texture.isRepeated(); }
 
 sf::Texture &Texture::getTexture() { return this->_texture; }
-}  // namespace Uniti::Render
+} // namespace Uniti::Render

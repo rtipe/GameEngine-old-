@@ -1,3 +1,4 @@
+#define IndentWidth 4
 #include "LiveScript.hpp"
 
 #include "Uniti.hpp"

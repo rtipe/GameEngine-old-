@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -55,4 +56,4 @@ void Clock::start() {
     this->restart();
   }
 }
-}  // namespace Uniti::Render
+} // namespace Uniti::Render

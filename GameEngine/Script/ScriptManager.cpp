@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -58,4 +59,4 @@ void ScriptManager::emitEvent(const std::string &name,
     script.second->getEvent().emitEvent(name, value);
   }
 }
-}  // namespace Uniti::Game
+} // namespace Uniti::Game

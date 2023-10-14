@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -12,7 +13,8 @@ Collision::Collision(Transform &transform) : _transform(transform) {}
 Collision::Collision(const Json::Value &value, Transform &transform)
     : _transform(transform) {
   this->_isOverlap = value.get("isOverlap", false).asBool();
-  for (const auto &box : value["boxs"]) this->_collisions.push_back(box);
+  for (const auto &box : value["boxs"])
+    this->_collisions.push_back(box);
 }
 
 Collision::Collision(const std::vector<Render::Box> &collisions,
@@ -36,7 +38,8 @@ std::vector<Render::Box> &Collision::getBox() { return this->_collisions; }
 
 bool Collision::isInside(const Render::Vector2f &point) const {
   for (const auto &box : this->_collisions) {
-    if (box.isInside(point, this->_transform.getPosition())) return true;
+    if (box.isInside(point, this->_transform.getPosition()))
+      return true;
   }
   return false;
 }
@@ -72,4 +75,4 @@ bool Collision::isInside(const Object &object) const {
   }
   return false;
 }
-}  // namespace Uniti::Game
+} // namespace Uniti::Game

@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -74,8 +75,8 @@ Vector3f &Vector3f::operator=(const Vector3f &other) {
   this->_z = other.getZ();
   return *this;
 }
-}  // namespace Render
-}  // namespace Uniti
+} // namespace Render
+} // namespace Uniti
 
 std::ostream &operator<<(std::ostream &os,
                          const Uniti::Render::Vector3f &vector) {

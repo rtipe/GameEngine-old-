@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 08/10/2023.
 //
@@ -13,13 +14,12 @@ namespace Uniti::Game {
 Network::Network(unsigned int port, unsigned int latence)
     : _socketUDP(this->_ioService, boost::asio::ip::udp::endpoint(
                                        boost::asio::ip::udp::v4(), port)),
-      _latence(latence),
-      _port(port),
-      _queue(10000) {}
+      _latence(latence), _port(port), _queue(10000) {}
 
 Network::~Network() {
   this->_ioService.stop();
-  if (this->_ioThread.joinable()) this->_ioThread.join();
+  if (this->_ioThread.joinable())
+    this->_ioThread.join();
 }
 
 void Network::start() {
@@ -32,7 +32,8 @@ void Network::start() {
 void Network::update() {
   this->sendPackets();
   this->handlePackets();
-  for (const auto &server : this->_servers) server.second->updateEvent();
+  for (const auto &server : this->_servers)
+    server.second->updateEvent();
 }
 
 void Network::addServer(const std::string &name, const std::string &ip,
@@ -72,7 +73,8 @@ void Network::startReceive() {
 }
 
 void Network::sendPackets() {
-  if (this->_clock.getMilliSeconds() < this->_latence) return;
+  if (this->_clock.getMilliSeconds() < this->_latence)
+    return;
   this->_clock.restart();
   auto packets = this->getPacketToSend();
   for (auto &pair : packets) {
@@ -92,7 +94,8 @@ void Network::receiveBuffer(const std::string &buffer,
       this->_servers.begin(), this->_servers.end(), [&](const auto &server) {
         return senderEndPoint == server.second->getEndPoint();
       });
-  if (it == this->_servers.end()) return;
+  if (it == this->_servers.end())
+    return;
   try {
     Json::Value command;
     std::istringstream(buffer) >> command;
@@ -126,4 +129,4 @@ Network::getPacketToSend() {
   }
   return packets;
 }
-}  // namespace Uniti::Game
+} // namespace Uniti::Game

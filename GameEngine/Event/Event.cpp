@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -31,4 +32,4 @@ void Event::emitEvent(const std::string &name, const Json::Value &value) {
     }
   }
 }
-}  // namespace Uniti::Game
+} // namespace Uniti::Game

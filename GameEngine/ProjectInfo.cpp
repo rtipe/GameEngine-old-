@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -49,4 +50,4 @@ ProjectInfo::ProjectInfo(const std::string &projectPath) {
     }
   }
 }
-}  // namespace Uniti::Game
+} // namespace Uniti::Game

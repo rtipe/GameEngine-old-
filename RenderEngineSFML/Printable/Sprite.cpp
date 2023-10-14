@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -74,4 +75,4 @@ Sprite::Sprite(Sprite &sprite) : _texture(sprite._texture) {
   this->_origin = sprite._origin;
   this->_rotation = sprite._rotation;
 }
-}  // namespace Uniti::Render
+} // namespace Uniti::Render

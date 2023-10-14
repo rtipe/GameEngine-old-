@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by azerlus on 12/10/2023.
 //
@@ -62,9 +63,12 @@ void InputField::writeInputField() {
         size_t secondUnderscore = events[i].find('_', firstUnderscore + 1);
         int keyId = stoi(events[i].substr(
             firstUnderscore + 1, secondUnderscore - firstUnderscore - 1));
-        if (keyId >= 0 && keyId <= 25) text += keyId + 65;
-        if (keyId == 57) text += "  ";
-        if (keyId == 59) nbReturn++;
+        if (keyId >= 0 && keyId <= 25)
+          text += keyId + 65;
+        if (keyId == 57)
+          text += "  ";
+        if (keyId == 59)
+          nbReturn++;
       }
     }
     auto &currentText = dynamic_cast<Uniti::Render::Text &>(

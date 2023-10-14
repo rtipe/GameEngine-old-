@@ -1,3 +1,4 @@
+#define IndentWidth 4
 //
 // Created by youba on 05/10/2023.
 //
@@ -29,18 +30,18 @@ void Text::setStyle(Text::TextStyle style) {
   const std::lock_guard<std::mutex> lock(this->_mutex);
   sf::Text::Style sfStyle;
   switch (style) {
-    case REGULAR:
-      sfStyle = sf::Text::Regular;
-      break;
-    case BOLD:
-      sfStyle = sf::Text::Bold;
-      break;
-    case ITALIC:
-      sfStyle = sf::Text::Italic;
-      break;
-    default:
-      sfStyle = sf::Text::Regular;
-      break;
+  case REGULAR:
+    sfStyle = sf::Text::Regular;
+    break;
+  case BOLD:
+    sfStyle = sf::Text::Bold;
+    break;
+  case ITALIC:
+    sfStyle = sf::Text::Italic;
+    break;
+  default:
+    sfStyle = sf::Text::Regular;
+    break;
   }
   this->_text.setStyle(sfStyle);
 }
@@ -98,4 +99,4 @@ Text::Text(Text &text) : _font(text._font) {
   this->_rotation = text._rotation;
   this->_origin = text._origin;
 }
-}  // namespace Uniti::Render
+} // namespace Uniti::Render
