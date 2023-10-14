@@ -8,6 +8,7 @@
 #include "Input.hpp"
 #include "MouseMovement.hpp"
 #include "Objects.hpp"
+#include "Explosion.hpp"
 
 MouseMovement::MouseMovement(Uniti::Game::Object &gameObject) : AScript(gameObject) { }
 
@@ -17,8 +18,17 @@ void MouseMovement::start() {
             auto data = value["data"][nameVessel];
             auto position = Uniti::Render::Vector2f(data["position"]);
             auto id = data["id"].asString();
-            auto copy = Uniti::Game::Utils::Objects::find("exampleVessel");
+            std::vector<std::string> vesselType = {"BasicEnemy", "Kamikaze", "Sniper", "Tank", "Boss"};
+            std::string vesselName = "BasicVessel";
+
+            auto it = std::find_if(vesselType.begin(), vesselType.end(), [&] (const std::string &type) {
+                return id.starts_with(type);
+            });
+            if (it != vesselType.end()) vesselName = *it;
+
+            auto copy = Uniti::Game::Utils::Objects::find(vesselName);
             auto vessel = Uniti::Game::Utils::Objects::find(id);
+
             if (copy == std::nullopt) return;
             if (vessel == std::nullopt) {
                 auto newVessel = std::make_unique<Uniti::Game::Object>(copy.value());
@@ -38,6 +48,17 @@ void MouseMovement::start() {
     this->getEvent().addEvent("destroyEntity", [&] (const Json::Value &value) {
         for (const auto &name : value["data"]) {
             this->getGameObject().getScene().getObjects().remove(name.asString());
+            auto vessel = Uniti::Game::Utils::Objects::find(name.asString());
+            std::vector<std::string> noExplosion = {"VesselHeal", "VesselWeapon"};
+
+            auto it = std::find_if(noExplosion.begin(), noExplosion.end(), [&] (const std::string &type) {
+                return name.asString().starts_with(type);
+            });
+            if (it != noExplosion.end()) continue;
+            Explosion::createExplosion({
+                vessel.value().get().getTransform().getPosition().getX(),
+                vessel.value().get().getTransform().getPosition().getY(),
+            });
         }
     });
 }
