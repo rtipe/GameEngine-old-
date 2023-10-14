@@ -13,6 +13,12 @@
           "isRepeated": false,
           "isSmooth": false,
           "name": "vessel"
+        },
+        {
+            "path": "../../assets/Ennemy/basicEnnemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "basicEnnemy"
         }
       ]
     },
@@ -96,12 +102,6 @@
                                 "y": 0,
                                 "width": 32,
                                 "height": 16
-                            },
-                            {
-                                "x": 160,
-                                "y": 0,
-                                "width": 32,
-                                "height": 16
                             }
                         ]
                     }
@@ -169,18 +169,97 @@
                               "y": 32,
                               "width": 32,
                               "height": 16
-                          },
-                          {
-                              "x": 160,
-                              "y": 32,
-                              "width": 32,
-                              "height": 16
                           }
                       ]
                   }
               ]
           }
       ]
+  },
+  {
+     "type": "sprite",
+     "name": "basicEnnemy",
+        "transform": {
+            "position": {
+                "x": 150,
+                "y": 50,
+                "z": 20
+            },
+            "rotation": 0,
+            "scale": {
+                "x": 1,
+                "y": 1
+            }
+        },
+      "texture": "basicEnnemy",
+        "textureRect": {
+            "x": 0,
+            "y": 0,
+            "width": 32,
+            "height": 32
+        },
+      "children": [],
+        "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.1,
+                        "frames": [
+                            {
+                                "x": 224,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 192,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 160,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 128,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 96,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 64,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 32,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
   }
   ]
     
