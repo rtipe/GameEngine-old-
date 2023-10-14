@@ -76,10 +76,68 @@
                 "isRepeated": false,
                 "isSmooth": false,
                 "name": "vesselHelp"
+            },
+            {
+                "path": "../../assets/parallax/parallax.png",
+                "isRepeated": false,
+                "isSmooth": false,
+                "name": "parallax"
             }
         ]
     },
     "objects": [
+        {
+            "type": "empty",
+            "name": "parallax-1",
+            "scripts": [
+                {
+                    "name": "Parallax",
+                    "width": 1920,
+                    "end": 0,
+                    "speed": 200
+                }
+            ],
+            "children": [
+                {
+                    "type": "sprite",
+                    "name": "1",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": -1
+                        },
+                        "rotation": 0,
+                        "scale": {
+                            "x": 3,
+                            "y": 3
+                        }
+                    },
+                    "texture": "parallax",
+                    "children": [],
+                    "scripts": []
+                },
+                {
+                    "type": "sprite",
+                    "name": "1",
+                    "transform": {
+                        "position": {
+                            "x": 1920,
+                            "y": 0,
+                            "z": -1
+                        },
+                        "rotation": 0,
+                        "scale": {
+                            "x": 3,
+                            "y": 3
+                        }
+                    },
+                    "texture": "parallax",
+                    "children": [],
+                    "scripts": []
+                }
+            ]
+        },
         {
             "type": "empty",
             "name": "movementSystem",

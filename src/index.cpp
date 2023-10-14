@@ -13,6 +13,7 @@
 #include "Timer.hpp"
 #include "Explosion.hpp"
 #include "InputField.hpp"
+#include "Parallax.hpp"
 
 int main() {
     Uniti::Game::Core::initProject("../../json/project.json");
@@ -26,6 +27,7 @@ int main() {
     Uniti::Game::Core::getScriptFactory().addScript<Timer>("Timer");
     Uniti::Game::Core::getScriptFactory().addScript<Explosion>("Explosion");
     Uniti::Game::Core::getScriptFactory().addScript<InputField>("InputField");
+    Uniti::Game::Core::getScriptFactory().addScript<Parallax>("Parallax");
 
     std::cout << Uniti::Game::Core::getProjectInfo().name << std::endl;
     Uniti::Game::Core::start();
