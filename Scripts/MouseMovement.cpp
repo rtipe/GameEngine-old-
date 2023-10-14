@@ -18,7 +18,7 @@ void MouseMovement::start() {
             auto data = value["data"][nameVessel];
             auto position = Uniti::Render::Vector2f(data["position"]);
             auto id = data["id"].asString();
-            std::vector<std::string> vesselType = {"BasicEnemy", "Kamikaze", "Sniper", "Tank", "Boss"};
+            std::vector<std::string> vesselType = {"BasicEnemy", "Kamikaze", "Sniper", "Tank", "Boss", "VesselHeal", "VesselWeapon"};
             std::string vesselName = "BasicVessel";
 
             auto it = std::find_if(vesselType.begin(), vesselType.end(), [&] (const std::string &type) {

@@ -23,7 +23,7 @@ int main() {
     Uniti::Game::Core::getScriptFactory().addScript<MissileHandler>("MissileHandler");
     Uniti::Game::Core::getScriptFactory().addScript<DisplayHP>("DisplayHP");
     Uniti::Game::Core::getScriptFactory().addScript<Timer>("Timer");
-    Uniti::Game::Core::getScriptFactory().addScript<Explosion>("Timer");
+    Uniti::Game::Core::getScriptFactory().addScript<Explosion>("Explosion");
 
     std::cout << Uniti::Game::Core::getProjectInfo().name << std::endl;
     Uniti::Game::Core::start();
