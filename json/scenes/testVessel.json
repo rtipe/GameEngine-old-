@@ -316,7 +316,7 @@
          "textureRect": {
               "x": 0,
               "y": 0,
-              "width": 62,
+              "width": 65.5,
               "height": 130
          },
       "children": [],
@@ -324,39 +324,56 @@
                 {
                     "name": "Animation",
                     "animations": [
-                    {
-                        "name": "idle",
-                        "time": 0.2,
-                        "frames": [
                         {
-                            "x": 8,
-                            "y": 0,
-                            "width": 62,
-                            "height": 130
-                        },
-                        {
-                            "x": 68,
-                            "y": 0,
-                            "width": 62,
-                            "height": 130
-                        },
-                        {
-                            "x": 128,
-                            "y": 0,
-                            "width": 62,
-                            "height": 130
-                        },
-                        {
-                            "x": 189,
-                            "y": 0,
-                            "width": 70,
-                            "height": 130
+                            "name": "idle",
+                            "time": 0.1,
+                            "frames": [
+                                {
+                                    "x": 0,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 65.5,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 131,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 196.5,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 262,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 327.5,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 393,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                }
+                            ]
                         }
-                        
                     ]
                 }
-            ]
-        }
     ]
   },
   {
