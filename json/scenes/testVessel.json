@@ -55,6 +55,18 @@
             "isRepeated": false,
             "isSmooth": false,
             "name": "explosion"
+        },
+        {
+            "path": "../../assets/VesselArmement.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "vesselArmement"
+        },
+        {
+            "path": "../../assets/VesselHelp.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "vesselHelp"
         }
       ]
     },
@@ -753,6 +765,74 @@
             }
         ]
             
+    },
+    {
+        "type": "sprite",
+        "name": "vesselArmement",
+           "transform": {
+               "position": {
+                   "x": 850,
+                   "y": 250,
+                   "z": 20
+               },
+               "rotation": 0,
+               "scale": {
+                   "x": 1,
+                   "y": 1
+               }
+           },
+         "texture": "vesselArmement",
+           "textureRect": {
+               "x": 250,
+               "y": 0,
+               "width": 49,
+               "height": 49
+           },
+         "children": [],
+           "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.1,
+                        "frames": [
+                            {
+                                "x": 249,
+                                "y": 0,
+                                "width": 50,
+                                "height": 50
+                            },
+                            {
+                                "x": 298,
+                                "y": 0,
+                                "width": 50,
+                                "height": 50
+                            },
+                            {
+                                "x": 348,
+                                "y": 0,
+                                "width": 50,
+                                "height": 50
+                            },
+                            {
+                                "x": 398,
+                                "y": 0,
+                                "width": 50,
+                                "height": 50
+                            },
+                            {
+                                "x": 448,
+                                "y": 0,
+                                "width": 50,
+                                "height": 50
+                            }
+                        ]
+                    }
+                ]
+            }
+            
+        ]       
     }
   ]
     
