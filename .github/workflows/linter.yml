@@ -1,10 +1,6 @@
 name: Lint C++ Code
 
-on:
-  workflow_run:
-    workflows: ["buildlinux"]
-    types:
-      - completed
+on: [push, pull_request]
 
 jobs:
   lint:
