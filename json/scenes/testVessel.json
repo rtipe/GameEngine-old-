@@ -1,0 +1,760 @@
+{
+    "assets": {
+      "fonts": [],
+      "textures": [
+        {
+          "path": "../../assets/controls/Background.jpg",
+          "isRepeated": false,
+          "isSmooth": false,
+          "name": "Background"
+        },
+        {
+          "path": "../../assets/vessel.gif",
+          "isRepeated": false,
+          "isSmooth": false,
+          "name": "vessel"
+        },
+        {
+            "path": "../../assets/Ennemy/basicEnnemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "basicEnnemy"
+        },
+        {
+            "path": "../../assets/Ennemy/TankEnnemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "tankEnnemy"
+        },
+        {
+            "path": "../../assets/Ennemy/projectilEnnemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "projectilEnnemy"
+        },
+        {
+            "path": "../../assets/Ennemy/sniper2Ennemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "sniper2Ennemy"
+        },
+        {
+            "path": "../../assets/Ennemy/kamikaze1Ennemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "kamikaze1Ennemy"
+        },
+        {
+            "path": "../../assets/Ennemy/BossEnnemy.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "bossEnnemy"
+        },
+        {
+            "path": "../../assets/Explosion.gif",
+            "isRepeated": false,
+            "isSmooth": false,
+            "name": "explosion"
+        }
+      ]
+    },
+    "objects": [
+      {
+        "type": "sprite",
+        "name": "Background",
+        "transform": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        "texture": "Background",
+        "children": [],
+        "scripts": []
+      },
+      {
+        "type": "sprite",
+        "name": "OwnVessel",
+        "transform": {
+            "position": {
+                "x": 150,
+                "y": 150,
+                "z": 11
+            },
+            "rotation": 0,
+            "scale": {
+                "x": 1,
+                "y": 1
+            }
+        },
+        "texture": "vessel",
+        "textureRect": {
+          "x": 0,
+          "y": 0,
+          "width": 34,
+          "height": 16
+          },
+        "children": [],
+        "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.1,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 32,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 64,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 96,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 128,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+      "type": "sprite",
+      "name": "AllyVessel",
+      "transform": {
+          "position": {
+              "x": 150,
+              "y": 350,
+              "z": 11
+          },
+          "rotation": 0,
+          "scale": {
+              "x": 1,
+              "y": 1
+          }
+      },
+      "texture": "vessel",
+      "textureRect": {
+        "x": 0,
+        "y": 34,
+        "width": 34,
+        "height": 16
+        },
+      "children": [],
+      "scripts": [
+          {
+              "name": "Animation",
+              "animations": [
+                  {
+                      "name": "idle",
+                      "time": 0.1,
+                      "frames": [
+                          {
+                              "x": 0,
+                              "y": 34,
+                              "width": 32,
+                              "height": 16
+                          },
+                          {
+                              "x": 32,
+                              "y": 34,
+                              "width": 32,
+                              "height": 16
+                          },
+                          {
+                              "x": 64,
+                              "y": 34,
+                              "width": 32,
+                              "height": 16
+                          },
+                          {
+                              "x": 96,
+                              "y": 34,
+                              "width": 32,
+                              "height": 16
+                          },
+                          {
+                              "x": 128,
+                              "y": 34,
+                              "width": 32,
+                              "height": 16
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+     "type": "sprite",
+     "name": "basicEnnemy",
+        "transform": {
+            "position": {
+                "x": 150,
+                "y": 50,
+                "z": 20
+            },
+            "rotation": 0,
+            "scale": {
+                "x": 1,
+                "y": 1
+            }
+        },
+      "texture": "basicEnnemy",
+        "textureRect": {
+            "x": 0,
+            "y": 0,
+            "width": 32,
+            "height": 32
+        },
+      "children": [],
+        "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.1,
+                        "frames": [
+                            {
+                                "x": 224,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 192,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 160,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 128,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 96,
+                                "y": 0,
+                                "width": 32,
+                                "height": 16
+                            },
+                            {
+                                "x": 64,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 32,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            },
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "width": 32,
+                                "height": 32
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+  },
+  {
+    "type": "sprite",
+    "name": "tankEnnemy",
+         "transform": {
+              "position": {
+                "x": 550,
+                "y": 550,
+                "z": 20
+              },
+              "rotation": 0,
+              "scale": {
+                "x": 1,
+                "y": 1
+              }
+         },
+      "texture": "tankEnnemy",
+         "textureRect": {
+              "x": 0,
+              "y": 0,
+              "width": 65.5,
+              "height": 130
+         },
+      "children": [],
+            "scripts": [
+                {
+                    "name": "Animation",
+                    "animations": [
+                        {
+                            "name": "idle",
+                            "time": 0.1,
+                            "frames": [
+                                {
+                                    "x": 0,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 65.5,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 131,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 196.5,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 262,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 327.5,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                },
+                                {
+                                    "x": 393,
+                                    "y": 0,
+                                    "width": 65,
+                                    "height": 130
+                                }
+                            ]
+                        }
+                    ]
+                }
+    ]
+  },
+  {
+    "type": "sprite",
+    "name": "projectilEnnemy",
+       "transform": {
+           "position": {
+               "x": 550,
+               "y": 50,
+               "z": 20
+           },
+           "rotation": 0,
+           "scale": {
+               "x": 1,
+               "y": 1
+           }
+       },
+     "texture": "projectilEnnemy",
+       "textureRect": {
+           "x": 0,
+           "y": 0,
+           "width": 17,
+           "height": 17
+       },
+     "children": [],
+       "scripts": [
+        {
+            "name": "Animation",
+            "animations": [
+                {
+                    "name": "idle",
+                    "time": 0.1,
+                    "frames": [
+                        {
+                            "x": 0,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 17,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 34,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 51,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 68,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 85,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 102,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 119,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 136,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 153,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 170,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        },
+                        {
+                            "x": 187,
+                            "y": 0,
+                            "width": 17,
+                            "height": 17
+                        }
+                    ]
+                }
+            ]
+        }
+       ]
+    },
+    {
+        "type": "sprite",
+        "name": "sniper2Ennemy",
+           "transform": {
+               "position": {
+                   "x": 550,
+                   "y": 350,
+                   "z": 20
+               },
+               "rotation": 0,
+               "scale": {
+                   "x": 1,
+                   "y": 1
+               }
+           },
+         "texture": "sniper2Ennemy",
+           "textureRect": {
+               "x": 0,
+               "y": 0,
+               "width": 51,
+               "height": 59
+           },
+         "children": [],
+           "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.3,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "width": 51,
+                                "height": 59
+                            },
+                            {
+                                "x": 51,
+                                "y": 0,
+                                "width": 51,
+                                "height": 59
+                            },
+                            {
+                                "x": 108,
+                                "y": 0,
+                                "width": 52,
+                                "height": 59
+                            },
+                            {
+                                "x": 51,
+                                "y": 0,
+                                "width": 51,
+                                "height": 59
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "sprite",
+        "name": "kamikaze1Ennemy",
+           "transform": {
+               "position": {
+                   "x": 150,
+                   "y": 550,
+                   "z": 20
+               },
+               "rotation": 0,
+               "scale": {
+                   "x": 1,
+                   "y": 1
+               }
+           },
+         "texture": "kamikaze1Ennemy",
+           "textureRect": {
+               "x": 0,
+               "y": 0,
+               "width": 33,
+               "height": 32
+           },
+         "children": [],
+           "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.1,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 33,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 66,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 99,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 132,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 165,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 198,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            },
+                            {
+                                "x": 231,
+                                "y": 0,
+                                "width": 33,
+                                "height": 32
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "sprite",
+        "name": "bossEnnemy",
+           "transform": {
+               "position": {
+                   "x": 1350,
+                   "y": 550,
+                   "z": 20
+               },
+               "rotation": 0,
+               "scale": {
+                   "x": 1,
+                   "y": 1
+               }
+           },
+         "texture": "bossEnnemy",
+           "textureRect": {
+               "x": 0,
+               "y": 0,
+               "width": 260,
+               "height": 143
+           },
+         "children": [],
+           "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.2,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "width": 260,
+                                "height": 143
+                            },
+                            {
+                                "x": 0,
+                                "y": 143,
+                                "width": 260,
+                                "height": 143
+                            },
+                            {
+                                "x": 0,
+                                "y": 286,
+                                "width": 260,
+                                "height": 143
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "sprite",
+        "name": "explosion",
+           "transform": {
+               "position": {
+                   "x": 1350,
+                   "y": 250,
+                   "z": 20
+               },
+               "rotation": 0,
+               "scale": {
+                   "x": 1,
+                   "y": 1
+               }
+           },
+         "texture": "explosion",
+           "textureRect": {
+               "x": 0,
+               "y": 98,
+               "width": 65,
+               "height": 65
+           },
+         "children": [],
+           "scripts": [
+            {
+                "name": "Animation",
+                "animations": [
+                    {
+                        "name": "idle",
+                        "time": 0.1,
+                        "frames": [
+                            {
+                                "x": 0,
+                                "y": 98,
+                                "width": 65,
+                                "height": 65
+                            },
+                            {
+                                "x": 65,
+                                "y": 98,
+                                "width": 65,
+                                "height": 65
+                            },
+                            {
+                                "x": 130,
+                                "y": 98,
+                                "width": 65,
+                                "height": 65
+                            },
+                            {
+                                "x": 195,
+                                "y": 98,
+                                "width": 65,
+                                "height": 65
+                            },
+                            {
+                                "x": 260,
+                                "y": 98,
+                                "width": 65,
+                                "height": 65
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+            
+    }
+  ]
+    
+}
+  
