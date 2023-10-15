@@ -1,36 +1,36 @@
 {
     "assets": {
         "fonts": [{
-            "path": "../../assets/Pacifico.ttf",
+            "path": "./assets/Pacifico.ttf",
             "name": "pacifico"
         }],
         "textures": [
             {
-                "path": "../../assets/menu/PlayButton.png",
+                "path": "./assets/menu/PlayButton.png",
                 "isRepeated": false,
                 "isSmooth": false,
                 "name": "PlayButton"
             },
             {
-                "path": "../../assets/menu/ExitButton.png",
+                "path": "./assets/menu/ExitButton.png",
                 "isRepeated": false,
                 "isSmooth": false,
                 "name": "ExitButton"
             },
             {
-                "path": "../../assets/menu/Background.png",
+                "path": "./assets/menu/Background.png",
                 "isRepeated": false,
                 "isSmooth": false,
                 "name": "Background"
             },
             {
-                "path": "../../assets/menu/ControlsButton.png",
+                "path": "./assets/menu/ControlsButton.png",
                 "isRepeated": false,
                 "isSmooth": false,
                 "name": "ControlsButton"
             },
             {
-                "path": "../../assets/menu/input.png",
+                "path": "./assets/menu/input.png",
                 "isRepeated": false,
                 "isSmooth": false,
                 "name": "input"

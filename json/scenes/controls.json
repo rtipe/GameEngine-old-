@@ -3,13 +3,13 @@
       "fonts": [],
       "textures": [
         {
-          "path": "../../assets/controls/Background.jpg",
+          "path": "./assets/controls/Background.jpg",
           "isRepeated": false,
           "isSmooth": false,
           "name": "Background"
         },
         {
-          "path": "../../assets/controls/MenuButton.png",
+          "path": "./assets/controls/MenuButton.png",
           "isRepeated": false,
           "isSmooth": false,
           "name": "MenuButton"
