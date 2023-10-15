@@ -56,9 +56,10 @@ You have died; you can return to the menu
     ```bash
     cd bin
 
-4. Execute the binary in the build directory:
+4. Execute the binary at the root of this repositry:
     ```bash
-    mv project ../
+    mv project ../../
+    cd ../../
     ./project
 
 ## Contributor
