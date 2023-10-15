@@ -32,7 +32,7 @@ You have died; you can return to the menu
 
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/your-username/r-type.git
+   git clone git@github.com:rtipe/GameEngine.git
 
 ## Controls
 
