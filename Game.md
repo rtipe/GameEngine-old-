@@ -8,9 +8,17 @@ R-Type is a classic shoot'em up game that has gained great popularity over the y
 
 ## Screenshots
 
+### Menu
+
+Allows you to access the control page, quit the game, or start it. You can enter your username to connect to the server.
 ![Screenshot 3](./assets/Doc/screenshot3.png)
-![Screenshot 2](./assets/Doc/screenshot2.png)
+
+### Game Scene
 ![Screenshot 1](./assets/Doc/screenshot1.png)
+
+### Gameover Scene
+You have died; you can return to the menu
+![Screenshot 2](./assets/Doc/screenshot2.png)
 
 ## Features
 
