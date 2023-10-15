@@ -44,8 +44,10 @@ For more details about the game engine, click below
     ```bash
     cd bin
 
-4. Execute the binary in the bin directory:
+4. Execute the binary in the root of the repository:
     ```bash
+    mv project ../../
+    cd ../../
     ./project
 
 ## Conclusion
