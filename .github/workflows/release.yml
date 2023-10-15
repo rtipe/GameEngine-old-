@@ -65,7 +65,7 @@ jobs:
         run: cd build && cpack
 
       - name: Move Library to Release
-        run: mv build/rtype-1.0.0-linux64 release/
+        run: mv build/rtype-1.0.0-Linux.rpm release/
 
       - name: Create GitHub Release
         id: create_release
