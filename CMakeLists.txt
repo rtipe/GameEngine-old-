@@ -4,19 +4,16 @@ project(project)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE Debug)
 
-include(GNUInstallDirs)
 include(FetchContent)
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/bin)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/bin)
 
 message(STATUS "Fetching SFML")
 
 FetchContent_Declare(SFML
         GIT_REPOSITORY https://github.com/SFML/SFML.git
         GIT_TAG 2.6.x)
+set(SFML_BUILD_MAIN FALSE)
 FetchContent_MakeAvailable(SFML)
+list(FILTER SFML_LIBRARIES EXCLUDE REGEX ".*sfml-main.*")
 
 message(STATUS "Fetching JSONCPP")
 
@@ -37,18 +34,26 @@ set(BOOST_INCLUDE_LIBRARIES
         assert
         align
         array
+
         bind
+
         coroutine
         config
         context
         core
         chrono
+
         date_time
+
         exception
+
         function
+
         move
+
         system
         smart_ptr
+
         throw_exception
         type_traits
         lockfree
@@ -58,9 +63,7 @@ FetchContent_MakeAvailable(Boost)
 
 find_package(Threads REQUIRED)
 
-
 add_executable(project)
-
 foreach(lib ${BOOST_INCLUDE_LIBRARIES})
     target_link_libraries(
             project
@@ -70,28 +73,15 @@ foreach(lib ${BOOST_INCLUDE_LIBRARIES})
 endforeach()
 
 target_link_libraries(project PRIVATE Threads::Threads)
-
-target_link_libraries(project PRIVATE sfml-graphics sfml-window sfml-network sfml-main sfml-system sfml-audio jsoncpp_lib jsoncpp_object jsoncpp_static)
+if(WIN32)
+    target_link_libraries(project PRIVATE sfml-main sfml-graphics sfml-window sfml-system sfml-audio sfml-network jsoncpp_static jsoncpp_object jsoncpp_lib)
+else()
+    target_link_libraries(project PRIVATE sfml-graphics sfml-window sfml-system sfml-audio jsoncpp_lib)
+endif()
 add_subdirectory(GameEngine)
 add_subdirectory(RenderEngineSFML)
 add_subdirectory(src)
 add_subdirectory(Scripts)
-
-if(WIN32)
-    add_custom_command(
-            TARGET project
-            COMMENT "Copy OpenAL DLL"
-            PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:project>
-            VERBATIM)
-endif()
-
-if(WIN32)
-    add_custom_command(
-            TARGET project
-            COMMENT "Copy SFML DLLs"
-            PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86> $<TARGET_FILE_DIR:project>
-            VERBATIM)
-endif()
 
 file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION .)
 file(COPY ${CMAKE_SOURCE_DIR}/json DESTINATION .)
