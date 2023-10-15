@@ -22,13 +22,13 @@ jobs:
         run: cmake --build build
 
       - name: Start Cpack
-        run: cpack
+        run: cd build && cpack
 
       - name: Create Release Directory
         run: mkdir release
 
       - name: Move Library to Release
-        run: move build\lib\Debug\UnitiGameEngine.lib release\
+        run: move build\rtype-1.0.0-win64.exe release\
 
       - name: Create GitHub Release
         id: create_release
@@ -62,7 +62,10 @@ jobs:
         run: mkdir release
 
       - name: Start Cpack
-        run: cpack
+        run: cd build && cpack
+
+      - name: Move Library to Release
+        run: mv build/rtype-1.0.0-linux64 release/
 
       - name: Create GitHub Release
         id: create_release
