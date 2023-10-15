@@ -3,19 +3,20 @@
 //
 
 #include <iostream>
-#include "Uniti.hpp"
-#include "MouseMovement.hpp"
-#include "ButtonNavigation.hpp"
 #include "Animation.hpp"
-#include "NetworkBase.hpp"
-#include "MissileHandler.hpp"
+#include "ButtonNavigation.hpp"
 #include "DisplayHP.hpp"
-#include "Timer.hpp"
 #include "Explosion.hpp"
 #include "InputField.hpp"
+#include "MissileHandler.hpp"
+#include "MouseMovement.hpp"
+#include "NetworkBase.hpp"
 #include "Parallax.hpp"
+#include "Timer.hpp"
+#include "Uniti.hpp"
 
-int main() {
+int main()
+{
     Uniti::Game::Core::initProject("../../json/project.json");
 
     Uniti::Game::Core::getScriptFactory().addScript<MouseMovement>("MouseMovement");

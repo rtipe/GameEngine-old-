@@ -4,8 +4,7 @@
 
 #include "Vector.hpp"
 
-
 namespace Uniti::Render::Utils {
-} // Uniti
-// Render
-// Utils
+} // namespace Uniti::Render::Utils
+  // Render
+  // Utils

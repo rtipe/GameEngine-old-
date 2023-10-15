@@ -4,9 +4,9 @@
 
 #include "Sound.hpp"
 
-
 namespace Uniti::Render {
-    bool Sound::playSound(const std::string &name, float volume) {
+    bool Sound::playSound(const std::string &name, float volume)
+    {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         if (!this->_sounds.contains(name))
             return false;
@@ -15,7 +15,8 @@ namespace Uniti::Render {
         return true;
     }
 
-    bool Sound::playMusic(const std::string &name, float volume, bool loop) {
+    bool Sound::playMusic(const std::string &name, float volume, bool loop)
+    {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         if (!this->_musics.contains(name))
             return false;
@@ -25,7 +26,8 @@ namespace Uniti::Render {
         return true;
     }
 
-    bool Sound::pause(const std::string &name) {
+    bool Sound::pause(const std::string &name)
+    {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         if (this->_sounds.contains(name)) {
             this->_sounds[name].pause();
@@ -38,7 +40,8 @@ namespace Uniti::Render {
         return false;
     }
 
-    bool Sound::reset(const std::string &name) {
+    bool Sound::reset(const std::string &name)
+    {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         if (this->_sounds.contains(name)) {
             this->_sounds[name].stop();
@@ -51,7 +54,8 @@ namespace Uniti::Render {
         return false;
     }
 
-    bool Sound::changeVolume(const std::string &name, float volume) {
+    bool Sound::changeVolume(const std::string &name, float volume)
+    {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         if (this->_sounds.contains(name)) {
             this->_sounds[name].setVolume(volume);
@@ -64,38 +68,32 @@ namespace Uniti::Render {
         return false;
     }
 
-    Sound::SoundStatus Sound::getStatus(const std::string &name) {
+    Sound::SoundStatus Sound::getStatus(const std::string &name)
+    {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         if (this->_sounds.contains(name)) {
             sf::SoundSource::Status status = this->_sounds[name].getStatus();
             switch (status) {
-                case sf::SoundSource::Stopped:
-                    return PAUSE;
-                case sf::SoundSource::Playing:
-                    return RESUME;
-                case sf::SoundSource::Paused:
-                    return PAUSE;
-                default:
-                    return UNDEFINED;
+                case sf::SoundSource::Stopped: return PAUSE;
+                case sf::SoundSource::Playing: return RESUME;
+                case sf::SoundSource::Paused: return PAUSE;
+                default: return UNDEFINED;
             }
         }
         if (this->_musics.contains(name)) {
             sf::SoundSource::Status status = this->_musics[name]->getStatus();
             switch (status) {
-                case sf::SoundSource::Stopped:
-                    return PAUSE;
-                case sf::SoundSource::Playing:
-                    return RESUME;
-                case sf::SoundSource::Paused:
-                    return PAUSE;
-                default:
-                    return UNDEFINED;
+                case sf::SoundSource::Stopped: return PAUSE;
+                case sf::SoundSource::Playing: return RESUME;
+                case sf::SoundSource::Paused: return PAUSE;
+                default: return UNDEFINED;
             }
         }
         return UNDEFINED;
     }
 
-    bool Sound::addSound(const Json::Value &value) {
+    bool Sound::addSound(const Json::Value &value)
+    {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         if (!value.isMember("path") || !value.isMember("name"))
             return false;
@@ -106,17 +104,19 @@ namespace Uniti::Render {
         return this->addSound(name, path);
     }
 
-    bool Sound::addSound(const std::string &name, const std::string &path) {
+    bool Sound::addSound(const std::string &name, const std::string &path)
+    {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         this->_soundsBuffer[name] = sf::SoundBuffer();
-        this->_sounds[name] = sf::Sound();
+        this->_sounds[name]       = sf::Sound();
         if (!this->_soundsBuffer[name].loadFromFile(path))
             return false;
         this->_sounds[name].setBuffer(this->_soundsBuffer[name]);
         return true;
     }
 
-    bool Sound::addMusic(const Json::Value &value) {
+    bool Sound::addMusic(const Json::Value &value)
+    {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         if (!value.isMember("path") || !value.isMember("name"))
             return false;
@@ -127,11 +127,12 @@ namespace Uniti::Render {
         return this->addMusic(name, path);
     }
 
-    bool Sound::addMusic(const std::string &name, const std::string &path) {
+    bool Sound::addMusic(const std::string &name, const std::string &path)
+    {
         const std::lock_guard<std::mutex> lock(this->_mutex);
         this->_musics[name] = std::make_unique<sf::Music>();
         if (!this->_musics[name]->openFromFile(path))
             return false;
         return true;
     }
-}
+} // namespace Uniti::Render

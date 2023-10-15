@@ -2,34 +2,40 @@
 // Created by youba on 08/10/2023.
 //
 
-#include <iostream>
-#include "Uniti.hpp"
-#include "Mouse.hpp"
-#include "Input.hpp"
 #include "MouseMovement.hpp"
-#include "Objects.hpp"
+#include <iostream>
 #include "Explosion.hpp"
+#include "Input.hpp"
+#include "Mouse.hpp"
+#include "Objects.hpp"
+#include "Uniti.hpp"
 
-MouseMovement::MouseMovement(Uniti::Game::Object &gameObject) : AScript(gameObject) { }
+MouseMovement::MouseMovement(Uniti::Game::Object &gameObject) : AScript(gameObject)
+{
+}
 
-void MouseMovement::start() {
-    this->getEvent().addEvent("Vessel", [&] (const Json::Value &value) {
+void MouseMovement::start()
+{
+    this->getEvent().addEvent("Vessel", [&](const Json::Value &value) {
         for (const auto &nameVessel : value["data"].getMemberNames()) {
-            auto data = value["data"][nameVessel];
+            auto data     = value["data"][nameVessel];
             auto position = Uniti::Render::Vector2f(data["position"]);
-            auto id = data["id"].asString();
-            std::vector<std::string> vesselType = {"BasicEnemy", "Kamikaze", "Sniper", "Tank", "Boss", "VesselHeal", "VesselWeapon"};
+            auto id       = data["id"].asString();
+            std::vector<std::string> vesselType =
+                {"BasicEnemy", "Kamikaze", "Sniper", "Tank", "Boss", "VesselHeal", "VesselWeapon"};
             std::string vesselName = "BasicVessel";
 
-            auto it = std::find_if(vesselType.begin(), vesselType.end(), [&] (const std::string &type) {
+            auto it = std::find_if(vesselType.begin(), vesselType.end(), [&](const std::string &type) {
                 return id.starts_with(type);
             });
-            if (it != vesselType.end()) vesselName = *it;
+            if (it != vesselType.end())
+                vesselName = *it;
 
-            auto copy = Uniti::Game::Utils::Objects::find(vesselName);
+            auto copy   = Uniti::Game::Utils::Objects::find(vesselName);
             auto vessel = Uniti::Game::Utils::Objects::find(id);
 
-            if (copy == std::nullopt) return;
+            if (copy == std::nullopt)
+                return;
             if (vessel == std::nullopt) {
                 auto newVessel = std::make_unique<Uniti::Game::Object>(copy.value());
                 newVessel->getTransform().getPosition().setX(position.getX());
@@ -37,24 +43,25 @@ void MouseMovement::start() {
                 newVessel->setName(id);
                 this->getGameObject().getScene().getObjects().add(std::move(newVessel));
             } else {
-                if (position.getX() != vessel.value().get().getTransform().getPosition().getX() ||
-                    position.getY() != vessel.value().get().getTransform().getPosition().getY()) {
+                if (position.getX() != vessel.value().get().getTransform().getPosition().getX()
+                    || position.getY() != vessel.value().get().getTransform().getPosition().getY()) {
                     vessel.value().get().getTransform().getPosition().setX(position.getX());
                     vessel.value().get().getTransform().getPosition().setY(position.getY());
                 }
             }
         }
     });
-    this->getEvent().addEvent("destroyEntity", [&] (const Json::Value &value) {
+    this->getEvent().addEvent("destroyEntity", [&](const Json::Value &value) {
         for (const auto &name : value["data"]) {
             this->getGameObject().getScene().getObjects().remove(name.asString());
-            auto vessel = Uniti::Game::Utils::Objects::find(name.asString());
+            auto vessel                          = Uniti::Game::Utils::Objects::find(name.asString());
             std::vector<std::string> noExplosion = {"VesselHeal", "VesselWeapon"};
 
-            auto it = std::find_if(noExplosion.begin(), noExplosion.end(), [&] (const std::string &type) {
+            auto it = std::find_if(noExplosion.begin(), noExplosion.end(), [&](const std::string &type) {
                 return name.asString().starts_with(type);
             });
-            if (it != noExplosion.end()) continue;
+            if (it != noExplosion.end())
+                continue;
             Explosion::createExplosion({
                 vessel.value().get().getTransform().getPosition().getX(),
                 vessel.value().get().getTransform().getPosition().getY(),
@@ -63,7 +70,8 @@ void MouseMovement::start() {
     });
 }
 
-void MouseMovement::update() {
+void MouseMovement::update()
+{
     if (Uniti::Render::Mouse::isMousePressed(Uniti::Render::Mouse::KeyMouse::LEFT)) {
         Uniti::Game::Core::getNetwork().getServer("game").sendEvent("vesselShoot", {});
     }
@@ -71,30 +79,28 @@ void MouseMovement::update() {
 
     if (!isPressed) {
         if (Uniti::Render::Input::isPressed(Uniti::Render::Input::Left)) {
-            _normal = {-1, 0};
+            _normal   = {-1, 0};
             isPressed = true;
         }
         if (Uniti::Render::Input::isPressed(Uniti::Render::Input::Right)) {
-            _normal = {1, 0};
+            _normal   = {1, 0};
             isPressed = true;
         }
         if (Uniti::Render::Input::isPressed(Uniti::Render::Input::Up)) {
-            _normal = {0, -1};
+            _normal   = {0, -1};
             isPressed = true;
         }
         if (Uniti::Render::Input::isPressed(Uniti::Render::Input::Down)) {
-            _normal = {0, 1};
+            _normal   = {0, 1};
             isPressed = true;
         }
     } else {
-        if (
-            Uniti::Render::Input::isReleased(Uniti::Render::Input::Down) ||
-            Uniti::Render::Input::isReleased(Uniti::Render::Input::Up) ||
-            Uniti::Render::Input::isReleased(Uniti::Render::Input::Right) ||
-            Uniti::Render::Input::isReleased(Uniti::Render::Input::Left)
-        ) {
+        if (Uniti::Render::Input::isReleased(Uniti::Render::Input::Down)
+            || Uniti::Render::Input::isReleased(Uniti::Render::Input::Up)
+            || Uniti::Render::Input::isReleased(Uniti::Render::Input::Right)
+            || Uniti::Render::Input::isReleased(Uniti::Render::Input::Left)) {
             isPressed = false;
-            _normal = {0, 0};
+            _normal   = {0, 0};
         }
     }
     position["x"] = _normal.getX();
@@ -102,6 +108,7 @@ void MouseMovement::update() {
     Uniti::Game::Core::getNetwork().getServer("game").sendEvent("vesselMovement", position);
 }
 
-void MouseMovement::awake(const Json::Value &value) {
+void MouseMovement::awake(const Json::Value &value)
+{
     this->_speed = value.get("speed", 5).asFloat();
 }

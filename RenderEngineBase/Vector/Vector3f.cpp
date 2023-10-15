@@ -6,5 +6,5 @@
 
 namespace Uniti {
     namespace Render {
-    } // Uniti
-} // Render
+    } // namespace Render
+} // namespace Uniti

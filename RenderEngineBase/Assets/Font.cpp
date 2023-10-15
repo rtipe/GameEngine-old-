@@ -4,7 +4,6 @@
 
 #include "Font.hpp"
 
-
 namespace Uniti::Render {
-} // Uniti
-// Render
+} // namespace Uniti::Render
+  // Render

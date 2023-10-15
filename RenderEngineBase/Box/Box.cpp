@@ -4,7 +4,6 @@
 
 #include "Box.hpp"
 
-
 namespace Uniti::Render {
-} // Uniti
-// Render
+} // namespace Uniti::Render
+  // Render
