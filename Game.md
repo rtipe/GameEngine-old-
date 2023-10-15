@@ -4,55 +4,55 @@
 
 ## Description
 
-R-Type est un jeu de tir classique de type shoot'em up qui a acquis une grande popularité au fil des années. Ce jeu vous met au défi de piloter un vaisseau spatial dans un monde en perpétuel mouvement, tout en affrontant des vagues d'ennemis redoutables.
+R-Type is a classic shoot'em up game that has gained great popularity over the years. This game challenges you to pilot a spacecraft in a perpetually moving world, while facing waves of formidable enemies.
 
-## Captures d'écran
+## Screenshots
 
 ![Screenshot 1](screenshot1.png)
 ![Screenshot 2](screenshot2.png)
 ![Screenshot 3](screenshot3.png)
 
-## Fonctionnalités
+## Features
 
-- Contrôlez un vaisseau spatial pour combattre des ennemis extraterrestres.
-- Des niveaux de difficulté croissants pour mettre vos compétences à l'épreuve.
-- Recueillez des power-ups et améliorez votre vaisseau pour devenir plus puissant.
-- Des boss épiques à vaincre à la fin de chaque niveau.
-- Graphismes et effets sonores rétro pour une expérience nostalgique.
+- Control a spacecraft to combat alien enemies.
+- Increasing difficulty levels to test your skills.
+- Collect power-ups and upgrade your spacecraft to become more powerful.
+- Epic bosses to defeat at the end of each level.
+- Retro graphics and sound effects for a nostalgic experience.
 
 ## Installation
 
-1. Clonez ce référentiel sur votre machine locale :
+1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/votre-utilisateur/r-type.git
+   git clone https://github.com/your-username/r-type.git
 
-## Contrôle
+## Controls
 
-- Utilisez les touches fléchées (haut, bas, gauche, droite) pour contrôler le mouvement de votre vaisseau spatial.
-- Appuyez sur le clique gauche de votre souris pour tirer sur les ennemis et les obstacles.
-- Collectez des power-ups pour améliorer vos armes et vos capacités.
+- Use the arrow keys (up, down, left, right) to control the movement of your spacecraft.
+- Press the left click of your mouse to shoot at enemies and obstacles.
+- Collect power-ups to upgrade your weapons and abilities.
 
-## Compilation
+## Build
 
-1. Créer un dossier build a la racine :
+1. Create a build directory at the root:
     ```bash
     mkdir build
     cd build
 
-2. Compiler dans se dossier :
+2. Compile in this directory:
     ```bash
     cmake ..
     make
 
-3. Aller dans le dossier bin créer part la compilation :
+3. Go to the bin directory created by the compilation:
     ```bash
     cd bin
 
-4. Executer le binaire dans le dossier bin :
+4. Execute the binary in the bin directory:
     ```bash
     ./project
 
-## Contributeur
+## Contributor
 
 - abdelkader.mazouz@peitech.eu
 - vincent.ballandi@epitech.eu
@@ -64,4 +64,4 @@ R-Type est un jeu de tir classique de type shoot'em up qui a acquis une grande p
 
 If you are a student at Epitech, use the concepts used, not the code, or the cheat sheet will find you and give you a -42.
 
-Amusez-vous bien en jouant à R-Type ! Si vous avez des questions, des problèmes ou des suggestions, n'hésitez pas à les soumettre dans la section des problèmes de ce référentiel.
+Enjoy playing R-Type! If you have any questions, issues, or suggestions, please submit them in the Issues section of this repository.
