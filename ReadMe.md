@@ -20,10 +20,33 @@ Notre projet R-Type repose sur une architecture logicielle bien définie compren
 
 ## Jeu
 
-pour plus de détail sur le jeu cliquer ci dessous
+Pour plus de détail sur le jeu cliquer ci dessous
 [R-Type](game.md)
 
 ## Game Engine
+
+Pour plus de détail sur le game engine cliquer ci dessous
+[Game Engine](./GameEngine/GameEngine.md)
+
+## Build
+
+1. Create a build directory at the root:
+    ```bash
+    mkdir build
+    cd build
+
+2. Compile in this directory:
+    ```bash
+    cmake ..
+    make
+
+3. Go to the bin directory created by the compilation:
+    ```bash
+    cd bin
+
+4. Execute the binary in the bin directory:
+    ```bash
+    ./project
 
 ## Conclusion
 
