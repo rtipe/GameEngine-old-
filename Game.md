@@ -8,9 +8,9 @@ R-Type is a classic shoot'em up game that has gained great popularity over the y
 
 ## Screenshots
 
-![Screenshot 1](screenshot1.png)
-![Screenshot 2](screenshot2.png)
-![Screenshot 3](screenshot3.png)
+![Screenshot 1](./assets/Doc/screenshot1.png)
+![Screenshot 2](./assets/Doc/screenshot2.png)
+![Screenshot 3](./assets/Doc/screenshot3.png)
 
 ## Features
 
