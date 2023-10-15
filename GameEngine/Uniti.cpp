@@ -49,9 +49,7 @@ namespace Uniti::Game {
     }
 
     void Core::initProject(const std::string &projectPath)
-    {
-        Core::_instance.reset(new Core(projectPath));
-    }
+    {Core::_instance.reset(new Core(projectPath));}
 
     Core::Core(const std::string &projectPath)
         : _projectInfo(projectPath),
