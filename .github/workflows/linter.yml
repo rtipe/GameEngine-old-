@@ -29,7 +29,8 @@ jobs:
 
       - name: Lint C++ Code
         run: |
-          find . -name "*.cpp" -exec clang-format -i -style=$(pwd)/.clang-format {} \;
+          find . -name "*.cpp" -exec clang-format -i -style="$(pwd)/.clang-format" {} \;
+
 
       - name: Commit Changes
         run: |
