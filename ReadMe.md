@@ -1,31 +1,31 @@
-# Projet R-Type - Rapport de Projet
+# R-Type Project - Project Report
 
 ![R-Type Logo](./assets/Doc/LogoRtype.png)
 
 ## Introduction
 
-Ce document rapporte notre projet de troisième année à Epitech, où nous avons entrepris de développer un jeu R-Type. Dans le cadre de ce projet, nous avons conçu notre propre moteur de jeu et implémenté un réseau pour permettre au jeu d'être joué en ligne via un serveur que nous avons créé. Ce rapport présente une vue d'ensemble du projet, y compris les objectifs, les étapes de développement, les défis rencontrés et les réalisations.
+This document reports our third-year project at Epitech, where we embarked on the development of an R-Type game. In the scope of this project, we designed our own game engine and implemented a network to enable the game to be played online via a server that we created. This report provides an overview of the project, including objectives, development steps, challenges encountered, and achievements.
 
-## Architecture du Projet
+## Project Architecture
 
-Notre projet R-Type repose sur une architecture logicielle bien définie comprenant les composants suivants :
+Our R-Type project is built on a well-defined software architecture, including the following components:
 
-1. **Moteur de Jeu Personnalisé :** Nous avons développé notre propre moteur de jeu pour alimenter le jeu R-Type. Il gère les graphismes, la physique, les entrées et la gestion des ressources.
+1. **Custom Game Engine:** We developed our own game engine to power the R-Type game. It manages graphics, physics, inputs, and resource management.
 
-2. **Jeu R-Type :** Le jeu lui-même est construit sur notre moteur de jeu personnalisé. Il comprend des niveaux, des ennemis, des joueurs et des fonctionnalités de gameplay.
+2. **R-Type Game:** The game itself is built on our custom game engine. It includes levels, enemies, players, and gameplay features.
 
-3. **Réseau Multi-joueurs :** Nous avons mis en place un réseau pour permettre aux joueurs de jouer en ligne. Il gère la synchronisation des données de jeu entre les clients et le serveur.
+3. **Multiplayer Network:** We set up a network to allow players to play online. It manages the synchronization of game data between clients and the server.
 
-4. **Gestion des Ressources :** Un système de gestion des ressources a été implémenté pour charger efficacement des images, des sons et d'autres actifs dans le jeu.
+4. **Resource Management:** A resource management system has been implemented to efficiently load images, sounds, and other assets in the game.
 
-## Jeu
+## Game
 
-Pour plus de détail sur le jeu cliquer ci dessous
+For more details about the game, click below
 [R-Type](game.md)
 
 ## Game Engine
 
-Pour plus de détail sur le game engine cliquer ci dessous
+For more details about the game engine, click below
 [Game Engine](./GameEngine/GameEngine.md)
 
 ## Build
@@ -50,9 +50,9 @@ Pour plus de détail sur le game engine cliquer ci dessous
 
 ## Conclusion
 
-Ce projet de troisième année à Epitech nous a offert l'opportunité de développer un jeu R-Type complet, de créer notre propre moteur de jeu, et d'implémenter un réseau pour le rendre jouable en ligne. Cette expérience nous a permis de mettre en pratique nos compétences en programmation, en conception de jeux et en gestion de projet. Nous sommes fiers des réalisations de ce projet et de l'expérience enrichissante qu'il nous a offerte.
+This third-year project at Epitech offered us the opportunity to develop a complete R-Type game, create our own game engine, and implement a network to make it playable online. This experience allowed us to put our programming, game design, and project management skills into practice. We are proud of the achievements of this project and the enriching experience it provided.
 
-## Contributor
+## Contributors
 
 - abdelkader.mazouz@peitech.eu
 - vincent.ballandi@epitech.eu
