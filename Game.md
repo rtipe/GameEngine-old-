@@ -1,6 +1,6 @@
-# R-Type - README
+# Game - R-Type - README
 
-![R-Type Logo](./assets/menu/PlayButton.png)
+![R-Type Logo](./assets/Doc/LogoRtype.png)
 
 ## Description
 
@@ -32,12 +32,36 @@ R-Type est un jeu de tir classique de type shoot'em up qui a acquis une grande p
 - Appuyez sur le clique gauche de votre souris pour tirer sur les ennemis et les obstacles.
 - Collectez des power-ups pour améliorer vos armes et vos capacités.
 
+## Compilation
+
+1. Créer un dossier build a la racine :
+    ```bash
+    mkdir build
+    cd build
+
+2. Compiler dans se dossier :
+    ```bash
+    cmake ..
+    make
+
+3. Aller dans le dossier bin créer part la compilation :
+    ```bash
+    cd bin
+
+4. Executer le binaire dans le dossier bin :
+    ```bash
+    ./project
+
 ## Contributeur
 
+- abdelkader.mazouz@peitech.eu
 - vincent.ballandi@epitech.eu
 - younes1.bahri@epitech.eu
-- simon.vermeulen@epitech.eu
-- abdelkader.mazouz@epitech.eu
 - swann.lagoute@epitech.eu
+- simon.vermeulen@epitech.eu
+
+## Disclaimer
+
+If you are a student at Epitech, use the concepts used, not the code, or the cheat sheet will find you and give you a -42.
 
 Amusez-vous bien en jouant à R-Type ! Si vous avez des questions, des problèmes ou des suggestions, n'hésitez pas à les soumettre dans la section des problèmes de ce référentiel.
