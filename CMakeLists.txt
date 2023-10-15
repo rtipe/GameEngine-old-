@@ -71,8 +71,7 @@ endforeach()
 
 target_link_libraries(project PRIVATE Threads::Threads)
 
-target_link_libraries(project PRIVATE sfml-graphics sfml-window sfml-system sfml-audio jsoncpp_lib)
-
+target_link_libraries(project PRIVATE sfml-graphics sfml-window sfml-network sfml-main sfml-system sfml-audio jsoncpp_lib jsoncpp_object jsoncpp_static)
 add_subdirectory(GameEngine)
 add_subdirectory(RenderEngineSFML)
 add_subdirectory(src)
