@@ -44,8 +44,9 @@ For more details about the game engine, click below
     ```bash
     cd bin
 
-4. Execute the binary in the bin directory:
+4. Execute the binary in the build directory:
     ```bash
+    mv project ../
     ./project
 
 ## Conclusion
