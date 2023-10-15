@@ -2,16 +2,19 @@
 // Created by azerlus on 12/10/23.
 //
 
-#include "Uniti.hpp"
 #include "Parallax.hpp"
+#include "Uniti.hpp"
 
-Parallax::Parallax(Uniti::Game::Object &gameObject) : AScript(gameObject) { }
-
-void Parallax::start() {
-
+Parallax::Parallax(Uniti::Game::Object &gameObject) : AScript(gameObject)
+{
 }
 
-void Parallax::update() {
+void Parallax::start()
+{
+}
+
+void Parallax::update()
+{
     for (auto &object : this->getGameObject().getChildren().getObjects()) {
         Uniti::Render::Vector2f normal(-1, 0);
         object->getMovement().move(normal, this->_speed);
@@ -22,8 +25,9 @@ void Parallax::update() {
     }
 }
 
-void Parallax::awake(const Json::Value &value) {
+void Parallax::awake(const Json::Value &value)
+{
     this->_speed = value.get("speed", 0).asFloat();
     this->_width = value.get("width", 0).asFloat();
-    this->_end = value.get("end", 0).asFloat();
+    this->_end   = value.get("end", 0).asFloat();
 }

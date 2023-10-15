@@ -2,71 +2,91 @@
 // Created by youba on 08/10/2023.
 //
 
-#include <json/json.h>
-#include <iostream>
-#include <thread>
 #include "Network.hpp"
+#include <iostream>
+#include <json/json.h>
+#include <thread>
 
 namespace Uniti::Game {
-    Network::Network(unsigned int port, unsigned int latence):
-    _socketUDP(this->_ioService, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), port)),
-    _latence(latence),
-    _port(port),
-    _queue(10000) { }
+    Network::Network(unsigned int port, unsigned int latence)
+        : _socketUDP(this->_ioService, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), port)),
+          _latence(latence),
+          _port(port),
+          _queue(10000)
+    {
+    }
 
-    Network::~Network() {
+    Network::~Network()
+    {
         this->_ioService.stop();
         if (this->_ioThread.joinable())
             this->_ioThread.join();
     }
 
-    void Network::start() {
+    void Network::start()
+    {
         this->startReceive();
-        this->_ioThread = std::thread([](boost::asio::io_context &io_context) {
-            io_context.run();
-        }, std::ref(this->_ioService));
+        this->_ioThread = std::thread(
+            [](boost::asio::io_context &io_context) {
+                io_context.run();
+            },
+            std::ref(this->_ioService));
     }
 
-    void Network::update() {
+    void Network::update()
+    {
         this->sendPackets();
         this->handlePackets();
         for (const auto &server : this->_servers)
             server.second->updateEvent();
     }
 
-    void Network::addServer(const std::string &name, const std::string &ip, unsigned int port , const Json::Value &user) {
+    void Network::addServer(
+        const std::string &name,
+        const std::string &ip,
+        unsigned int port,
+        const Json::Value &user)
+    {
         this->_servers[name] = std::make_unique<Server>(ip, port, user);
     }
 
-    void Network::removeServer(const std::string &name) {
+    void Network::removeServer(const std::string &name)
+    {
         this->_servers.erase(name);
     }
 
-    const Server &Network::getServer(const std::string &name) const {
+    const Server &Network::getServer(const std::string &name) const
+    {
         return *this->_servers.at(name);
     }
 
-    Server &Network::getServer(const std::string &name) {
+    Server &Network::getServer(const std::string &name)
+    {
         return *this->_servers[name];
     }
 
-    void Network::startReceive() {
-        this->_socketUDP.async_receive_from(boost::asio::buffer(this->_buffer, this->_size), _senderEndPoint,
-        [&] (const boost::system::error_code &error, std::size_t length) {
-            if (!error) {
-                std::string text(this->_buffer, length);
-                //std::cout << text << std::endl;
-                memset(this->_buffer, 0, this->_size);
-                auto *packet = new std::tuple<boost::asio::ip::udp::endpoint, std::string>(_senderEndPoint, text);
-                this->_queue.push(packet);
-            } else {
-                std::cerr << "Error : " << error.message() << std::endl;
-            }
-            this->startReceive();
-        });
+    void Network::startReceive()
+    {
+        this->_socketUDP.async_receive_from(
+            boost::asio::buffer(this->_buffer, this->_size),
+            _senderEndPoint,
+            [&](const boost::system::error_code &error, std::size_t length) {
+                if (!error) {
+                    std::string text(this->_buffer, length);
+                    // std::cout << text << std::endl;
+                    memset(this->_buffer, 0, this->_size);
+                    auto *packet =
+                        new std::tuple<boost::asio::ip::udp::endpoint, std::string>(_senderEndPoint, text);
+                    this->_queue.push(packet);
+                } else {
+                    std::cerr << "Error : " << error.message() << std::endl;
+                }
+                this->startReceive();
+            });
     }
 
-    void Network::sendPackets() {
+    void Network::sendPackets()
+    {
         if (this->_clock.getMilliSeconds() < this->_latence)
             return;
         this->_clock.restart();
@@ -82,11 +102,13 @@ namespace Uniti::Game {
         }
     }
 
-    void Network::receiveBuffer(const std::string &buffer, boost::asio::ip::udp::endpoint &senderEndPoint) {
-        auto it = std::find_if(this->_servers.begin(), this->_servers.end(), [&] (const auto &server) {
-           return senderEndPoint == server.second->getEndPoint();
+    void Network::receiveBuffer(const std::string &buffer, boost::asio::ip::udp::endpoint &senderEndPoint)
+    {
+        auto it = std::find_if(this->_servers.begin(), this->_servers.end(), [&](const auto &server) {
+            return senderEndPoint == server.second->getEndPoint();
         });
-        if (it == this->_servers.end()) return;
+        if (it == this->_servers.end())
+            return;
         try {
             Json::Value command;
             std::istringstream(buffer) >> command;
@@ -100,14 +122,16 @@ namespace Uniti::Game {
         }
     }
 
-    void Network::handlePackets() {
+    void Network::handlePackets()
+    {
         this->_queue.consume_all([&](std::tuple<boost::asio::ip::udp::endpoint, std::string> *packet) {
             this->receiveBuffer(std::get<1>(*packet), std::get<0>(*packet));
             delete packet;
         });
     }
 
-    std::map<boost::asio::ip::udp::endpoint, Json::Value> Network::getPacketToSend() {
+    std::map<boost::asio::ip::udp::endpoint, Json::Value> Network::getPacketToSend()
+    {
         std::map<boost::asio::ip::udp::endpoint, Json::Value> packets;
 
         for (auto &server : this->_servers) {
@@ -118,4 +142,4 @@ namespace Uniti::Game {
         }
         return packets;
     }
-}
+} // namespace Uniti::Game
