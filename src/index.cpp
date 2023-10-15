@@ -17,7 +17,7 @@
 
 int main()
 {
-    Uniti::Game::Core::initProject("../../json/project.json");
+    Uniti::Game::Core::initProject("./json/project.json");
 
     Uniti::Game::Core::getScriptFactory().addScript<MouseMovement>("MouseMovement");
     Uniti::Game::Core::getScriptFactory().addScript<ButtonNavigation>("ButtonNavigation");

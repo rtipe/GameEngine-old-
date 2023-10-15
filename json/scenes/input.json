@@ -1,11 +1,11 @@
 {
   "assets": {
     "fonts": [{
-      "path": "../assets/Pacifico.ttf",
+      "path": "./assets/Pacifico.ttf",
       "name": "pacifico"
     }],
     "textures": [{
-      "path": "../assets/first.png",
+      "path": "./assets/first.png",
       "isRepeated": false,
       "isSmooth": false,
       "name": "first"

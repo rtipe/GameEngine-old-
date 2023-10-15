@@ -3,7 +3,7 @@
     "fonts": [],
     "textures": [
       {
-        "path": "../assets/parallax/parallax.png",
+        "path": "./assets/parallax/parallax.png",
         "isRepeated": false,
         "isSmooth": false,
         "name": "parallax"

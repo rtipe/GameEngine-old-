@@ -3,31 +3,31 @@
       "fonts": [],
       "textures": [
         {
-          "path": "../../assets/controls/Background.jpg",
+          "path": "./assets/controls/Background.jpg",
           "isRepeated": false,
           "isSmooth": false,
           "name": "Background"
         },
         {
-          "path": "../../assets/controls/MenuButton.png",
+          "path": "./assets/controls/MenuButton.png",
           "isRepeated": false,
           "isSmooth": false,
           "name": "MenuButton"
         },
         {
-          "path": "../../assets/controls/gameover.png",
+          "path": "./assets/controls/gameover.png",
           "isRepeated": false,
           "isSmooth": false,
           "name": "gameover"
         },
         {
-            "path": "../../assets/Ennemy/TankEnnemy.gif",
+            "path": "./assets/Ennemy/TankEnnemy.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "tankEnnemy"
         },
         {
-            "path": "../../assets/Ennemy/BossEnnemy.gif",
+            "path": "./assets/Ennemy/BossEnnemy.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "bossEnnemy"

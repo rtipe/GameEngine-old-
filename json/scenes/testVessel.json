@@ -3,67 +3,67 @@
       "fonts": [],
       "textures": [
         {
-          "path": "../../assets/controls/Background.jpg",
+          "path": "./assets/controls/Background.jpg",
           "isRepeated": false,
           "isSmooth": false,
           "name": "Background"
         },
         {
-          "path": "../../assets/vessel.gif",
+          "path": "./assets/vessel.gif",
           "isRepeated": false,
           "isSmooth": false,
           "name": "vessel"
         },
         {
-            "path": "../../assets/Ennemy/basicEnnemy.gif",
+            "path": "./assets/Ennemy/basicEnnemy.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "basicEnnemy"
         },
         {
-            "path": "../../assets/Ennemy/TankEnnemy.gif",
+            "path": "./assets/Ennemy/TankEnnemy.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "tankEnnemy"
         },
         {
-            "path": "../../assets/Ennemy/projectilEnnemy.gif",
+            "path": "./assets/Ennemy/projectilEnnemy.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "projectilEnnemy"
         },
         {
-            "path": "../../assets/Ennemy/sniper2Ennemy.gif",
+            "path": "./assets/Ennemy/sniper2Ennemy.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "sniper2Ennemy"
         },
         {
-            "path": "../../assets/Ennemy/kamikaze1Ennemy.gif",
+            "path": "./assets/Ennemy/kamikaze1Ennemy.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "kamikaze1Ennemy"
         },
         {
-            "path": "../../assets/Ennemy/BossEnnemy.gif",
+            "path": "./assets/Ennemy/BossEnnemy.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "bossEnnemy"
         },
         {
-            "path": "../../assets/Explosion.gif",
+            "path": "./assets/Explosion.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "explosion"
         },
         {
-            "path": "../../assets/VesselArmement.gif",
+            "path": "./assets/VesselArmement.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "vesselArmement"
         },
         {
-            "path": "../../assets/VesselHelp.gif",
+            "path": "./assets/VesselHelp.gif",
             "isRepeated": false,
             "isSmooth": false,
             "name": "vesselHelp"
